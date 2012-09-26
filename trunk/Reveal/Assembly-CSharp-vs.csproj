@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Move_360.cs" />
      <Compile Include="Assets\Scripts\Move_with_WSAD.cs" />
      <Compile Include="Assets\Scripts\Test_Move_Left.cs" />
   </ItemGroup>
