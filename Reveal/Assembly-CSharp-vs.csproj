@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Move_with_WSAD.cs" />
      <Compile Include="Assets\Scripts\Shoot_Something_Forward.cs" />
      <Compile Include="Assets\Scripts\Test_Move_Left.cs" />
+     <Compile Include="Assets\Scripts\rotateDONOTUSE.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
