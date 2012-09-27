@@ -5,7 +5,6 @@ public class Move_360 : MonoBehaviour {
 	
 	public float rotateSpeed = 180.0f;
 	public float thrustSpeed = 700.0f;
-	
 	// Use this for initialization
 	void Start () {
 	
@@ -18,6 +17,7 @@ public class Move_360 : MonoBehaviour {
 		//{
 			rigidbody.AddRelativeForce(Vector3.forward * thrustSpeed * Time.deltaTime);
 		//}
+
 	}
 }
 
