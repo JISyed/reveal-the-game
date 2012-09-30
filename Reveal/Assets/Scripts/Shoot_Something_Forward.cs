@@ -7,9 +7,7 @@ public class Shoot_Something_Forward : MonoBehaviour {
 	public GameObject firedShot;
 	
 	// Use this for initialization
-	void Start () {
-	
-	}
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -17,8 +15,8 @@ public class Shoot_Something_Forward : MonoBehaviour {
 		// Credit to CookingWithUnity
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
-			//Instantiate(firedShot ,transform.position, transform.rotation);
-			GameObject projectile = Instantiate(firedShot ,transform.position, transform.rotation) as GameObject;
+			Instantiate(firedShot ,transform.position, transform.rotation);
+			//GameObject projectile = Instantiate(firedShot ,transform.position, transform.rotation) as GameObject;
 			
 			
 			
