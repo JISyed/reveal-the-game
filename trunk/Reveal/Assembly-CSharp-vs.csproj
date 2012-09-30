@@ -37,13 +37,15 @@
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Program Files/Unity/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Program Files/Unity/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Camera_Follow_Player.cs" />
+     <Compile Include="Assets\Scripts\Destroy_Collide_Wall.cs" />
      <Compile Include="Assets\Scripts\Destroy_once_Invisible.cs" />
      <Compile Include="Assets\Scripts\Move_360.cs" />
      <Compile Include="Assets\Scripts\Move_Constantly_Forward.cs" />
