@@ -2,19 +2,13 @@ using UnityEngine;
 using System.Collections;
 
 public class Destroy_Collide_Wall : MonoBehaviour {
-
+	
+	public string levelName;
 	// Use this for initialization
-	void Start () {
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	
-	void OnTriggerEnter(Collider other)
+	void OnCollisionEnter(Collision other)
 	{
-		Destroy (other.gameObject);
+		Application.LoadLevel (levelName);
+		//Destroy (other.gameObject);
 	}
 }
