@@ -8,7 +8,7 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision other)
 	{
-		Application.LoadLevel (levelName);
-		//Destroy (other.gameObject);
+		//Application.LoadLevel (levelName);
+		Destroy (other.gameObject);
 	}
 }
