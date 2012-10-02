@@ -19,6 +19,10 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 	void OnCollisionEnter(Collision other)
 	{
 		//Application.LoadLevel (levelName);
+		if(other.gameObject.tag == "Player")
+		{
+			Move_360.thrustSpeed = 700f;
+		}
 		Destroy (other.gameObject);
 		
 		// Reduce the number of lives

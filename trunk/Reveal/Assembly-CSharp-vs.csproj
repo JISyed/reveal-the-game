@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Move_360.cs" />
      <Compile Include="Assets\Scripts\Move_Constantly_Forward.cs" />
      <Compile Include="Assets\Scripts\Move_with_WSAD.cs" />
+     <Compile Include="Assets\Scripts\Player_Boost.cs" />
      <Compile Include="Assets\Scripts\Shoot_Something_Forward.cs" />
      <Compile Include="Assets\Scripts\rotateDONOTUSE.cs" />
   </ItemGroup>
