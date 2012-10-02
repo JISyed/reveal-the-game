@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: e97a5a3cb552d3a4c8cb1804c0691585
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - matDim: {fileID: 2100000, guid: 4db817a18b3f89643b28b5d1d3d3797b, type: 2}
+  - matBright: {fileID: 2100000, guid: 0c69da22aba0409498cb70c3a6ddc6c7, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}

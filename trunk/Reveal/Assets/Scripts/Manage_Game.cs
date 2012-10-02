@@ -4,13 +4,21 @@ using System.Collections;
 
 public class Manage_Game : MonoBehaviour {
 	
+	////////////////////////
+	// Variables
+	////////////////////////
+	
 	// Static means shared across instances of GameManager GameObject
 	// CANNOT be adjusted in Unity Editor!!!!
 	public static int numOfLives;
 	public static bool gameOver = false;
 	
 	// Public variables editable in Editor
-	public int lives = 1;
+	public int lives = 5;
+	
+	////////////////////////
+	// Start Event
+	////////////////////////
 	
 	// Use this for initialization
 	void Start () 
@@ -19,6 +27,10 @@ public class Manage_Game : MonoBehaviour {
 		// 'numOfLives' can be accessed by scripts via "Manage_Game.numOfLives".
 		numOfLives = lives;
 	}
+	
+	////////////////////////
+	// Update Event
+	////////////////////////
 	
 	// Update is called once per frame
 	void Update () 
@@ -34,16 +46,21 @@ public class Manage_Game : MonoBehaviour {
 			}
 		}
 		
-		// Upon no lives
+		// Upon no lives it is Game Over
 		if(numOfLives <= 0)
 		{
 			gameOver = true;
 		}
 	}
 	
+	////////////////////////
+	// OnGUI Event
+	////////////////////////
+	
 	// Used to draw the GUI
 	void OnGUI()
 	{
+		// Draw lives stat
 		GUI.Label(new Rect(10,0,240,20),"Lives: " + numOfLives.ToString());
 		
 		// Draw game over display
@@ -53,9 +70,13 @@ public class Manage_Game : MonoBehaviour {
 							   Screen.height/2.0f - 10, 
 				               120, 
 				               20), 
-				                    "GAME OVER");
+				                    "GAME OVER. Press Enter.");
 		}
 	}
+	
+	////////////////////////
+	// OnDrawGizmos Event
+	////////////////////////
 	
 	// Only to have a Gizmo manifested in the Editor. Does not appear in game.
 	void OnDrawGizmos() {}
