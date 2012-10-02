@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\Camera_Follow_Player.cs" />
      <Compile Include="Assets\Scripts\Destroy_Collide_Wall.cs" />
      <Compile Include="Assets\Scripts\Destroy_once_Invisible.cs" />
+     <Compile Include="Assets\Scripts\Manage_Game.cs" />
      <Compile Include="Assets\Scripts\Move_360.cs" />
      <Compile Include="Assets\Scripts\Move_Constantly_Forward.cs" />
      <Compile Include="Assets\Scripts\Move_with_WSAD.cs" />
