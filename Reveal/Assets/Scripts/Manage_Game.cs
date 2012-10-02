@@ -12,9 +12,12 @@ public class Manage_Game : MonoBehaviour {
 	// CANNOT be adjusted in Unity Editor!!!!
 	public static int numOfLives;
 	public static bool gameOver = false;
+	public static bool winLevel = false;
 	
 	// Public variables editable in Editor
-	public int lives = 5;
+	public int lives = 1;
+	public Texture2D imgGameOver;
+	public Texture2D imgYouWin;
 	
 	////////////////////////
 	// Start Event
@@ -51,6 +54,17 @@ public class Manage_Game : MonoBehaviour {
 		{
 			gameOver = true;
 		}
+		
+		// Press enter to restart the level if you won
+		if(winLevel)
+		{
+			if(Input.GetKeyDown(KeyCode.Return))
+			{
+				winLevel = false;
+				numOfLives = lives; // Reset lives
+				Application.LoadLevel("Jibs_Test");
+			}
+		}
 	}
 	
 	////////////////////////
@@ -66,11 +80,21 @@ public class Manage_Game : MonoBehaviour {
 		// Draw game over display
 		if(gameOver)
 		{
-			GUI.Label(new Rect(Screen.width/2.0f - 60, 
-							   Screen.height/2.0f - 10, 
-				               120, 
-				               20), 
-				                    "GAME OVER. Press Enter.");
+			Rect splashCanvas = new Rect((Screen.width/2.0f) - (imgGameOver.width/2.0f),
+										 (Screen.height/2.0f) - (imgGameOver.height/2.0f), 
+				                         imgGameOver.width, 
+				                         imgGameOver.height);
+			GUI.Label(splashCanvas, imgGameOver);
+		}
+		
+		// Draw winning display
+		if(winLevel)
+		{
+			Rect splashCanvas = new Rect((Screen.width/2.0f) - (imgYouWin.width/2.0f),
+									     (Screen.height/2.0f) - (imgYouWin.height/2.0f), 
+									     imgYouWin.width, 
+										 imgYouWin.height);
+			GUI.Label(splashCanvas, imgYouWin);
 		}
 	}
 	

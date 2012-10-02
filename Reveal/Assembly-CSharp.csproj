@@ -46,6 +46,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera_Follow_Player.cs" />
      <Compile Include="Assets\Scripts\Change_Beacon_State.cs" />
+     <Compile Include="Assets\Scripts\Collide_Prism_to_Goal.cs" />
      <Compile Include="Assets\Scripts\Destroy_Collide_Wall.cs" />
      <Compile Include="Assets\Scripts\Destroy_once_Invisible.cs" />
      <Compile Include="Assets\Scripts\Manage_Game.cs" />
