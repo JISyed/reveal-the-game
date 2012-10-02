@@ -60,6 +60,7 @@ public class Manage_Game : MonoBehaviour {
 		{
 			if(Input.GetKeyDown(KeyCode.Return))
 			{
+				Move_360.thrustSpeed = 700f;
 				winLevel = false;
 				numOfLives = lives; // Reset lives
 				Application.LoadLevel("Jibs_Test");
