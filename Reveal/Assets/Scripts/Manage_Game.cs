@@ -48,6 +48,8 @@ public class Manage_Game : MonoBehaviour {
 			{
 				gameOver = false;
 				numOfLives = lives; // Reset lives
+				lightCount = 100;
+				Player_Boost.onThrust = false;
 				Application.LoadLevel("Jibs_Test");
 			}
 		}
@@ -56,6 +58,8 @@ public class Manage_Game : MonoBehaviour {
 		if(numOfLives <= 0)
 		{
 			gameOver = true;
+			lightCount = 100;
+			Player_Boost.onThrust = false;
 		}
 		
 		// Press enter to restart the level if you won
