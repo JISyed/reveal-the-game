@@ -13,12 +13,15 @@ public class Manage_Game : MonoBehaviour {
 	public static int numOfLives;
 	public static bool gameOver = false;
 	public static bool winLevel = false;
+	public static float lightCount = 100;
+	public static int helixCost = 10;
 	
 	// Public variables editable in Editor
 	public int lives = 1;
 	public Texture2D imgGameOver;
 	public Texture2D imgYouWin;
 	
+
 	////////////////////////
 	// Start Event
 	////////////////////////
@@ -63,9 +66,20 @@ public class Manage_Game : MonoBehaviour {
 				Move_360.thrustSpeed = 700f;
 				winLevel = false;
 				numOfLives = lives; // Reset lives
+				lightCount = 100;
 				Application.LoadLevel("Jibs_Test");
 			}
 		}
+		
+		lightCount += (5 * Time.deltaTime);
+		
+		if(Player_Boost.onThrust)
+			lightCount -= (10 * Time.deltaTime);
+		
+		if(lightCount > 100)
+			lightCount = 100;
+		
+		//Debug.Log ((int)lightCount);
 	}
 	
 	////////////////////////
@@ -77,7 +91,7 @@ public class Manage_Game : MonoBehaviour {
 	{
 		// Draw lives stat
 		GUI.Label(new Rect(10,0,240,20),"Lives: " + numOfLives.ToString());
-		
+		GUI.Label(new Rect(10,25,240,20), "Light: " + lightCount.ToString ());
 		// Draw game over display
 		if(gameOver)
 		{

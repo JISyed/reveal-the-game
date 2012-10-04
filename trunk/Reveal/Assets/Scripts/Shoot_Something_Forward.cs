@@ -15,7 +15,11 @@ public class Shoot_Something_Forward : MonoBehaviour {
 		// Credit to CookingWithUnity
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
-			Instantiate(firedShot ,transform.position, transform.rotation);
+			if(Manage_Game.lightCount >= Manage_Game.helixCost)
+			{
+				Manage_Game.lightCount -= Manage_Game.helixCost;
+				Instantiate(firedShot ,transform.position, transform.rotation);
+			}
 			//GameObject projectile = Instantiate(firedShot ,transform.position, transform.rotation) as GameObject;
 			
 			

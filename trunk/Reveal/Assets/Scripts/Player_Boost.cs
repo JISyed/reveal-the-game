@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player_Boost : MonoBehaviour {
 	
-	private bool onThrust = false;
+	public static bool onThrust = false;
 	// Use this for initialization
 	void Start () {
 	
