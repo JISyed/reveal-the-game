@@ -83,6 +83,9 @@ public class Manage_Game : MonoBehaviour {
 		if(lightCount > 100)
 			lightCount = 100;
 		
+		if(lightCount < 0)
+			lightCount = 0;
+		
 		//Debug.Log ((int)lightCount);
 	}
 	
