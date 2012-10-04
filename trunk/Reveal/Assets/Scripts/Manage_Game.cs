@@ -86,6 +86,11 @@ public class Manage_Game : MonoBehaviour {
 		if(lightCount < 0)
 			lightCount = 0;
 		
+		if(lightCount == 0)
+		{
+			Move_360.thrustSpeed = 700f;
+			Player_Boost.onThrust = false;	
+		}
 		//Debug.Log ((int)lightCount);
 	}
 	
