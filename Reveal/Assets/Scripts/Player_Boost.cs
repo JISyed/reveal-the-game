@@ -18,14 +18,19 @@ public class Player_Boost : MonoBehaviour {
 			{
 				Move_360.thrustSpeed = 700f;
 				onThrust = false;
-				Debug.Log (Move_360.thrustSpeed);
 			}
 			else
 			{
 				Move_360.thrustSpeed *= 2;
 				onThrust = true;
-				Debug.Log (Move_360.thrustSpeed);
 			}
+			
+			if(Manage_Game.lightCount <= 0)
+			{
+				Move_360.thrustSpeed = 700f;
+				onThrust = false;	
+			}
+				
 		}
 	}
 }
