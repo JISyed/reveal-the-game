@@ -48,10 +48,12 @@
      <Compile Include="Assets\Scripts\Change_Beacon_State.cs" />
      <Compile Include="Assets\Scripts\Collide_Prism_to_Goal.cs" />
      <Compile Include="Assets\Scripts\Destroy_Collide_Wall.cs" />
+     <Compile Include="Assets\Scripts\Destroy_after_Time.cs" />
      <Compile Include="Assets\Scripts\Destroy_once_Invisible.cs" />
      <Compile Include="Assets\Scripts\Manage_Game.cs" />
      <Compile Include="Assets\Scripts\Move_360.cs" />
      <Compile Include="Assets\Scripts\Move_Constantly_Forward.cs" />
+     <Compile Include="Assets\Scripts\Move_Lightwave.cs" />
      <Compile Include="Assets\Scripts\Move_with_WSAD.cs" />
      <Compile Include="Assets\Scripts\Player_Boost.cs" />
      <Compile Include="Assets\Scripts\Shoot_Something_Forward.cs" />
