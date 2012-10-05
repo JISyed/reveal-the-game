@@ -65,6 +65,9 @@ public class Manage_Game : MonoBehaviour {
 		// Press enter to restart the level if you won
 		if(winLevel)
 		{
+			lightCount = 100;
+			Player_Boost.onThrust = false;
+			
 			if(Input.GetKeyDown(KeyCode.Return))
 			{
 				Move_360.thrustSpeed = 700f;
