@@ -18,7 +18,8 @@ public class Shoot_Something_Forward : MonoBehaviour {
 			if(Manage_Game.lightCount >= Manage_Game.helixCost)
 			{
 				Manage_Game.lightCount -= Manage_Game.helixCost;
-				Instantiate(firedShot ,transform.position, transform.rotation);
+				Instantiate(firedShot, transform.position, transform.rotation);
+				//firedShot.transform.RotateAround(Vector3.forward, -90.0f);
 			}
 			//GameObject projectile = Instantiate(firedShot ,transform.position, transform.rotation) as GameObject;
 			

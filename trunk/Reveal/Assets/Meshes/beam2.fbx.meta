@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 35f2b02688ed32d4ba2115a5c4ebee91
+guid: dcd447a3d89d29f46b45064bb6568b10
 ModelImporter:
   fileIDToRecycleName:
     4300000: polySurface1
-    7400000: Take 001 //// beam
-    7400002: idle //// beam
+    7400000: Take 001 //// beam2
   serializedVersion: 10
   materials:
     importMaterials: 1
@@ -47,11 +46,29 @@ ModelImporter:
         first: 4
         second: 801a0600
       data:
-        first: 23
-        second: 60182300
-      data:
-        first: 33
-        second: a05a3200
-      data:
         first: 111
         second: 605fa900
+    joint1:
+      data:
+        first: 1
+        second: a2860100
+      data:
+        first: 4
+        second: 821a0600
+      data:
+        first: 137
+        second: a00bd100
+    joint2:
+      data:
+        first: 1
+        second: a4860100
+      data:
+        first: 4
+        second: 841a0600
+    polySurface1:
+      data:
+        first: 1
+        second: a6860100
+      data:
+        first: 4
+        second: 861a0600
