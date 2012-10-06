@@ -15,8 +15,9 @@ public class Player_Boost : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		if((Input.GetKeyDown(KeyCode.LeftShift)) || (Input.GetKeyDown(KeyCode.RightShift)))
+		
+		// Fire2 is defined in InputManager
+		if(Input.GetButtonDown("Fire2"))
 		{
 			if(onThrust)
 			{
@@ -37,7 +38,7 @@ public class Player_Boost : MonoBehaviour {
 			
 		}
 		
-		if( (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift)) && onThrust)
+		if(Input.GetButtonUp("Fire2") && onThrust)
 		{
 			Move_360.thrustSpeed = defaultSlowSpeed;
 			onThrust = false;

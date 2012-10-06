@@ -17,7 +17,7 @@ public class Pause_at_Start : MonoBehaviour {
 	void Update () {
 		
 		// Press enter to start the game
-		if(Input.GetKeyDown(KeyCode.Return) && !gameStarted)
+		if((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7")) && !gameStarted)
 		{
 			gameStarted = true;
 			Time.timeScale = 1.0f;
