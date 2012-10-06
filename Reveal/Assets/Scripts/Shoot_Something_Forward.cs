@@ -13,7 +13,7 @@ public class Shoot_Something_Forward : MonoBehaviour {
 	void Update () {
 		
 		// Credit to CookingWithUnity
-		if(Input.GetKeyDown(KeyCode.Space))
+		if(Input.GetButtonDown("Fire1")) // Fire1 is defined in Input settings
 		{
 			if(Manage_Game.lightCount >= Manage_Game.helixCost)
 			{

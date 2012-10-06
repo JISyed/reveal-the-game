@@ -44,7 +44,7 @@ public class Manage_Game : MonoBehaviour {
 		// Press Enter to reset level IF Game Over
 		if(gameOver)
 		{
-			if(Input.GetKeyDown(KeyCode.Return))
+			if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7"))
 			{
 				gameOver = false;
 				numOfLives = lives; // Reset lives
@@ -68,7 +68,7 @@ public class Manage_Game : MonoBehaviour {
 			lightCount = 100;
 			Player_Boost.onThrust = false;
 			
-			if(Input.GetKeyDown(KeyCode.Return))
+			if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7"))
 			{
 				Move_360.thrustSpeed = 700f;
 				winLevel = false;

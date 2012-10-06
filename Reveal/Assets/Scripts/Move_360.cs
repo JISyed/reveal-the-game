@@ -15,10 +15,10 @@ public class Move_360 : MonoBehaviour {
 		transform.Rotate(Vector3.up * (Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime) );
 		
 		// Prevents sudden zipping at start of level
-		if(Pause_at_Start.gameStarted)
-		{
+		//if(Pause_at_Start.gameStarted)
+		//{
 			rigidbody.AddRelativeForce(Vector3.forward * thrustSpeed * Time.deltaTime);
-		}
+		//}
 
 	}
 }
