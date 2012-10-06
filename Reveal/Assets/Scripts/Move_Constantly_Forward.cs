@@ -21,5 +21,6 @@ public class Move_Constantly_Forward : MonoBehaviour {
 		newPosition.z += Time.deltaTime * speed * transform.forward.z;
 		transform.position = newPosition;
 		//transform.position += Time.deltaTime * speed * transform.forward;
+		
 	}
 }

@@ -13,10 +13,12 @@ public class Move_360 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.Rotate(Vector3.up * (Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime) );
-		//if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-		//{
+		
+		// Prevents sudden zipping at start of level
+		if(Pause_at_Start.gameStarted)
+		{
 			rigidbody.AddRelativeForce(Vector3.forward * thrustSpeed * Time.deltaTime);
-		//}
+		}
 
 	}
 }
