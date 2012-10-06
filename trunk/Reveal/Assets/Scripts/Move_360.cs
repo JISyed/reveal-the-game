@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Move_360 : MonoBehaviour {
 	
-	public float rotateSpeed = 180.0f;
+	public float rotateSpeed = 155.0f;
 	public static float thrustSpeed = 700.0f;
 	// Use this for initialization
 	void Start () {
