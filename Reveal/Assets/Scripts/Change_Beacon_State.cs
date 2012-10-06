@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Change_Beacon_State : MonoBehaviour {
 	
-	public static bool activated;
+	private bool activated;
 	
 	public Material matDim;
 	public Material matBright;
