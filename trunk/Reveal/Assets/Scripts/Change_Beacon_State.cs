@@ -26,10 +26,11 @@ public class Change_Beacon_State : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		Destroy(other.gameObject); // Suppose to destroy lightwaves
-		
+
 		// Change to state of the beacon
 		if (!activated)
 		{
+			audio.Play ();
 			activated = true;
 			renderer.material = matBright;
 			light.enabled = true;
