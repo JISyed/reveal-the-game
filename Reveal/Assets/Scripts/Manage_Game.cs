@@ -21,7 +21,9 @@ public class Manage_Game : MonoBehaviour {
 	public Texture2D imgGameOver;
 	public Texture2D imgYouWin;
 	
-
+	public Texture2D lightBar;
+	public Texture2D lightMeter;
+	public Texture2D livesImage;
 	////////////////////////
 	// Start Event
 	////////////////////////
@@ -50,10 +52,12 @@ public class Manage_Game : MonoBehaviour {
 				numOfLives = lives; // Reset lives
 				lightCount = 100;
 				Player_Boost.onThrust = false;
-				Application.LoadLevel("Jibs_Test");
+				Application.LoadLevel("Intro");
 			}
 		}
 		
+		
+
 		// Upon no lives it is Game Over
 		if(numOfLives <= 0)
 		{
@@ -74,7 +78,7 @@ public class Manage_Game : MonoBehaviour {
 				winLevel = false;
 				numOfLives = lives; // Reset lives
 				lightCount = 100;
-				Application.LoadLevel("Jibs_Test");
+				Application.LoadLevel("Intro");
 			}
 		}
 		
@@ -104,9 +108,27 @@ public class Manage_Game : MonoBehaviour {
 	// Used to draw the GUI
 	void OnGUI()
 	{
-		// Draw lives stat
-		GUI.Label(new Rect(10,0,240,20),"Lives: " + numOfLives.ToString());
-		GUI.Label(new Rect(10,25,240,20), "Light: " + lightCount.ToString ());
+
+		//Draw Light Bar
+		
+		//lightMeter width = 128
+		//lightCanvas width = 256
+		float lVal = 250/100;
+		GUI.BeginGroup (new Rect(50, 410, 250, 55));
+			GUI.DrawTexture(new Rect(0,0,(float)lightCount*(lVal),55),lightMeter,ScaleMode.StretchToFill);
+			GUI.DrawTexture (new Rect(0,0, 200, 55),lightBar, ScaleMode.StretchToFill);		
+		GUI.EndGroup();
+		
+		
+		GUI.BeginGroup (new Rect(Screen.width-180, 410, 150, 50));
+			for(int i = 0; i < numOfLives; i++)
+			{
+				GUI.DrawTexture (new Rect( (100-i*50),0,50,50),livesImage);
+			}
+		GUI.EndGroup ();
+		//Rect lightCanvas = new Rect(450, 400, lightBar.width, lightBar.height);
+		//GUI.Label(lightCanvas, lightBar);
+		
 		// Draw game over display
 		if(gameOver)
 		{
