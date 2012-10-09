@@ -9,7 +9,7 @@ public class Move_Lightwave : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		
+		audio.Play ();
 	}
 	
 	// Update is called once per frame

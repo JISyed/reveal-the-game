@@ -24,6 +24,7 @@ public class Manage_Game : MonoBehaviour {
 	public Texture2D lightBar;
 	public Texture2D lightMeter;
 	public Texture2D livesImage;
+	
 	////////////////////////
 	// Start Event
 	////////////////////////
@@ -34,6 +35,8 @@ public class Manage_Game : MonoBehaviour {
 		// 'lives' is set in Editor.
 		// 'numOfLives' can be accessed by scripts via "Manage_Game.numOfLives".
 		numOfLives = lives;
+		audio.Play ();
+		audio.volume *= 2;
 	}
 	
 	////////////////////////
