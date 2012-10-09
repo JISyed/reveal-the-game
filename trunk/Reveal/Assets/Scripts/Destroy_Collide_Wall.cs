@@ -6,6 +6,7 @@ using System.Collections;
 public class Destroy_Collide_Wall : MonoBehaviour {
 	
 	public GameObject player;
+	GameObject soundPlayer;
 	// public string levelName;
 	
 	void Start()
@@ -23,6 +24,9 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 		{
 			Move_360.thrustSpeed = 700f;
 		}
+		
+		if(soundPlayer = GameObject.FindGameObjectWithTag("Player_Death"))
+			soundPlayer.audio.Play ();
 		Destroy (other.gameObject);
 		
 		// Reduce the number of lives
