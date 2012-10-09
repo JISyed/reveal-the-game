@@ -117,13 +117,13 @@ public class Manage_Game : MonoBehaviour {
 		//lightMeter width = 128
 		//lightCanvas width = 256
 		float lVal = 250/100;
-		GUI.BeginGroup (new Rect(50, 410, 250, 55));
+		GUI.BeginGroup (new Rect(50, Screen.height-65, 250, 55));
 			GUI.DrawTexture(new Rect(0,0,(float)lightCount*(lVal),55),lightMeter,ScaleMode.StretchToFill);
 			GUI.DrawTexture (new Rect(0,0, 200, 55),lightBar, ScaleMode.StretchToFill);		
 		GUI.EndGroup();
 		
 		
-		GUI.BeginGroup (new Rect(Screen.width-180, 410, 150, 50));
+		GUI.BeginGroup (new Rect(Screen.width-180, Screen.height-65, 150, 50));
 			for(int i = 0; i < numOfLives; i++)
 			{
 				GUI.DrawTexture (new Rect( (100-i*50),0,50,50),livesImage);
