@@ -111,27 +111,6 @@ public class Manage_Game : MonoBehaviour {
 	// Used to draw the GUI
 	void OnGUI()
 	{
-
-		//Draw Light Bar
-		
-		//lightMeter width = 128
-		//lightCanvas width = 256
-		float lVal = 250/100;
-		GUI.BeginGroup (new Rect(50, Screen.height-65, 250, 55));
-			GUI.DrawTexture(new Rect(0,0,(float)lightCount*(lVal),55),lightMeter,ScaleMode.StretchToFill);
-			GUI.DrawTexture (new Rect(0,0, 200, 55),lightBar, ScaleMode.StretchToFill);		
-		GUI.EndGroup();
-		
-		
-		GUI.BeginGroup (new Rect(Screen.width-180, Screen.height-65, 150, 50));
-			for(int i = 0; i < numOfLives; i++)
-			{
-				GUI.DrawTexture (new Rect( (100-i*50),0,50,50),livesImage);
-			}
-		GUI.EndGroup ();
-		//Rect lightCanvas = new Rect(450, 400, lightBar.width, lightBar.height);
-		//GUI.Label(lightCanvas, lightBar);
-		
 		// Draw game over display
 		if(gameOver)
 		{
@@ -143,13 +122,35 @@ public class Manage_Game : MonoBehaviour {
 		}
 		
 		// Draw winning display
-		if(winLevel)
+		else if(winLevel)
 		{
 			Rect splashCanvas = new Rect((Screen.width/2.0f) - (imgYouWin.width/2.0f),
 									     (Screen.height/2.0f) - (imgYouWin.height/2.0f), 
 									     imgYouWin.width, 
 										 imgYouWin.height);
 			GUI.Label(splashCanvas, imgYouWin);
+		}
+		
+		//Draw Light Bar
+		else
+		{
+			//lightMeter width = 128
+			//lightCanvas width = 256
+			float lVal = 250/100;
+			GUI.BeginGroup (new Rect(50, Screen.height-65, 250, 55));
+				GUI.DrawTexture(new Rect(0,0,(float)lightCount*(lVal),55),lightMeter,ScaleMode.StretchToFill);
+				GUI.DrawTexture (new Rect(0,0, 200, 55),lightBar, ScaleMode.StretchToFill);		
+			GUI.EndGroup();
+		
+		
+			GUI.BeginGroup (new Rect(Screen.width-180, Screen.height-65, 150, 50));
+				for(int i = 0; i < numOfLives; i++)
+				{
+					GUI.DrawTexture (new Rect( (100-i*50),0,50,50),livesImage);
+				}
+			GUI.EndGroup ();
+			//Rect lightCanvas = new Rect(450, 400, lightBar.width, lightBar.height);
+			//GUI.Label(lightCanvas, lightBar);
 		}
 	}
 	
