@@ -8,9 +8,8 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 	
 	public GameObject player;
 	public GameObject deathParticles;
+	public GameObject soundPlayer;
 	// public string levelName;
-	
-	GameObject soundPlayer;
 	
 	void Start() {}
 	
@@ -22,9 +21,11 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 		if(other.gameObject.tag == "Player")
 		{
 			Move_360.thrustSpeed = 700f;
+			Player_Boost.onThrust = false;
 		}
 		
-		if(soundPlayer = GameObject.FindGameObjectWithTag("Player_Death"))
+		// Play death sound
+		if(soundPlayer)
 		{
 			soundPlayer.audio.Play();
 		}

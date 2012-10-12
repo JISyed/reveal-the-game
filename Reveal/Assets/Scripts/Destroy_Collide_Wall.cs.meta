@@ -2,6 +2,9 @@ fileFormatVersion: 2
 guid: d68b85398069b824b9bce194fcae7c08
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - deathParticles: {instanceID: 0}
+  - soundPlayer: {fileID: 100000, guid: dc32042909a17824492296d27675ac2a, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
