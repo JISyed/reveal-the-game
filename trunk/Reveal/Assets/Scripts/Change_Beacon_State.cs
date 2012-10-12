@@ -1,14 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
-public class Change_Beacon_State : MonoBehaviour {
-	
-	private bool activated;
-	
+public class Change_Beacon_State : MonoBehaviour 
+{	
 	public Material matDim;
 	public Material matBright;
+	public GameObject flickeringSound;
+	public GameObject activatedSound;
 	public float deactivationTimeInSeconds = 5.0f;
 	
+	private bool activated;
 	private bool isFlickeringQuickly = false;
 	
 	// Use this for initialization
@@ -44,7 +45,6 @@ public class Change_Beacon_State : MonoBehaviour {
 				// Invoke in last 3 seconds
 				Invoke("FlickerSlowly", deactivationTimeInSeconds - 3.0f);
 				Invoke("FlickerQuickly", deactivationTimeInSeconds - 1.0f);
-				
 			}
 			// 
 			else if(deactivationTimeInSeconds < 3 && deactivationTimeInSeconds > 1)
@@ -76,6 +76,10 @@ public class Change_Beacon_State : MonoBehaviour {
 	// Flickers slowly for 2 seconds
 	void FlickerSlowly()
 	{
+		// Play flickering sound
+		Instantiate(flickeringSound, 
+			        gameObject.transform.position, 
+			        gameObject.transform.rotation);
 		Invoke("FlickerSlowlyOff", 0.0f);
 		Invoke("FlickerSlowlyOn", 0.25f);
 		Invoke("FlickerSlowlyOff", 0.5f);
