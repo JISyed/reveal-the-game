@@ -25,10 +25,9 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 		}
 		
 		// Play death sound
-		if(soundPlayer)
-		{
-			soundPlayer.audio.Play();
-		}
+		Instantiate(soundPlayer, 
+			        other.gameObject.transform.position, 
+			        other.gameObject.transform.rotation);
 		
 		
 		// Reduce the number of lives
