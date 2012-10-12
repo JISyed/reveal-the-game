@@ -5,5 +5,7 @@ MonoImporter:
   defaultReferences:
   - matDim: {fileID: 2100000, guid: 4db817a18b3f89643b28b5d1d3d3797b, type: 2}
   - matBright: {fileID: 2100000, guid: 0c69da22aba0409498cb70c3a6ddc6c7, type: 2}
+  - flickeringSound: {fileID: 100000, guid: 229ba7f39b2fa0247a9d05c5ab5fb5be, type: 2}
+  - activatedSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}

@@ -23,17 +23,22 @@ public class Player_Boost : MonoBehaviour {
 			{
 				Move_360.thrustSpeed = defaultSlowSpeed;
 				onThrust = false;
+				gameObject.audio.Stop();
+				gameObject.audio.time = 0.0f;
 			}
 			else
 			{
 				Move_360.thrustSpeed *= boostMultiplier;
 				onThrust = true;
+				gameObject.audio.Play();
 			}
 			
 			if(Manage_Game.lightCount <= 0)
 			{
 				Move_360.thrustSpeed = defaultSlowSpeed;
-				onThrust = false;	
+				onThrust = false;
+				gameObject.audio.Stop();
+				gameObject.audio.time = 0.0f;
 			}
 			
 		}
@@ -42,6 +47,8 @@ public class Player_Boost : MonoBehaviour {
 		{
 			Move_360.thrustSpeed = defaultSlowSpeed;
 			onThrust = false;
+			gameObject.audio.Stop();
+			gameObject.audio.time = 0.0f;
 		}
 	}
 }
