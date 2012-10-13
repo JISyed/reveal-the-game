@@ -15,9 +15,14 @@ public class Manage_Game : MonoBehaviour {
 	public static bool winLevel = false;
 	public static float lightCount = 100;
 	public static int helixCost = 10;
+	public static Vector3 startPos;
+	public static float respawnTime;
 	
 	// Public variables editable in Editor
+	public float startXPos = 0.0f;
+	public float startZPos = 0.0f;
 	public int lives = 1;
+	public float respawnInSeconds = 3.0f;
 	public Texture2D imgGameOver;
 	public Texture2D imgYouWin;
 	
@@ -32,11 +37,12 @@ public class Manage_Game : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		respawnTime = respawnInSeconds;
+		startPos.Set(startXPos, 7.25f, startZPos);
 		// 'lives' is set in Editor.
 		// 'numOfLives' can be accessed by scripts via "Manage_Game.numOfLives".
 		numOfLives = lives;
-		audio.Play ();
-		audio.volume *= 2;
+		audio.Play();
 	}
 	
 	////////////////////////
@@ -153,11 +159,4 @@ public class Manage_Game : MonoBehaviour {
 			//GUI.Label(lightCanvas, lightBar);
 		}
 	}
-	
-	////////////////////////
-	// OnDrawGizmos Event
-	////////////////////////
-	
-	// Only to have a Gizmo manifested in the Editor. Does not appear in game.
-	void OnDrawGizmos() {}
 }

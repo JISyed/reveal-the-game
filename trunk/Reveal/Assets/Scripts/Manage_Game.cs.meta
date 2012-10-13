@@ -2,6 +2,11 @@ fileFormatVersion: 2
 guid: 2912e10ceed558048890369048f330b9
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - imgGameOver: {fileID: 2800000, guid: 87d5be1fe8fe60147a10957116d33d26, type: 1}
+  - imgYouWin: {fileID: 2800000, guid: a7939d15cb105904fad95abd820ffaf7, type: 1}
+  - lightBar: {fileID: 2800000, guid: 093c974ddf29ece4080dcfe6aeffdb01, type: 1}
+  - lightMeter: {fileID: 2800000, guid: e7ec462d060fa514f8e550b5aea172d8, type: 1}
+  - livesImage: {fileID: 2800000, guid: 323b6502fa17a5844b00801286e86b1a, type: 1}
   executionOrder: 0
-  icon: {fileID: -443503690, guid: 0000000000000000d000000000000000, type: 0}
+  icon: {instanceID: 0}
