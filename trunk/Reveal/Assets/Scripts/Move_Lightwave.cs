@@ -4,7 +4,6 @@ using System.Collections;
 public class Move_Lightwave : MonoBehaviour {
 	
 	public float speed = 50.0f;
-	public GameObject player;
 	
 	// Use this for initialization
 	void Start () 
