@@ -39,7 +39,7 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 		
 		Destroy(other.gameObject);
 		
-		Invoke("RevivePrism", 3);
+		Invoke("RevivePrism", Manage_Game.respawnTime);
 	}
 	
 	void RevivePrism()
@@ -48,7 +48,7 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 		// Needs to be more dynamic on a level-to-level basis.
 		if(Manage_Game.numOfLives > 0)
 		{
-			Vector3 prismPos = new Vector3(-87.0f, 7.36f, 36.0f);
+			Vector3 prismPos = Manage_Game.startPos;
 			Instantiate(player, prismPos, player.transform.rotation);
 		}
 	}
