@@ -61,7 +61,7 @@ public class Manage_Game : MonoBehaviour {
 				numOfLives = lives; // Reset lives
 				lightCount = 100;
 				Player_Boost.onThrust = false;
-				Application.LoadLevel("Intro");
+				Application.LoadLevel(Application.loadedLevel);
 			}
 		}
 		
@@ -87,7 +87,16 @@ public class Manage_Game : MonoBehaviour {
 				winLevel = false;
 				numOfLives = lives; // Reset lives
 				lightCount = 100;
-				Application.LoadLevel("Intro");
+				
+				// Load next level if there is a next level
+				if(Application.loadedLevel < Application.levelCount - 1)
+				{
+					Application.LoadLevel(Application.loadedLevel + 1);
+				}
+				else
+				{
+					Application.LoadLevel("Intro");
+				}
 			}
 		}
 		

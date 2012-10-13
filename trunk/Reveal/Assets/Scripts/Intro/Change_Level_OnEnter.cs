@@ -11,7 +11,7 @@ public class Change_Level_OnEnter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if(Input.GetKeyDown (KeyCode.Return))
-			Application.LoadLevel("Jibs_Test");
+		if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7"))
+			Application.LoadLevel("Level_Tutorial");
 	}
 }
