@@ -14,7 +14,7 @@ public class Move_Back_and_Forth_Z : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		startPos = gameObject.transform.position;
+		startPos = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -34,5 +34,19 @@ public class Move_Back_and_Forth_Z : MonoBehaviour {
 		{
 			moveDirection = 1;
 		}
+	}
+	
+	// Visualize the move path
+	void OnDrawGizmos()
+	{
+		// Credit to Cooking with Unity Tutorials
+		Vector3 gizPoint = transform.position;
+		Vector3 leftEnd = new Vector3(gizPoint.x, gizPoint.y, gizPoint.z - maxMovingDistance);
+		Vector3 rightEnd = new Vector3(gizPoint.x, gizPoint.y, gizPoint.z + maxMovingDistance);
+		Gizmos.DrawLine(gizPoint, leftEnd);
+		Gizmos.DrawLine(gizPoint, rightEnd);
+		Gizmos.DrawWireSphere(leftEnd, 1.0f);
+		Gizmos.DrawWireSphere(rightEnd, 1.0f);
+		Gizmos.DrawWireSphere(gizPoint, 1.0f);
 	}
 }
