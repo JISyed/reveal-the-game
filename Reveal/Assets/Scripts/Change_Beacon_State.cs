@@ -6,7 +6,6 @@ public class Change_Beacon_State : MonoBehaviour
 	public Material matDim;
 	public Material matBright;
 	public GameObject flickeringSound;
-	public GameObject activatedSound;
 	public float deactivationTimeInSeconds = 5.0f;
 	
 	private bool activated;
