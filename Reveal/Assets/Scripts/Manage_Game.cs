@@ -14,10 +14,13 @@ public class Manage_Game : MonoBehaviour {
 	public static bool gameOver = false;
 	public static bool winLevel = false;
 	public static float lightCount = 100;
-	public static int helixCost = 10;
+	public static int helixCost = 15;
 	public static Vector3 startPos;
 	public static float respawnTime;
+	public static float lightRegen = 4.0f;
 	
+	public static bool viewCurrentLevelImage = true;
+	public static float viewCurrentLevelTime = 3.0f;
 	// Public variables editable in Editor
 	public float startXPos = 0.0f;
 	public float startZPos = 0.0f;
@@ -30,6 +33,7 @@ public class Manage_Game : MonoBehaviour {
 	public Texture2D lightMeter;
 	public Texture2D livesImage;
 	
+	public Texture2D currentLevel;
 	////////////////////////
 	// Start Event
 	////////////////////////
@@ -43,6 +47,8 @@ public class Manage_Game : MonoBehaviour {
 		// 'numOfLives' can be accessed by scripts via "Manage_Game.numOfLives".
 		numOfLives = lives;
 		audio.Play();
+		viewCurrentLevelImage = true;
+		Invoke("FadeLevelImageOut", viewCurrentLevelTime);
 	}
 	
 	////////////////////////
@@ -52,6 +58,7 @@ public class Manage_Game : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		
 		// Press Enter to reset level IF Game Over
 		if(gameOver)
 		{
@@ -100,10 +107,10 @@ public class Manage_Game : MonoBehaviour {
 			}
 		}
 		
-		lightCount += (5 * Time.deltaTime);
+		lightCount += (lightRegen * Time.deltaTime);
 		
 		if(Player_Boost.onThrust)
-			lightCount -= (10 * Time.deltaTime);
+			lightCount -= (11 * Time.deltaTime);
 		
 		if(lightCount > 100)
 			lightCount = 100;
@@ -146,6 +153,7 @@ public class Manage_Game : MonoBehaviour {
 			GUI.Label(splashCanvas, imgYouWin);
 		}
 		
+
 		//Draw Light Bar
 		else
 		{
@@ -164,8 +172,22 @@ public class Manage_Game : MonoBehaviour {
 					GUI.DrawTexture (new Rect( (100-i*50),0,50,50),livesImage);
 				}
 			GUI.EndGroup ();
+			
+			if(viewCurrentLevelImage)
+			{
+				GUI.BeginGroup (new Rect((Screen.width/2)-(currentLevel.width/2), Screen.height*0.2f,
+					currentLevel.width, currentLevel.height));
+					GUI.DrawTexture (new Rect(0,0, currentLevel.width, currentLevel.height/2),currentLevel, ScaleMode.StretchToFill);
+				
+				GUI.EndGroup();
+			}
 			//Rect lightCanvas = new Rect(450, 400, lightBar.width, lightBar.height);
 			//GUI.Label(lightCanvas, lightBar);
 		}
+	}
+	
+	void FadeLevelImageOut()
+	{
+		viewCurrentLevelImage = false;
 	}
 }

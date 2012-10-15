@@ -12,6 +12,12 @@ public class Move_360 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if((Input.GetKey("left")) || (Input.GetKey ("right")))
+			Manage_Game.lightRegen = 0.35f;
+		else
+			Manage_Game.lightRegen = 3.5f;
+		
+		Debug.Log (Manage_Game.lightRegen);
 		transform.Rotate(Vector3.up * (Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime) );
 		
 		// Prevents sudden zipping at start of level
