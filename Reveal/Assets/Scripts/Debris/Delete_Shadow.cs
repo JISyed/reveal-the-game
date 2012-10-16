@@ -16,8 +16,9 @@ public class Delete_Shadow : MonoBehaviour {
 	
 	}
 	
-	void OnCollisionEnter()
+	void OnTriggerEnter(Collider other)
 	{
+		Debug.Log("What!");
 		Destroy(gameObject);
 	}
 }
