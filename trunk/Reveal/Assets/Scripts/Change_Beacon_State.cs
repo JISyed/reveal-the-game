@@ -8,19 +8,51 @@ public class Change_Beacon_State : MonoBehaviour
 	public GameObject flickeringSound;
 	public float deactivationTimeInSeconds = 5.0f;
 	
+	public bool dimLightEnable = false;
+	public bool callThisFunctionOnce = true;
+	public Color originalLightColor;
+	public Material originalMaterial;
+	
 	private bool activated;
 	private bool isFlickeringQuickly = false;
 	
 	// Use this for initialization
 	void Start () {
+
 		activated = false;
 		renderer.material = matDim;
+		
 		light.enabled = false;
+		originalLightColor = renderer.light.color;
+		originalMaterial = renderer.material;
 	}
+	
+	
 	
 	// Update is called once per frame
 	void Update () {
+		if(dimLightEnable)
+		{
+			renderer.light.color -= Color.white / 2.0f * Time.deltaTime;
+			renderer.material.color -= Color.grey / 2.0f * Time.deltaTime;
+			if(callThisFunctionOnce)
+			{
+				callThisFunctionOnce = false;
+				Invoke ("When2SecondsPass", 2.0f);
+			}
+		}
 		
+	}
+	
+	//When 2 seconds pass
+	void When2SecondsPass()
+	{
+		renderer.light.color = originalLightColor;
+		renderer.material = matDim;
+		callThisFunctionOnce = true;
+		dimLightEnable = false;
+		light.enabled = false;
+		activated = false;
 	}
 	
 	void OnTriggerEnter(Collider other)
@@ -59,14 +91,21 @@ public class Change_Beacon_State : MonoBehaviour
 		}
 	}
 	
+	void FlickerDim()
+	{
+
+		dimLightEnable = true;
+	}
+	
 	void DeactivateBeacon()
 	{
 		if(activated)
 		{
-			activated = false;
+			
 			isFlickeringQuickly = false;
-			renderer.material = matDim;
-			light.enabled = false;
+			//renderer.material = matDim;
+			Invoke ("FlickerDim",0.0f);
+			//;
 		}
 	}
 	
