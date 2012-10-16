@@ -7,14 +7,17 @@ public class Trigger_Debris : MonoBehaviour {
 	
 	public GameObject debrisClump;
 	public GameObject debrisShadow;
+	public GameObject debrisSpotlight;
 	
 	private Vector3 spawnPosClump;
 	private Vector3 spawnPosShadow;
+	private Vector3 spawnPosSpotlight;
 	
 	// Use this for initialization
 	void Start () {
 		spawnPosClump.Set(transform.position.x, 300.0f, transform.position.z);
 		spawnPosShadow.Set(transform.position.x, 0.1f, transform.position.z);
+		spawnPosSpotlight.Set(transform.position.x, 190.0f, transform.position.z);
 	}
 	
 	// Update is called once per frame
@@ -28,6 +31,8 @@ public class Trigger_Debris : MonoBehaviour {
 		{
 			Instantiate(debrisClump, spawnPosClump, transform.rotation);
 			Instantiate(debrisShadow, spawnPosShadow, transform.rotation);
+			GameObject theSpotlight = Instantiate(debrisSpotlight, spawnPosSpotlight, Quaternion.identity) as GameObject;
+			theSpotlight.transform.Rotate(Vector3.right, 90.0f);
 			Destroy(gameObject);
 		}
 	}
