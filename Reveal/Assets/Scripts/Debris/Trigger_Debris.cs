@@ -24,7 +24,7 @@ public class Trigger_Debris : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.name == "Player_Prism")
+		if(other.gameObject.name == "Player_Prism" || other.gameObject.name == "Player_Prism(Clone)")
 		{
 			Instantiate(debrisClump, spawnPosClump, transform.rotation);
 			Instantiate(debrisShadow, spawnPosShadow, transform.rotation);
