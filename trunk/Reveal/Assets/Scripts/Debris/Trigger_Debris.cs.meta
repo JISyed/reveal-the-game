@@ -2,6 +2,8 @@ fileFormatVersion: 2
 guid: dd03d1c0a1bdeb542b63d8c1e81bbaa5
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - debrisClump: {fileID: 100000, guid: 3b50387708f43a44ba26fc170c2ddc1d, type: 2}
+  - debrisShadow: {fileID: 100000, guid: f8adaa01320464841b2699ff7bb0827e, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

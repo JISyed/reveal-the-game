@@ -17,33 +17,33 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision other)
 	{
-		//Application.LoadLevel (levelName);
 		if(other.gameObject.tag == "Player")
 		{
 			Move_360.thrustSpeed = 700f;
 			Player_Boost.onThrust = false;
+		
+		
+			// Play death sound
+			Instantiate(soundPlayer, 
+				        other.gameObject.transform.position, 
+			    	    other.gameObject.transform.rotation);
+		
+		
+			// Reduce the number of lives
+		
+			if(Manage_Game.infiniteLives == false)
+			{
+				Manage_Game.numOfLives -= 1;
+			}
+		
+			Instantiate(deathParticles, 
+			        	other.gameObject.transform.position, 
+			        	other.gameObject.transform.rotation);
+		
+			Destroy(other.gameObject);
+		
+			Invoke("RevivePrism", Manage_Game.respawnTime);
 		}
-		
-		// Play death sound
-		Instantiate(soundPlayer, 
-			        other.gameObject.transform.position, 
-			        other.gameObject.transform.rotation);
-		
-		
-		// Reduce the number of lives
-		
-		if(Manage_Game.infiniteLives == false)
-		{
-			Manage_Game.numOfLives -= 1;
-		}
-		
-		Instantiate(deathParticles, 
-			        other.gameObject.transform.position, 
-			        other.gameObject.transform.rotation);
-		
-		Destroy(other.gameObject);
-		
-		Invoke("RevivePrism", Manage_Game.respawnTime);
 	}
 	
 	void RevivePrism()
