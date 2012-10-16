@@ -50,6 +50,7 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 	{
 		if(Manage_Game.numOfLives > 0)
 		{
+			Manage_Game.lightCount = 100f;
 			Vector3 prismPos = Manage_Game.startPos;
 			Instantiate(player, prismPos, player.transform.rotation);
 		}

@@ -8,5 +8,8 @@ MonoImporter:
   - lightBar: {fileID: 2800000, guid: 093c974ddf29ece4080dcfe6aeffdb01, type: 1}
   - lightMeter: {fileID: 2800000, guid: e7ec462d060fa514f8e550b5aea172d8, type: 1}
   - livesImage: {fileID: 2800000, guid: 323b6502fa17a5844b00801286e86b1a, type: 1}
+  - currentLevel: {instanceID: 0}
+  - jingleGameOver: {fileID: 100000, guid: 29e2c86c35c0fb049b811bb36491cb3d, type: 2}
+  - jingleWinLevel: {fileID: 100000, guid: 598fb854c9f13714c83a2f892326196e, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

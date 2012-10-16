@@ -35,6 +35,12 @@ public class Manage_Game : MonoBehaviour {
 	
 	public Texture2D currentLevel;
 	
+	public GameObject jingleGameOver;
+	public GameObject jingleWinLevel;
+	private bool jingleAlreadyPlayed = false;
+	private GameObject jinglePlayerGameOver;
+	private GameObject jinglePlayerWinLevel;
+	
 	public static bool infiniteLives = false;
 	////////////////////////
 	// Start Event
@@ -43,6 +49,9 @@ public class Manage_Game : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		jinglePlayerGameOver = Instantiate(jingleGameOver) as GameObject;
+		jinglePlayerWinLevel = Instantiate(jingleWinLevel) as GameObject;
+		
 		respawnTime = respawnInSeconds;
 		startPos.Set(startXPos, 7.25f, startZPos);
 		// 'lives' is set in Editor.
@@ -72,8 +81,22 @@ public class Manage_Game : MonoBehaviour {
 		// Press Enter to reset level IF Game Over
 		if(gameOver)
 		{
+			// Play gameover music
+			if(jingleAlreadyPlayed == false)
+			{
+				audio.Stop();
+				jinglePlayerGameOver.audio.Play();
+				jingleAlreadyPlayed = true;
+			}
+			
+			// Press enter to reset level
 			if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7"))
 			{
+				if(jinglePlayerGameOver.audio.isPlaying)
+				{
+					jinglePlayerGameOver.audio.Stop();
+				}
+				jingleAlreadyPlayed = false;
 				gameOver = false;
 				numOfLives = lives; // Reset lives
 				lightCount = 100;
@@ -98,8 +121,23 @@ public class Manage_Game : MonoBehaviour {
 			lightCount = 100;
 			Player_Boost.onThrust = false;
 			
+			// Play winning music
+			if(jingleAlreadyPlayed == false)
+			{
+				audio.Stop();
+				jinglePlayerWinLevel.audio.Play();
+				jingleAlreadyPlayed = true;
+			}
+			
+			// Press enter to go to next level
 			if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7"))
 			{
+				if(jinglePlayerWinLevel.audio.isPlaying)
+				{
+					jinglePlayerWinLevel.audio.Stop();
+				}
+				jingleAlreadyPlayed = false;
+				
 				Move_360.thrustSpeed = 700f;
 				winLevel = false;
 				numOfLives = lives; // Reset lives
