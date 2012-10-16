@@ -31,7 +31,11 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 		
 		
 		// Reduce the number of lives
-		Manage_Game.numOfLives -= 1;
+		
+		if(Manage_Game.infiniteLives == false)
+		{
+			Manage_Game.numOfLives -= 1;
+		}
 		
 		Instantiate(deathParticles, 
 			        other.gameObject.transform.position, 
@@ -44,8 +48,6 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 	
 	void RevivePrism()
 	{
-		// Bad coding practice!!!
-		// Needs to be more dynamic on a level-to-level basis.
 		if(Manage_Game.numOfLives > 0)
 		{
 			Vector3 prismPos = Manage_Game.startPos;

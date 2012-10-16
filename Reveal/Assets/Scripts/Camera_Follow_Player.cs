@@ -2,11 +2,12 @@ using UnityEngine;
 using System.Collections;
 
 public class Camera_Follow_Player : MonoBehaviour {
-	public GameObject player;
+	
+	public float cameraHeight = 150.0f;
+	
 	GameObject thePlayer;
-	void Start()
-	{
-	}
+	
+	void Start() {}
 	
 	void Update () 
 	{
@@ -22,7 +23,7 @@ public class Camera_Follow_Player : MonoBehaviour {
 		{
 			newPosition.x = 0;
 			newPosition.z = 0;
-			newPosition.y = 150;
+			newPosition.y = cameraHeight;
 		}
 		else
 		{

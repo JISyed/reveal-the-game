@@ -17,7 +17,7 @@ public class Move_360 : MonoBehaviour {
 		else
 			Manage_Game.lightRegen = 3.5f;
 		
-		Debug.Log (Manage_Game.lightRegen);
+		//Debug.Log (Manage_Game.lightRegen);
 		transform.Rotate(Vector3.up * (Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime) );
 		
 		// Prevents sudden zipping at start of level
