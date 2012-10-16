@@ -34,6 +34,8 @@ public class Manage_Game : MonoBehaviour {
 	public Texture2D livesImage;
 	
 	public Texture2D currentLevel;
+	
+	public static bool infiniteLives = false;
 	////////////////////////
 	// Start Event
 	////////////////////////
@@ -46,6 +48,14 @@ public class Manage_Game : MonoBehaviour {
 		// 'lives' is set in Editor.
 		// 'numOfLives' can be accessed by scripts via "Manage_Game.numOfLives".
 		numOfLives = lives;
+		
+		// enable infinite lives if numOfLives == 0
+		if(lives == 0)
+		{
+			numOfLives = 1;
+			infiniteLives = true;
+		}
+		
 		audio.Play();
 		viewCurrentLevelImage = true;
 		Invoke("FadeLevelImageOut", viewCurrentLevelTime);
@@ -75,7 +85,7 @@ public class Manage_Game : MonoBehaviour {
 		
 
 		// Upon no lives it is Game Over
-		if(numOfLives <= 0)
+		if(numOfLives <= 0 && infiniteLives == false)
 		{
 			gameOver = true;
 			lightCount = 100;
@@ -165,13 +175,15 @@ public class Manage_Game : MonoBehaviour {
 				GUI.DrawTexture (new Rect(0,0, 200, 55),lightBar, ScaleMode.StretchToFill);		
 			GUI.EndGroup();
 		
-		
-			GUI.BeginGroup (new Rect(Screen.width-180, Screen.height-65, 150, 50));
+			if(infiniteLives == false)
+			{
+				GUI.BeginGroup (new Rect(Screen.width-180, Screen.height-65, 150, 50));
 				for(int i = 0; i < numOfLives; i++)
 				{
 					GUI.DrawTexture (new Rect( (100-i*50),0,50,50),livesImage);
 				}
-			GUI.EndGroup ();
+				GUI.EndGroup ();
+			}
 			
 			if(viewCurrentLevelImage)
 			{
