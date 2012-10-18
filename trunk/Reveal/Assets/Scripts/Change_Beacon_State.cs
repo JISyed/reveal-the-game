@@ -12,6 +12,7 @@ public class Change_Beacon_State : MonoBehaviour
 	public bool callThisFunctionOnce = true;
 	public Color originalLightColor;
 	public Material originalMaterial;
+	public GameObject ignitionParticles;
 	
 	private bool activated;
 	private bool isFlickeringQuickly = false;
@@ -21,7 +22,6 @@ public class Change_Beacon_State : MonoBehaviour
 
 		activated = false;
 		renderer.material = matDim;
-		
 		light.enabled = false;
 		originalLightColor = renderer.light.color;
 		originalMaterial = renderer.material;
@@ -66,6 +66,7 @@ public class Change_Beacon_State : MonoBehaviour
 			activated = true;
 			renderer.material = matBright;
 			light.enabled = true;
+			Instantiate(ignitionParticles, transform.position, transform.rotation);
 			
 			// It's only activated for a certain time
 			Invoke("DeactivateBeacon", deactivationTimeInSeconds);
