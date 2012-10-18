@@ -40,7 +40,7 @@ public class Manage_Turret : MonoBehaviour {
 				Vector3 playerVec = playerTransform.position - transform.position;
 				playerVec.y = 0;
 				playerVec.Normalize();
-				angleOfFire = Vector3.Angle(Vector3.forward, playerVec);
+				angleOfFire = Vector3.Angle(transform.forward, playerVec);
 				
 				if(angleOfFire < 90f)
 				{
