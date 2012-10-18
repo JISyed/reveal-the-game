@@ -6,17 +6,19 @@ public class Manage_Turret : MonoBehaviour {
 	private Transform playerTransform;
 	private float distanceToPlayer;
 	private GameObject bulletReference;
+	private GameObject barrelReference;
 	private bool alreadyFired = false;
 	private float angleOfFire; 				// Between 0 and 180 degrees in respect to y-axis
 	
 	public float turretRange = 30.0f;
 	public GameObject turretBullet;
 	public float shotTimeInterval = 1.0f;
+	public GameObject barrelOfTheTurret;
 	
 	// Use this for initialization
 	void Start () 
 	{
-		
+		barrelReference = Instantiate(barrelOfTheTurret, transform.position, transform.rotation) as GameObject;
 	}
 	
 	// Update is called once per frame
@@ -44,11 +46,14 @@ public class Manage_Turret : MonoBehaviour {
 				
 				if(angleOfFire < 90f)
 				{
+					// Aim barrel
+					barrelReference.transform.LookAt(playerTransform);
+					
 					// Shoot bullet
 					if(alreadyFired == false)
 					{
 						alreadyFired = true;
-						bulletReference = Instantiate(turretBullet, transform.position, transform.rotation) as GameObject;
+						bulletReference = Instantiate(turretBullet, transform.position + barrelReference.transform.forward * 8f, transform.rotation) as GameObject;
 						bulletReference.transform.LookAt(playerTransform);
 						Invoke("ResumeFiring", shotTimeInterval);
 					}
@@ -61,12 +66,11 @@ public class Manage_Turret : MonoBehaviour {
 	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(transform.position, turretRange);
-		Vector3 leftEnd = new Vector3(transform.position.x - turretRange, transform.position.y, transform.position.z);
-		Vector3 rightEnd = new Vector3(transform.position.x + turretRange, transform.position.y, transform.position.z);
-		Vector3 frontEnd = new Vector3(transform.position.x, transform.position.y, transform.position.z + turretRange);
-		Gizmos.DrawLine(transform.position, leftEnd);
-		Gizmos.DrawLine(transform.position, rightEnd);
-		Gizmos.DrawLine(transform.position, frontEnd);
+		Gizmos.DrawLine(transform.position, transform.position + (transform.right * turretRange));
+		Gizmos.DrawLine(transform.position, transform.position + (transform.right * turretRange * -1));
+		Gizmos.DrawLine(transform.position, transform.position + (transform.forward * turretRange));
+		Gizmos.color = Color.blue;
+		Gizmos.DrawLine(transform.position, transform.position + (transform.forward * (turretRange/2)));
 	}
 	
 	void ResumeFiring()
