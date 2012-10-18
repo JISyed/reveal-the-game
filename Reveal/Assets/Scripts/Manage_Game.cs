@@ -20,7 +20,9 @@ public class Manage_Game : MonoBehaviour {
 	public static float lightRegen = 4.0f;
 	
 	public static bool viewCurrentLevelImage = true;
+	public static bool viewCurrentFadeTime = true;
 	public static float viewCurrentLevelTime = 3.0f;
+	private float viewCurrentLevelImageAlpha = 1.0f;
 	// Public variables editable in Editor
 	public float startXPos = 0.0f;
 	public float startZPos = 0.0f;
@@ -34,6 +36,7 @@ public class Manage_Game : MonoBehaviour {
 	public Texture2D livesImage;
 	
 	public Texture2D currentLevel;
+	public float levelTextureAlpha = 1.0f;
 	
 	public GameObject jingleGameOver;
 	public GameObject jingleWinLevel;
@@ -42,6 +45,8 @@ public class Manage_Game : MonoBehaviour {
 	private GameObject jinglePlayerWinLevel;
 	
 	public static bool infiniteLives = false;
+	
+
 	////////////////////////
 	// Start Event
 	////////////////////////
@@ -67,6 +72,7 @@ public class Manage_Game : MonoBehaviour {
 		
 		audio.Play();
 		viewCurrentLevelImage = true;
+		viewCurrentFadeTime = true;
 		Invoke("FadeLevelImageOut", viewCurrentLevelTime);
 	}
 	
@@ -104,7 +110,6 @@ public class Manage_Game : MonoBehaviour {
 				Application.LoadLevel(Application.loadedLevel);
 			}
 		}
-		
 		
 
 		// Upon no lives it is Game Over
@@ -146,6 +151,7 @@ public class Manage_Game : MonoBehaviour {
 				// Load next level if there is a next level
 				if(Application.loadedLevel < Application.levelCount - 1)
 				{
+					infiniteLives = false;
 					Application.LoadLevel(Application.loadedLevel + 1);
 				}
 				else
@@ -223,14 +229,24 @@ public class Manage_Game : MonoBehaviour {
 				GUI.EndGroup ();
 			}
 			
+			Color loopTemp = GUI.color;
 			if(viewCurrentLevelImage)
 			{
 				GUI.BeginGroup (new Rect((Screen.width/2)-(currentLevel.width/2), Screen.height*0.2f,
 					currentLevel.width, currentLevel.height));
+				
+					Color temp = GUI.color;
+					if(!viewCurrentFadeTime)
+						viewCurrentLevelImageAlpha-=0.005f;
+				
+					temp.a = viewCurrentLevelImageAlpha;
+					GUI.color = temp;
 					GUI.DrawTexture (new Rect(0,0, currentLevel.width, currentLevel.height/2),currentLevel, ScaleMode.StretchToFill);
 				
 				GUI.EndGroup();
 			}
+			
+			GUI.color = loopTemp;
 			//Rect lightCanvas = new Rect(450, 400, lightBar.width, lightBar.height);
 			//GUI.Label(lightCanvas, lightBar);
 		}
@@ -238,6 +254,13 @@ public class Manage_Game : MonoBehaviour {
 	
 	void FadeLevelImageOut()
 	{
+		Invoke ("noSeriouslyLetsGetRidOfIt", 3.0f);
+		viewCurrentFadeTime = false;
+	}
+	
+	void noSeriouslyLetsGetRidOfIt()
+	{
 		viewCurrentLevelImage = false;
+		
 	}
 }
