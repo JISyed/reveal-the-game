@@ -12,10 +12,43 @@ public class Move_360 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		if((Input.GetKey("left")) || (Input.GetKey ("right")))
-			Manage_Game.lightRegen = 0.35f;
+		{
+			switch(Manage_Game.difficulty)
+			{
+			case 1:
+				Manage_Game.lightRegen = 0.7f;
+				break;
+			case 2:
+				Manage_Game.lightRegen = 0.4f;
+				break;
+			case 3:
+				Manage_Game.lightRegen = 0.0f;
+				break;
+			default:
+				Manage_Game.lightRegen = 0.7f;
+				break;
+			}
+		}
 		else
-			Manage_Game.lightRegen = 3.5f;
+		{
+			switch(Manage_Game.difficulty)
+			{
+			case 1:
+				Manage_Game.lightRegen = 7.0f;
+				break;
+			case 2:
+				Manage_Game.lightRegen = 4.0f;
+				break;
+			case 3:
+				Manage_Game.lightRegen = 0.0f;
+				break;
+			default:
+				Manage_Game.lightRegen = 7.0f;
+				break;
+			}
+		}
 		
 		//Debug.Log (Manage_Game.lightRegen);
 		transform.Rotate(Vector3.up * (Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime) );

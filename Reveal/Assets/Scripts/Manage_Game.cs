@@ -14,11 +14,11 @@ public class Manage_Game : MonoBehaviour {
 	public static bool gameOver = false;
 	public static bool winLevel = false;
 	public static float lightCount = 100;
-	public static int helixCost = 15;
+	public static int helixCost = 10;
 	public static Vector3 startPos;
 	public static float respawnTime;
 	public static float lightRegen = 4.0f;
-	
+	public static int difficulty = 1;
 	public static bool viewCurrentLevelImage = true;
 	public static bool viewCurrentFadeTime = true;
 	public static float viewCurrentLevelTime = 3.0f;
@@ -63,6 +63,24 @@ public class Manage_Game : MonoBehaviour {
 		// 'numOfLives' can be accessed by scripts via "Manage_Game.numOfLives".
 		numOfLives = lives;
 		
+		Debug.Log (difficulty);
+	
+		switch(difficulty)
+		{
+		case 1:
+			lightRegen = 7.0f;
+			break;
+		case 2:
+			lightRegen = 4.0f;
+			break;
+		case 3:
+			lightRegen = 0.0f;
+			break;
+		default:
+			lightRegen = 7.0f;
+			break;
+		}
+		Debug.Log (lightRegen);
 		// enable infinite lives if numOfLives == 0
 		if(lives == 0)
 		{
