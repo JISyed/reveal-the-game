@@ -23,6 +23,7 @@ public class Manage_Game : MonoBehaviour {
 	public static bool viewCurrentFadeTime = true;
 	public static float viewCurrentLevelTime = 3.0f;
 	private float viewCurrentLevelImageAlpha = 1.0f;
+	public static bool canMove = true;
 	// Public variables editable in Editor
 	public float startXPos = 0.0f;
 	public float startZPos = 0.0f;
