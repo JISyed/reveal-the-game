@@ -56,6 +56,7 @@ public class Move_360 : MonoBehaviour {
 		// Prevents sudden zipping at start of level
 		//if(Pause_at_Start.gameStarted)
 		//{
+		if(Manage_Game.canMove)
 			rigidbody.AddRelativeForce(Vector3.forward * thrustSpeed * Time.deltaTime);
 		//}
 

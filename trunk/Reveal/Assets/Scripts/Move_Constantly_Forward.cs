@@ -14,10 +14,10 @@ public class Move_Constantly_Forward : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		Vector3 newPosition = transform.position;
-		newPosition.x += Time.deltaTime * speed * transform.forward.x;
-		newPosition.z += Time.deltaTime * speed * transform.forward.z;
-		transform.position = newPosition;
+			Vector3 newPosition = transform.position;
+			newPosition.x += Time.deltaTime * speed * transform.forward.x;
+			newPosition.z += Time.deltaTime * speed * transform.forward.z;
+			transform.position = newPosition;
 		//transform.position += Time.deltaTime * speed * transform.forward;
 		
 	}
