@@ -15,6 +15,7 @@ public class Skip_Tutorial : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
+			Manage_Game.canMove = true;
 			Manage_Game.infiniteLives = false;
 			Application.LoadLevel("Level_One");
 		}
