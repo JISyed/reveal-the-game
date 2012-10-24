@@ -16,11 +16,11 @@ public class Move_Lightwave : MonoBehaviour {
 		if(Manage_Game.colorState == (int) Manage_Game.Colors.red)
 		{
 			// Change light color
-			gameObject.light.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+			gameObject.light.color = new Color(1.0f, 0.0f, 0.0f);
 			
 			// Change material color
 			Renderer jointRender = gameObject.GetComponentInChildren<Renderer>();
-			jointRender.material.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+			jointRender.material.color = new Color(1.0f, 0.0f, 0.0f);
 			
 			// Change color state
 			currentColor = (int) Manage_Game.Colors.red;
