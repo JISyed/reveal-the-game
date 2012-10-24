@@ -14,26 +14,26 @@ public class Change_Prism_Color : MonoBehaviour {
 	{
 		if(Manage_Game.colorState == (int) Manage_Game.Colors.white)
 		{
-			renderer.material.color = new Color(1.0f, 1.0f, 1.0f);
-			light.color = new Color(1.0f, 1.0f, 1.0f);
+			renderer.material.color = Manage_Game.col_white;
+			light.color = Manage_Game.col_white;
 		}
 		
 		if(Manage_Game.colorState == (int) Manage_Game.Colors.red)
 		{
-			renderer.material.color = new Color(1.0f, 0.0f, 0.0f);
-			light.color = new Color(1.0f, 0.0f, 0.0f);
+			renderer.material.color = Manage_Game.col_red;
+			light.color = Manage_Game.col_red;
 		}
 		
 		if(Manage_Game.colorState == (int) Manage_Game.Colors.green)
 		{
-			renderer.material.color = new Color(0.0f, 1.0f, 0.0f);
-			light.color = new Color(0.0f, 1.0f, 0.0f);
+			renderer.material.color = Manage_Game.col_green;
+			light.color = Manage_Game.col_green;
 		}
 		
 		if(Manage_Game.colorState == (int) Manage_Game.Colors.blue)
 		{
-			renderer.material.color = new Color(0.0f, 0.0f, 1.0f);
-			light.color = new Color(0.0f, 0.0f, 1.0f);
+			renderer.material.color = Manage_Game.col_blue;
+			light.color = Manage_Game.col_blue;
 		}
 	}
 }
