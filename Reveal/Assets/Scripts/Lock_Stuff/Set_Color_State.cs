@@ -17,6 +17,7 @@ public class Set_Color_State : MonoBehaviour {
 	
 	}
 	
+	// When player hits gem
 	void OnTriggerEnter(Collider other)
 	{
 		if(colorToChangeInto == "Red" || colorToChangeInto == "red")

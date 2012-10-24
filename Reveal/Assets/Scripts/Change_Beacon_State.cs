@@ -21,9 +21,11 @@ public class Change_Beacon_State : MonoBehaviour
 	private bool isFlickeringQuickly = false;
 	private bool lightDimmingColorSet = false;
 	
+	private int colorState = (int) Manage_Game.Colors.white;
+	
 	// Use this for initialization
-	void Start () {
-
+	void Start () 
+	{
 		activated = false;
 		renderer.material = matDim;
 		light.enabled = false;
@@ -38,7 +40,7 @@ public class Change_Beacon_State : MonoBehaviour
 		if(dimLightEnable)
 		{
 			// Dim the light's color depending on color state
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+			if(colorState == (int) Manage_Game.Colors.white)
 			{
 				if(lightDimmingColorSet == false)
 				{
@@ -49,7 +51,7 @@ public class Change_Beacon_State : MonoBehaviour
 				renderer.light.color -= Color.white / 2.0f * Time.deltaTime;
 				renderer.material.color -= Color.grey / 2.0f * Time.deltaTime;
 			}
-			else if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+			else if(colorState == (int) Manage_Game.Colors.red)
 			{
 				if(lightDimmingColorSet == false)
 				{
@@ -60,7 +62,7 @@ public class Change_Beacon_State : MonoBehaviour
 				renderer.light.color -= Color.red / 2.0f * Time.deltaTime;
 				renderer.material.color -= Color.red / 2.0f * Time.deltaTime;
 			}
-			else if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+			else if(colorState == (int) Manage_Game.Colors.green)
 			{
 				if(lightDimmingColorSet == false)
 				{
@@ -71,7 +73,7 @@ public class Change_Beacon_State : MonoBehaviour
 				renderer.light.color -= Color.green / 2.0f * Time.deltaTime;
 				renderer.material.color -= Color.green / 2.0f * Time.deltaTime;
 			}
-			else if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+			else if(colorState == (int) Manage_Game.Colors.blue)
 			{
 				if(lightDimmingColorSet == false)
 				{
@@ -98,6 +100,7 @@ public class Change_Beacon_State : MonoBehaviour
 	{
 		renderer.light.color = originalLightColor;
 		renderer.material = matDim;
+		colorState = (int) Manage_Game.Colors.white;
 		callThisFunctionOnce = true;
 		dimLightEnable = false;
 		light.enabled = false;
@@ -124,6 +127,7 @@ public class Change_Beacon_State : MonoBehaviour
 				renderer.material.color = Manage_Game.col_white;
 				light.color = Manage_Game.col_white;
 				Instantiate(ingPrt_White, transform.position, transform.rotation);
+				colorState = (int) Manage_Game.Colors.white;
 			}
 			
 			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
@@ -131,6 +135,7 @@ public class Change_Beacon_State : MonoBehaviour
 				renderer.material.color = Manage_Game.col_red;
 				light.color = Manage_Game.col_red;
 				Instantiate(ingPrt_Red, transform.position, transform.rotation);
+				colorState = (int) Manage_Game.Colors.red;
 			}
 			
 			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
@@ -138,6 +143,7 @@ public class Change_Beacon_State : MonoBehaviour
 				renderer.material.color = Manage_Game.col_green;
 				light.color = Manage_Game.col_green;
 				Instantiate(ingPrt_Green, transform.position, transform.rotation);
+				colorState = (int) Manage_Game.Colors.green;
 			}
 			
 			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
@@ -145,6 +151,7 @@ public class Change_Beacon_State : MonoBehaviour
 				renderer.material.color = Manage_Game.col_blue;
 				light.color = Manage_Game.col_blue;
 				Instantiate(ingPrt_Blue, transform.position, transform.rotation);
+				colorState = (int) Manage_Game.Colors.blue;
 			}
 			
 			// It's only activated for a certain time
@@ -183,7 +190,6 @@ public class Change_Beacon_State : MonoBehaviour
 		{
 			isFlickeringQuickly = false;		
 			Invoke ("FlickerDim",0.0f);
-			//;
 		}
 	}
 	
@@ -231,16 +237,16 @@ public class Change_Beacon_State : MonoBehaviour
 		{
 			renderer.material = matBright;
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+			if(colorState == (int) Manage_Game.Colors.white)
 				renderer.material.color = Manage_Game.col_white;
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+			if(colorState == (int) Manage_Game.Colors.red)
 				renderer.material.color = Manage_Game.col_red;
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+			if(colorState == (int) Manage_Game.Colors.green)
 				renderer.material.color = Manage_Game.col_green;
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+			if(colorState == (int) Manage_Game.Colors.blue)
 				renderer.material.color = Manage_Game.col_blue;
 		}
 	}
@@ -251,16 +257,16 @@ public class Change_Beacon_State : MonoBehaviour
 		{
 			renderer.material = matDim;
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+			if(colorState == (int) Manage_Game.Colors.white)
 				renderer.material.color = new Color (0.4f, 0.4f, 0.4f);
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+			if(colorState == (int) Manage_Game.Colors.red)
 				renderer.material.color = new Color (0.4f, 0.0f, 0.0f);
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+			if(colorState == (int) Manage_Game.Colors.green)
 				renderer.material.color = new Color (0.0f, 0.4f, 0.0f);
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+			if(colorState == (int) Manage_Game.Colors.blue)
 				renderer.material.color = new Color (0.0f, 0.0f, 0.4f);
 		}
 	}
@@ -271,16 +277,16 @@ public class Change_Beacon_State : MonoBehaviour
 		{
 			renderer.material = matBright;
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+			if(colorState == (int) Manage_Game.Colors.white)
 				renderer.material.color = Manage_Game.col_white;
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+			if(colorState == (int) Manage_Game.Colors.red)
 				renderer.material.color = Manage_Game.col_red;
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+			if(colorState == (int) Manage_Game.Colors.green)
 				renderer.material.color = Manage_Game.col_green;
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+			if(colorState == (int) Manage_Game.Colors.blue)
 				renderer.material.color = Manage_Game.col_blue;
 		}
 	}
@@ -291,16 +297,16 @@ public class Change_Beacon_State : MonoBehaviour
 		{
 			renderer.material = matDim;
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+			if(colorState == (int) Manage_Game.Colors.white)
 				renderer.material.color = new Color (0.4f, 0.4f, 0.4f);
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+			if(colorState == (int) Manage_Game.Colors.red)
 				renderer.material.color = new Color (0.4f, 0.0f, 0.0f);
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+			if(colorState == (int) Manage_Game.Colors.green)
 				renderer.material.color = new Color (0.0f, 0.4f, 0.0f);
 			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+			if(colorState == (int) Manage_Game.Colors.blue)
 				renderer.material.color = new Color (0.0f, 0.0f, 0.4f);
 		}
 	}
