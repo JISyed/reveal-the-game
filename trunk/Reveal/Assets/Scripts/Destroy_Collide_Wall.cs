@@ -41,6 +41,8 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 			        	other.gameObject.transform.rotation);
 		
 			Destroy(other.gameObject);
+			
+			Manage_Game.colorState = (int) Manage_Game.Colors.white;
 		
 			Invoke("RevivePrism", Manage_Game.respawnTime);
 		}
