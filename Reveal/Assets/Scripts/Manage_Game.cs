@@ -47,6 +47,8 @@ public class Manage_Game : MonoBehaviour {
 	
 	public static bool infiniteLives = false;
 	
+	public enum Colors {white, red, blue, green};
+	public static int colorState = (int) Colors.white;
 
 	////////////////////////
 	// Start Event
