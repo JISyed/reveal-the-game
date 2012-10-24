@@ -49,7 +49,16 @@ public class Manage_Game : MonoBehaviour {
 	
 	public enum Colors {white, red, blue, green};
 	public static int colorState = (int) Colors.white;
-
+	
+	////////////////////////
+	// Colors
+	////////////////////////
+	
+	public static Color col_white = new Color(1.0f, 1.0f, 1.0f);
+	public static Color col_red = new Color(1.0f, 0.0f, 0.0f);
+	public static Color col_green = new Color(0.0f, 1.0f, 0.0f);
+	public static Color col_blue = new Color(0.0f, 0.0f, 1.0f);
+	
 	////////////////////////
 	// Start Event
 	////////////////////////
@@ -66,7 +75,7 @@ public class Manage_Game : MonoBehaviour {
 		// 'numOfLives' can be accessed by scripts via "Manage_Game.numOfLives".
 		numOfLives = lives;
 		
-		Debug.Log (difficulty);
+		//Debug.Log (difficulty);
 	
 		switch(difficulty)
 		{
@@ -83,7 +92,7 @@ public class Manage_Game : MonoBehaviour {
 			lightRegen = 7.0f;
 			break;
 		}
-		Debug.Log (lightRegen);
+		//Debug.Log (lightRegen);
 		// enable infinite lives if numOfLives == 0
 		if(lives == 0)
 		{

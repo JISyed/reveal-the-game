@@ -12,10 +12,14 @@ public class Change_Beacon_State : MonoBehaviour
 	public bool callThisFunctionOnce = true;
 	public Color originalLightColor;
 	public Material originalMaterial;
-	public GameObject ignitionParticles;
+	public GameObject ingPrt_White;
+	public GameObject ingPrt_Red;
+	public GameObject ingPrt_Green;
+	public GameObject ingPrt_Blue;
 	
 	private bool activated;
 	private bool isFlickeringQuickly = false;
+	private bool lightDimmingColorSet = false;
 	
 	// Use this for initialization
 	void Start () {
@@ -33,8 +37,53 @@ public class Change_Beacon_State : MonoBehaviour
 	void Update () {
 		if(dimLightEnable)
 		{
-			renderer.light.color -= Color.white / 2.0f * Time.deltaTime;
-			renderer.material.color -= Color.grey / 2.0f * Time.deltaTime;
+			// Dim the light's color depending on color state
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+			{
+				if(lightDimmingColorSet == false)
+				{
+					lightDimmingColorSet = true;
+					renderer.material.color = Manage_Game.col_white;
+					light.color = Manage_Game.col_white;
+				}
+				renderer.light.color -= Color.white / 2.0f * Time.deltaTime;
+				renderer.material.color -= Color.grey / 2.0f * Time.deltaTime;
+			}
+			else if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+			{
+				if(lightDimmingColorSet == false)
+				{
+					lightDimmingColorSet = true;
+					renderer.material.color = Manage_Game.col_red;
+					light.color = Manage_Game.col_red;
+				}
+				renderer.light.color -= Color.red / 2.0f * Time.deltaTime;
+				renderer.material.color -= Color.red / 2.0f * Time.deltaTime;
+			}
+			else if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+			{
+				if(lightDimmingColorSet == false)
+				{
+					lightDimmingColorSet = true;
+					renderer.material.color = Manage_Game.col_green;
+					light.color = Manage_Game.col_green;
+				}
+				renderer.light.color -= Color.green / 2.0f * Time.deltaTime;
+				renderer.material.color -= Color.green / 2.0f * Time.deltaTime;
+			}
+			else if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+			{
+				if(lightDimmingColorSet == false)
+				{
+					lightDimmingColorSet = true;
+					renderer.material.color = Manage_Game.col_blue;
+					light.color = Manage_Game.col_blue;
+				}
+				renderer.light.color -= Color.blue / 2.0f * Time.deltaTime;
+				renderer.material.color -= Color.blue / 2.0f * Time.deltaTime;
+			}
+			
+			// Stop dimming
 			if(callThisFunctionOnce)
 			{
 				callThisFunctionOnce = false;
@@ -53,6 +102,7 @@ public class Change_Beacon_State : MonoBehaviour
 		dimLightEnable = false;
 		light.enabled = false;
 		activated = false;
+		lightDimmingColorSet = false;
 	}
 	
 	void OnTriggerEnter(Collider other)
@@ -64,9 +114,38 @@ public class Change_Beacon_State : MonoBehaviour
 		{
 			audio.Play ();
 			activated = true;
+			
 			renderer.material = matBright;
 			light.enabled = true;
-			Instantiate(ignitionParticles, transform.position, transform.rotation);
+			
+			// Change state of colors depending on color of beam
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+			{
+				renderer.material.color = Manage_Game.col_white;
+				light.color = Manage_Game.col_white;
+				Instantiate(ingPrt_White, transform.position, transform.rotation);
+			}
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+			{
+				renderer.material.color = Manage_Game.col_red;
+				light.color = Manage_Game.col_red;
+				Instantiate(ingPrt_Red, transform.position, transform.rotation);
+			}
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+			{
+				renderer.material.color = Manage_Game.col_green;
+				light.color = Manage_Game.col_green;
+				Instantiate(ingPrt_Green, transform.position, transform.rotation);
+			}
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+			{
+				renderer.material.color = Manage_Game.col_blue;
+				light.color = Manage_Game.col_blue;
+				Instantiate(ingPrt_Blue, transform.position, transform.rotation);
+			}
 			
 			// It's only activated for a certain time
 			Invoke("DeactivateBeacon", deactivationTimeInSeconds);
@@ -102,9 +181,7 @@ public class Change_Beacon_State : MonoBehaviour
 	{
 		if(activated)
 		{
-			
-			isFlickeringQuickly = false;
-			//renderer.material = matDim;
+			isFlickeringQuickly = false;		
 			Invoke ("FlickerDim",0.0f);
 			//;
 		}
@@ -151,25 +228,81 @@ public class Change_Beacon_State : MonoBehaviour
 	void FlickerSlowlyOn()
 	{
 		if(!isFlickeringQuickly && activated)
+		{
 			renderer.material = matBright;
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+				renderer.material.color = Manage_Game.col_white;
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+				renderer.material.color = Manage_Game.col_red;
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+				renderer.material.color = Manage_Game.col_green;
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+				renderer.material.color = Manage_Game.col_blue;
+		}
 	}
 	
 	void FlickerSlowlyOff()
 	{
 		if(!isFlickeringQuickly && activated)
+		{
 			renderer.material = matDim;
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+				renderer.material.color = new Color (0.4f, 0.4f, 0.4f);
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+				renderer.material.color = new Color (0.4f, 0.0f, 0.0f);
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+				renderer.material.color = new Color (0.0f, 0.4f, 0.0f);
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+				renderer.material.color = new Color (0.0f, 0.0f, 0.4f);
+		}
 	}
 	
 	void FlickerQuicklyOn()
 	{
 		if(activated)
+		{
 			renderer.material = matBright;
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+				renderer.material.color = Manage_Game.col_white;
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+				renderer.material.color = Manage_Game.col_red;
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+				renderer.material.color = Manage_Game.col_green;
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+				renderer.material.color = Manage_Game.col_blue;
+		}
 	}
 	
 	void FlickerQuicklyOff()
 	{
 		if(activated)
+		{
 			renderer.material = matDim;
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+				renderer.material.color = new Color (0.4f, 0.4f, 0.4f);
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+				renderer.material.color = new Color (0.4f, 0.0f, 0.0f);
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+				renderer.material.color = new Color (0.0f, 0.4f, 0.0f);
+			
+			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+				renderer.material.color = new Color (0.0f, 0.0f, 0.4f);
+		}
 	}
 	
 }

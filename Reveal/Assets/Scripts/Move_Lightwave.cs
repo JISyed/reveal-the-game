@@ -13,17 +13,56 @@ public class Move_Lightwave : MonoBehaviour {
 		audio.Play ();
 		
 		// Change color depending on color state
-		if(Manage_Game.colorState == (int) Manage_Game.Colors.red)
+		if(Manage_Game.colorState == (int) Manage_Game.Colors.white)
 		{
 			// Change light color
-			gameObject.light.color = new Color(1.0f, 0.0f, 0.0f);
+			gameObject.light.color = Manage_Game.col_white;
 			
 			// Change material color
 			Renderer jointRender = gameObject.GetComponentInChildren<Renderer>();
-			jointRender.material.color = new Color(1.0f, 0.0f, 0.0f);
+			jointRender.material.color = Manage_Game.col_white;
+			
+			// Change color state
+			currentColor = (int) Manage_Game.Colors.white;
+		}
+		
+		if(Manage_Game.colorState == (int) Manage_Game.Colors.red)
+		{
+			// Change light color
+			gameObject.light.color = Manage_Game.col_red;
+			
+			// Change material color
+			Renderer jointRender = gameObject.GetComponentInChildren<Renderer>();
+			jointRender.material.color = Manage_Game.col_red;
 			
 			// Change color state
 			currentColor = (int) Manage_Game.Colors.red;
+		}
+		
+		if(Manage_Game.colorState == (int) Manage_Game.Colors.green)
+		{
+			// Change light color
+			gameObject.light.color = Manage_Game.col_green;
+			
+			// Change material color
+			Renderer jointRender = gameObject.GetComponentInChildren<Renderer>();
+			jointRender.material.color = Manage_Game.col_green;
+			
+			// Change color state
+			currentColor = (int) Manage_Game.Colors.green;
+		}
+		
+		if(Manage_Game.colorState == (int) Manage_Game.Colors.blue)
+		{
+			// Change light color
+			gameObject.light.color = Manage_Game.col_blue;
+			
+			// Change material color
+			Renderer jointRender = gameObject.GetComponentInChildren<Renderer>();
+			jointRender.material.color = Manage_Game.col_blue;
+			
+			// Change color state
+			currentColor = (int) Manage_Game.Colors.blue;
 		}
 	}
 	
