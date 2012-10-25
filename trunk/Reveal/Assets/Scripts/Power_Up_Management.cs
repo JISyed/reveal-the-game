@@ -6,7 +6,7 @@ public class Power_Up_Management : MonoBehaviour {
 	float tempPuNitro;
 	float tempPuJuice;
 	float tempEcoBoost;
-	float tempBeamGatling;
+	int tempBeamGatling;
 	// Use this for initialization
 	void Start () {
 		pu_ExtraLife();
@@ -107,13 +107,11 @@ public class Power_Up_Management : MonoBehaviour {
 	}
 	void pu_BeamGatling()
 	{
-		isStillBeamGatling = true;
 		tempBeamGatling = Manage_Game.helixCost;
 		Manage_Game.helixCost /= 2;		
 	}
 	void pu_EcoBoost()
 	{
-		isStillEcoBoost = true;
 		tempEcoBoost = Manage_Game.playerBoostCost;
 		Manage_Game.playerBoostCost /= 2;
 	}
