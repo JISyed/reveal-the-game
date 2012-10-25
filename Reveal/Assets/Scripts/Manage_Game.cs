@@ -10,6 +10,7 @@ public class Manage_Game : MonoBehaviour {
 	
 	// Static means shared across instances of GameManager GameObject
 	// CANNOT be adjusted in Unity Editor!!!!
+	public static float playerBoostCost = 11.0f;
 	public static int numOfLives;
 	public static bool gameOver = false;
 	public static bool winLevel = false;
@@ -194,7 +195,7 @@ public class Manage_Game : MonoBehaviour {
 		lightCount += (lightRegen * Time.deltaTime);
 		
 		if(Player_Boost.onThrust)
-			lightCount -= (11 * Time.deltaTime);
+			lightCount -= (playerBoostCost * Time.deltaTime);
 		
 		if(lightCount > 100)
 			lightCount = 100;
