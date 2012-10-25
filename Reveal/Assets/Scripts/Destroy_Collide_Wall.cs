@@ -9,7 +9,6 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 	public GameObject player;
 	public GameObject deathParticles;
 	public GameObject soundPlayer;
-	// public string levelName;
 	
 	void Start() {}
 	

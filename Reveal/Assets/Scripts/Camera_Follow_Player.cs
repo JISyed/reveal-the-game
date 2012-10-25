@@ -21,9 +21,9 @@ public class Camera_Follow_Player : MonoBehaviour {
 		}
 		else if ((!thePlayer) && (Manage_Game.gameOver))
 		{
-			newPosition.x = 0;
-			newPosition.z = 0;
-			newPosition.y = cameraHeight;
+			//newPosition.x = 0;
+			//newPosition.z = 0;
+			//newPosition.y = cameraHeight;
 		}
 		else
 		{
