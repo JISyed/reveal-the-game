@@ -7,20 +7,24 @@ public class Power_Up_Management : MonoBehaviour {
 	float tempPuJuice;
 	float tempEcoBoost;
 	int tempBeamGatling;
+	
 	// Use this for initialization
-	void Start () {
-		pu_ExtraLife();
+	void Start () 
+	{
+		pu_ExtraLife(); // An extra life is given at start of a level?
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		if(Manage_Game.lightCount < 3)
 		{
 			pu_BeamGatlingDisable();
 			pu_EcoBoostDisable();
-		}
-		
+		}	
 	}
+	
+	// Get's passed from powerup GameObjects
 	void CallValue(int i)
 	{
 		switch(i)
@@ -67,6 +71,8 @@ public class Power_Up_Management : MonoBehaviour {
 			
 		}
 	}
+	
+	// Powerup functions
 	void pu_PrismCell()
 	{
 		
