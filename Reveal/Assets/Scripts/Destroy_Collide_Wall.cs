@@ -45,6 +45,20 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 		
 			Invoke("RevivePrism", Manage_Game.respawnTime);
 		}
+		
+		if(gameObject.name == "Turret_Bullet(Clone)" && 
+			(other.gameObject.name == "Player_Prism" || other.gameObject.name == "Player_Prism(Clone)"))
+		{
+			renderer.enabled = false;
+			collider.enabled = false;
+		}
+		
+		if(gameObject.name == "Turret_Bullet_Charged(Clone)" &&
+			(other.gameObject.name == "Player_Prism" || other.gameObject.name == "Player_Prism(Clone)"))
+		{
+			renderer.enabled = false;
+			collider.enabled = false;
+		}
 	}
 	
 	void RevivePrism()
