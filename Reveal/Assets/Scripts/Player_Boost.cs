@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Player_Boost : MonoBehaviour {
 	
-	public static bool onThrust = false;
+	public static bool onThrust = false; // True if player is boosting
+	public static bool boostEffectEnabled = false;
 	
 	public float boostMultiplier = 2.5f;
 	public float defaultSlowSpeed = 700.0f;
@@ -26,26 +27,47 @@ public class Player_Boost : MonoBehaviour {
 			{
 				Move_360.thrustSpeed *= boostMultiplier;
 				onThrust = true;
-				gameObject.audio.Play();
-				
 			}
 			
 			if(Manage_Game.lightCount <= 0)
 			{
 				Move_360.thrustSpeed = defaultSlowSpeed;
 				onThrust = false;
+				boostEffectEnabled = false;
+				gameObject.audio.Stop();
+				gameObject.audio.time = 0.0f;
+			}
+			
+			if(boostEffectEnabled)
+			{
+				gameObject.audio.Play();
+			}
+			else
+			{
 				gameObject.audio.Stop();
 				gameObject.audio.time = 0.0f;
 			}
 			
 		}
 		
-		if(Input.GetButtonUp("Fire2") && onThrust)
+		if(Input.GetButtonUp("Fire2"))
 		{
-			Move_360.thrustSpeed = defaultSlowSpeed;
-			onThrust = false;
 			gameObject.audio.Stop();
 			gameObject.audio.time = 0.0f;
+			boostEffectEnabled = true;
+			
+			if (onThrust)
+			{
+				Move_360.thrustSpeed = defaultSlowSpeed;
+				onThrust = false;
+				gameObject.audio.Stop();
+				gameObject.audio.time = 0.0f;
+			}
+		}
+		
+		if(!onThrust)
+		{
+			gameObject.audio.Stop();
 		}
 	}
 }
