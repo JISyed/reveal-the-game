@@ -1,29 +1,31 @@
 using UnityEngine;
 using System.Collections;
 
-public class Radiate_Bullet_with_Light : MonoBehaviour {
+public class Collide_with_Powerups : MonoBehaviour {
 	
-	public GameObject newBullet;
+	
+	
 	// Use this for initialization
 	void Start () 
 	{
-	
+		
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-	
+		
 	}
 	
+	// Collision (powerup is a trigger)
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.name == "LightBeam(Clone)")
+		if(other.tag == "Powerup")
 		{
-			Instantiate(newBullet, transform.position, other.transform.rotation);
+			// Handle collisions with powerups  <--
 			Destroy(other.gameObject);
-			Destroy(gameObject);
 		}
+		
 	}
 	
 }

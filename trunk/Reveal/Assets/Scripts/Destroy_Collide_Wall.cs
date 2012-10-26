@@ -59,6 +59,13 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 			renderer.enabled = false;
 			collider.enabled = false;
 		}
+		
+		if(gameObject.tag == "Wall_Piece" &&
+			(other.gameObject.name == "Turret_Bullet(Clone)" || other.gameObject.name == "Turret_Bullet_Charged(Clone)") )
+		{
+			other.gameObject.collider.enabled = false;
+			other.gameObject.renderer.enabled = false;
+		}
 	}
 	
 	void RevivePrism()
