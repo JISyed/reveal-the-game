@@ -55,7 +55,7 @@ public class Manage_Turret : MonoBehaviour {
 					if(alreadyFired == false)
 					{
 						alreadyFired = true;
-						bulletReference = Instantiate(turretBullet, transform.position + barrelReference.transform.forward * 5f, transform.rotation) as GameObject;
+						bulletReference = Instantiate(turretBullet, transform.position + barrelReference.transform.forward * 8f, transform.rotation) as GameObject;
 						bulletReference.transform.LookAt(playerTransform);
 						Invoke("ResumeFiring", shotTimeInterval);
 					}
