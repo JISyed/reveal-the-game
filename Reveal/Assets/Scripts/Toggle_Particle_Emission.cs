@@ -8,7 +8,7 @@ using System.Collections;
 
 public class Toggle_Particle_Emission : MonoBehaviour {
 	
-	public static ParticleSystem myParticles;
+	private ParticleSystem myParticles;
 	
 	// Use this for initialization
 	void Start () 
