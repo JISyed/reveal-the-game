@@ -38,5 +38,9 @@ public class Handle_Cracked_Walls : MonoBehaviour {
 			Destroy(other.gameObject);
 			health--;
 		}
+		if(other.gameObject.name == "Turret_Bullet(Clone)")
+		{
+			Destroy(other.gameObject);
+		}
 	}
 }
