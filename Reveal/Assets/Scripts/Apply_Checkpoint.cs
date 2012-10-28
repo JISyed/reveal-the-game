@@ -2,7 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 public class Apply_Checkpoint : MonoBehaviour {
-
+	
+	private bool checkpointAlreadyReached = false;
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -18,7 +20,12 @@ public class Apply_Checkpoint : MonoBehaviour {
 	// Collision
 	void OnTriggerEnter(Collider other)
 	{
-		
+		// Set new checkpoint
+		if(checkpointAlreadyReached == false)
+		{
+			checkpointAlreadyReached = true;
+			Manage_Game.startPos = transform.position;
+		}
 	}
 	
 	// Gizmos
