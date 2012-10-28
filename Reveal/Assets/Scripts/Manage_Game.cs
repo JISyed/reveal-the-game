@@ -255,6 +255,10 @@ public class Manage_Game : MonoBehaviour {
 				GUI.BeginGroup (new Rect(Screen.width-180, Screen.height-65, 150, 50));
 				for(int i = 0; i < numOfLives; i++)
 				{
+					Color temp = GUI.color;
+					if(Pause_Menu.isPaused)
+						temp.a = 0.1f;
+					GUI.color = temp;
 					GUI.DrawTexture (new Rect( (100-i*50),0,50,50),livesImage);
 				}
 				GUI.EndGroup ();
