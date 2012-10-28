@@ -110,7 +110,7 @@ public class Change_Beacon_State : MonoBehaviour
 	
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.name == "Lightbeam(Clone)" ||
+		if(other.gameObject.name == "LightBeam(Clone)" ||
 		   other.gameObject.name == "Turret_Bullet_Charged(Clone)")
 		{
 			
