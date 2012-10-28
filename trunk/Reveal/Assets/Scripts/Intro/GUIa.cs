@@ -20,10 +20,14 @@ public class GUIa : MonoBehaviour {
 	void Start()
 	{
 		alpha = 1.0f;
-		didItAlready = false;	
+		didItAlready = false;
+		isSelection = false;
+		isSelectionFadeOut = false;
+		selectionNumber = 1;
 	}
 	void OnGUI()
 	{
+
 		if(!isSelection)
 		{
 			Rect splashCanvas = new Rect((Screen.width/2.0f) - (introGUI.width/2.0f),
@@ -33,7 +37,7 @@ public class GUIa : MonoBehaviour {
 			Color temp = GUI.color;
 			if(didItAlready)
 			{
-				alpha -= 0.005f; //Please change this, stupidest thing ever
+				alpha -= 0.015f; //Please change this, stupidest thing ever
 				if(alpha < 0)
 					alpha = 0;
 			}
@@ -43,6 +47,7 @@ public class GUIa : MonoBehaviour {
 		}
 		else
 		{
+			
 			switch(selectionNumber)
 			{
 				case 1:
@@ -67,13 +72,13 @@ public class GUIa : MonoBehaviour {
 			Color temp = GUI.color;
 			if(didItAlready && alpha <= 1 && isSelectionFadeOut != true)
 			{
-				alpha += 0.005f; //Please change this, stupidest thing ever
+				alpha += 0.015f; //Please change this, stupidest thing ever
 				if(alpha > 1)
 					alpha = 1;
 			}
 			else if(didItAlready && alpha <= 1 && isSelectionFadeOut == true)
 			{
-				alpha -= 0.005f; //Please change this, stupidest thing ever
+				alpha -= 0.015f; //Please change this, stupidest thing ever
 				if(alpha < 0)
 					alpha = 0;
 			}
@@ -89,13 +94,13 @@ public class GUIa : MonoBehaviour {
 		if((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7")) && didItAlready != true)
 		{
 			didItAlready = true;
-			Invoke ("goAhead", 3.0f);
+			Invoke ("goAhead", 1.0f);
 		}
 		
 		if((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7")) && didItAlready == true && isSelection == true)
 		{
 			isSelectionFadeOut = true;
-			Invoke ("loadFirstOne", 3.0f);
+			Invoke ("loadFirstOne", 1.0f);
 		}
 		if(Input.GetKeyDown(KeyCode.DownArrow))
 			selectionNumber++;
