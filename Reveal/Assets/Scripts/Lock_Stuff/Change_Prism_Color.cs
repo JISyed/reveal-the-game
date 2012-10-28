@@ -16,7 +16,7 @@ public class Change_Prism_Color : MonoBehaviour {
 		{
 			renderer.material.color = Manage_Game.col_white;
 			light.color = Manage_Game.col_white;
-			light.range = 21f;
+			light.range = 25f;
 			light.intensity = 0.56f;
 		}
 		
@@ -24,7 +24,7 @@ public class Change_Prism_Color : MonoBehaviour {
 		{
 			renderer.material.color = Manage_Game.col_red;
 			light.color = Manage_Game.col_red;
-			light.range = 27f;
+			light.range = 31f;
 			light.intensity = 0.59f;
 		}
 		
@@ -32,7 +32,7 @@ public class Change_Prism_Color : MonoBehaviour {
 		{
 			renderer.material.color = Manage_Game.col_green;
 			light.color = Manage_Game.col_green;
-			light.range = 25f;
+			light.range = 29f;
 			light.intensity = 0.57f;
 		}
 		
@@ -40,7 +40,7 @@ public class Change_Prism_Color : MonoBehaviour {
 		{
 			renderer.material.color = Manage_Game.col_blue;
 			light.color = Manage_Game.col_blue;
-			light.range = 30f;
+			light.range = 34f;
 			light.intensity = 0.62f;
 		}
 	}

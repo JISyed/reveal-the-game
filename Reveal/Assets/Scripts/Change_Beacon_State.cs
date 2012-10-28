@@ -110,70 +110,75 @@ public class Change_Beacon_State : MonoBehaviour
 	
 	void OnTriggerEnter(Collider other)
 	{
-		Destroy(other.gameObject); // Suppose to destroy lightwaves
-
-		// Change to state of the beacon
-		if (!activated)
+		if(other.gameObject.name == "Lightbeam(Clone)" ||
+		   other.gameObject.name == "Turret_Bullet_Charged(Clone)")
 		{
-			audio.Play ();
-			activated = true;
 			
-			renderer.material = matBright;
-			light.enabled = true;
-			
-			// Change state of colors depending on color of beam
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+			Destroy(other.gameObject); // Suppose to destroy lightwaves
+	
+			// Change to state of the beacon
+			if (!activated)
 			{
-				renderer.material.color = Manage_Game.col_white;
-				light.color = Manage_Game.col_white;
-				Instantiate(ingPrt_White, transform.position, transform.rotation);
-				colorState = (int) Manage_Game.Colors.white;
-			}
-			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
-			{
-				renderer.material.color = Manage_Game.col_red;
-				light.color = Manage_Game.col_red;
-				Instantiate(ingPrt_Red, transform.position, transform.rotation);
-				colorState = (int) Manage_Game.Colors.red;
-			}
-			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
-			{
-				renderer.material.color = Manage_Game.col_green;
-				light.color = Manage_Game.col_green;
-				Instantiate(ingPrt_Green, transform.position, transform.rotation);
-				colorState = (int) Manage_Game.Colors.green;
-			}
-			
-			if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
-			{
-				renderer.material.color = Manage_Game.col_blue;
-				light.color = Manage_Game.col_blue;
-				Instantiate(ingPrt_Blue, transform.position, transform.rotation);
-				colorState = (int) Manage_Game.Colors.blue;
-			}
-			
-			// It's only activated for a certain time
-			Invoke("DeactivateBeacon", deactivationTimeInSeconds);
-			
-			// Make beacon flicker in last 3 seconds of activation.
-			if(deactivationTimeInSeconds > 3)
-			{
-				// Invoke in last 3 seconds
-				Invoke("FlickerSlowly", deactivationTimeInSeconds - 3.0f);
-				Invoke("FlickerQuickly", deactivationTimeInSeconds - 1.0f);
-			}
-			// 
-			else if(deactivationTimeInSeconds < 3 && deactivationTimeInSeconds > 1)
-			{
-				// Invoke immediatly
-				Invoke("FlickerSlowly", 0.0f);
-				Invoke("FlickerQuickly", deactivationTimeInSeconds - 1.0f);
-			}	
-			else
-			{
-				Invoke("FlickerQuickly", 0.0f);
+				audio.Play ();
+				activated = true;
+				
+				renderer.material = matBright;
+				light.enabled = true;
+				
+				// Change state of colors depending on color of beam
+				if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.white)
+				{
+					renderer.material.color = Manage_Game.col_white;
+					light.color = Manage_Game.col_white;
+					Instantiate(ingPrt_White, transform.position, transform.rotation);
+					colorState = (int) Manage_Game.Colors.white;
+				}
+				
+				if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.red)
+				{
+					renderer.material.color = Manage_Game.col_red;
+					light.color = Manage_Game.col_red;
+					Instantiate(ingPrt_Red, transform.position, transform.rotation);
+					colorState = (int) Manage_Game.Colors.red;
+				}
+				
+				if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.green)
+				{
+					renderer.material.color = Manage_Game.col_green;
+					light.color = Manage_Game.col_green;
+					Instantiate(ingPrt_Green, transform.position, transform.rotation);
+					colorState = (int) Manage_Game.Colors.green;
+				}
+				
+				if(Move_Lightwave.currentColor == (int) Manage_Game.Colors.blue)
+				{
+					renderer.material.color = Manage_Game.col_blue;
+					light.color = Manage_Game.col_blue;
+					Instantiate(ingPrt_Blue, transform.position, transform.rotation);
+					colorState = (int) Manage_Game.Colors.blue;
+				}
+				
+				// It's only activated for a certain time
+				Invoke("DeactivateBeacon", deactivationTimeInSeconds);
+				
+				// Make beacon flicker in last 3 seconds of activation.
+				if(deactivationTimeInSeconds > 3)
+				{
+					// Invoke in last 3 seconds
+					Invoke("FlickerSlowly", deactivationTimeInSeconds - 3.0f);
+					Invoke("FlickerQuickly", deactivationTimeInSeconds - 1.0f);
+				}
+				// 
+				else if(deactivationTimeInSeconds < 3 && deactivationTimeInSeconds > 1)
+				{
+					// Invoke immediatly
+					Invoke("FlickerSlowly", 0.0f);
+					Invoke("FlickerQuickly", deactivationTimeInSeconds - 1.0f);
+				}	
+				else
+				{
+					Invoke("FlickerQuickly", 0.0f);
+				}
 			}
 		}
 	}
