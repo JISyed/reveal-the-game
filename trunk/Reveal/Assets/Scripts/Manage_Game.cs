@@ -24,6 +24,17 @@ public class Manage_Game : MonoBehaviour {
 	public static bool viewCurrentFadeTime = true;
 	public static float viewCurrentLevelTime = 3.0f;
 	private float viewCurrentLevelImageAlpha = 1.0f;
+	
+	//Countdown
+	public bool WillUseCountDown = true;
+	private int NumberCountDownIsOn = 4; //4 or 0, no show, 1-2-3 an image
+	public Texture2D CountDown3;
+	public Texture2D CountDown2;
+	public Texture2D CountDown1;
+	public Texture2D CountDownGo;
+	private Texture2D CountDownCurrent;
+	private float CountDownAlphaGo = 1.0f;
+	
 	public static bool canMove = true;
 	// Public variables editable in Editor
 	public float startXPos = 0.0f;
@@ -105,6 +116,15 @@ public class Manage_Game : MonoBehaviour {
 		viewCurrentLevelImage = true;
 		viewCurrentFadeTime = true;
 		Invoke("FadeLevelImageOut", viewCurrentLevelTime);
+		
+		if(WillUseCountDown)
+		{
+			canMove = false;
+			Invoke ("CountDown", 2.0f); //3
+			Invoke ("CountDown", 3.0f); //2
+			Invoke ("CountDown", 4.0f); //1
+			Invoke ("CountDown", 5.0f); //Go!
+		}
 	}
 	
 	////////////////////////
@@ -209,6 +229,8 @@ public class Manage_Game : MonoBehaviour {
 			Player_Boost.onThrust = false;	
 		}
 		//Debug.Log ((int)lightCount);
+		
+
 	}
 	
 	////////////////////////
@@ -246,6 +268,10 @@ public class Manage_Game : MonoBehaviour {
 			//lightCanvas width = 256
 			float lVal = 250/100;
 			GUI.BeginGroup (new Rect(50, Screen.height-65, 250, 55));
+				Color temp = GUI.color;
+				if(Pause_Menu.isPaused)
+					temp.a = 0.1f;
+				GUI.color = temp;
 				GUI.DrawTexture(new Rect(0,0,(float)lightCount*(lVal),55),lightMeter,ScaleMode.StretchToFill);
 				GUI.DrawTexture (new Rect(0,0, 200, 55),lightBar, ScaleMode.StretchToFill);		
 			GUI.EndGroup();
@@ -255,7 +281,7 @@ public class Manage_Game : MonoBehaviour {
 				GUI.BeginGroup (new Rect(Screen.width-180, Screen.height-65, 150, 50));
 				for(int i = 0; i < numOfLives; i++)
 				{
-					Color temp = GUI.color;
+					temp = GUI.color;
 					if(Pause_Menu.isPaused)
 						temp.a = 0.1f;
 					GUI.color = temp;
@@ -270,7 +296,7 @@ public class Manage_Game : MonoBehaviour {
 				GUI.BeginGroup (new Rect((Screen.width/2)-(currentLevel.width/2), Screen.height*0.2f,
 					currentLevel.width, currentLevel.height));
 				
-					Color temp = GUI.color;
+					temp = GUI.color;
 					if(!viewCurrentFadeTime)
 						viewCurrentLevelImageAlpha-=0.005f;
 				
@@ -285,6 +311,45 @@ public class Manage_Game : MonoBehaviour {
 			//Rect lightCanvas = new Rect(450, 400, lightBar.width, lightBar.height);
 			//GUI.Label(lightCanvas, lightBar);
 		}
+		
+		//Countdown GUI
+		if(WillUseCountDown)
+		{
+			switch(NumberCountDownIsOn)
+			{
+				case 0:
+					canMove = true;
+					CountDownCurrent = CountDownGo;
+					break;
+				case 1:
+					CountDownCurrent = CountDown1;
+					break;
+				case 2:
+					CountDownCurrent = CountDown2;
+					break;
+				case 3:
+					CountDownCurrent = CountDown3;
+					break;
+				default:
+					break;
+			}
+			
+			Color loopTemp = GUI.color;
+			if(NumberCountDownIsOn < 4 && NumberCountDownIsOn > -1)
+			{
+				GUI.BeginGroup (new Rect(Screen.width/2 - CountDownCurrent.width/2, Screen.height/2 - CountDownCurrent.height/1.5f, CountDownCurrent.width, CountDownCurrent.height));
+					if(NumberCountDownIsOn == 0)
+					{
+						Color temp = GUI.color;
+						CountDownAlphaGo -= 0.015f;
+						temp.a = CountDownAlphaGo;
+						GUI.color = temp;
+					}
+					GUI.DrawTexture(new Rect(0,0,CountDownCurrent.width,CountDownCurrent.height),CountDownCurrent,ScaleMode.StretchToFill);
+				GUI.EndGroup ();
+			}
+			GUI.color = loopTemp;
+		}
 	}
 	
 	void FadeLevelImageOut()
@@ -293,9 +358,8 @@ public class Manage_Game : MonoBehaviour {
 		viewCurrentFadeTime = false;
 	}
 	
-	void noSeriouslyLetsGetRidOfIt()
-	{
-		viewCurrentLevelImage = false;
-		
-	}
+	void noSeriouslyLetsGetRidOfIt() { viewCurrentLevelImage = false; }
+	
+	/*Functions are for countdown------------------------------------------------------------*/
+	void CountDown() { NumberCountDownIsOn--; }
 }

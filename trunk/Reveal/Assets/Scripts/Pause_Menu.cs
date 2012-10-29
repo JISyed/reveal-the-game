@@ -49,6 +49,7 @@ public class Pause_Menu : MonoBehaviour {
 					Time.timeScale = 1.0f;
 					break;
 				case 2:
+					isPaused = false;
 					Time.timeScale = 1.0f;
 					Application.LoadLevel("Intro");
 					break;
@@ -74,13 +75,13 @@ public class Pause_Menu : MonoBehaviour {
 				                         pauseCurrent.width, 
 				                         pauseCurrent.height);
 			
-			
 			Color temp = GUI.color;
 			
-			Rect blackCanvas = new Rect(0,0,2000,2000);
-			temp.a = 0.9f;
-			GUI.color = temp;
-			GUI.Label (blackCanvas, blackTile);
+			//Rect blackCanvas = new Rect(0,0,5000,50000);
+			//temp.a = 0.9f;
+			//GUI.color = temp;
+			GUI.DrawTexture (new Rect(0,0, 5000, blackTile.height), blackTile,ScaleMode.StretchToFill);
+			//GUI.Label (blackCanvas, blackTile);
 			
 			//temp.a = 1.0f;
 			GUI.color = temp;
