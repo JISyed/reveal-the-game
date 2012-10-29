@@ -36,9 +36,13 @@ public class Camera_Follow_Player : MonoBehaviour {
 		{
 			// Credit to Jaap Kreijkamp 
 			// http://answers.unity3d.com/questions/8291/how-to-move-a-gameobject-from-his-position-to-a-xy.html
-			newPosition = Vector3.Lerp(deathPoint, 
-									   cameraStartPos, 
-									   (Time.time - startTime) / relocationTime );
+			
+			if(Manage_Game.gameOver == false && Manage_Game.winLevel == false)
+			{
+				newPosition = Vector3.Lerp(deathPoint, 
+										   cameraStartPos, 
+										   (Time.time - startTime) / relocationTime );
+			}
 		}
 		
 		//GameObject.FindGameObjectWithTag("player");
