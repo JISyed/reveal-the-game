@@ -13,7 +13,7 @@ public class Skip_Tutorial : MonoBehaviour {
 		Invoke ("stopFlashingTheStupidRequest", 10.0f);
 	}
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Escape))
+		if(Input.GetKeyDown(KeyCode.Return) && !Pause_Menu.isPaused)
 		{
 			Manage_Game.canMove = true;
 			Manage_Game.infiniteLives = false;
