@@ -5,4 +5,4 @@ MonoImporter:
   defaultReferences:
   - introGUI: {fileID: 2800000, guid: 19d3143f17599ff48a5d8f975165394a, type: 1}
   executionOrder: 0
-  icon: {instanceID: 0}
+  icon: {fileID: 545062253, guid: 0000000000000000d000000000000000, type: 0}
