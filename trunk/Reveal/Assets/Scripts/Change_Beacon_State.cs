@@ -16,6 +16,7 @@ public class Change_Beacon_State : MonoBehaviour
 	public GameObject ingPrt_Red;
 	public GameObject ingPrt_Green;
 	public GameObject ingPrt_Blue;
+	public GameObject idle_Particles;
 	
 	private bool activated;
 	private bool isFlickeringQuickly = false;
@@ -31,6 +32,7 @@ public class Change_Beacon_State : MonoBehaviour
 		light.enabled = false;
 		originalLightColor = renderer.light.color;
 		originalMaterial = renderer.material;
+		Instantiate(idle_Particles, transform.position, transform.rotation);
 	}
 	
 	

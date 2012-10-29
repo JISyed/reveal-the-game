@@ -7,6 +7,10 @@ MonoImporter:
   - matBright: {fileID: 2100000, guid: 0c69da22aba0409498cb70c3a6ddc6c7, type: 2}
   - flickeringSound: {fileID: 100000, guid: 229ba7f39b2fa0247a9d05c5ab5fb5be, type: 2}
   - originalMaterial: {instanceID: 0}
-  - ignitionParticles: {fileID: 100000, guid: 01fdcc2acda12004e913e689f5d02cde, type: 2}
+  - ingPrt_White: {instanceID: 0}
+  - ingPrt_Red: {instanceID: 0}
+  - ingPrt_Green: {instanceID: 0}
+  - ingPrt_Blue: {instanceID: 0}
+  - idle_Particles: {fileID: 100000, guid: a5a5f0469419ccf4090b9eb45dae9d56, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
