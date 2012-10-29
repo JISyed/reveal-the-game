@@ -123,5 +123,7 @@ public class GUIa : MonoBehaviour {
 		Manage_Game.difficulty = selectionNumber;
 		Application.LoadLevel("Level_Tutorial");
 	}
+	
+	void OnDrawGizmos(){}
 }
 
