@@ -16,7 +16,7 @@ public class Pause_Menu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown (KeyCode.Escape) && !isPaused)
+		if(Input.GetKeyDown (KeyCode.Escape) && !isPaused && !Manage_Game.gameOver)
 		{
 			Time.timeScale = 0.0f;	
 			isPaused = true;
@@ -87,6 +87,11 @@ public class Pause_Menu : MonoBehaviour {
 			GUI.color = temp;
 			GUI.Label(splashCanvas, pauseCurrent);
 			
+		}
+		
+		if(Manage_Game.gameOver)
+		{
+			GUI.DrawTexture (new Rect(0,0, 5000, blackTile.height), blackTile,ScaleMode.StretchToFill);	
 		}
 	}
 }
