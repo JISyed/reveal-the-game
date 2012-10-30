@@ -5,6 +5,8 @@ public class Move_Clump : MonoBehaviour {
 	
 	public float fallSpeed = 65.0f;
 	
+	private bool soundAlreadyPlayed = false;
+	
 	// Use this for initialization
 	void Start () {
 	
@@ -19,6 +21,15 @@ public class Move_Clump : MonoBehaviour {
 			Vector3 newPosition = transform.position;
 			newPosition.y -= Time.deltaTime * fallSpeed;
 			transform.position = newPosition;
+		}
+		
+		if(transform.position.y <= 0.1f)
+		{
+			if(soundAlreadyPlayed == false)
+			{
+				soundAlreadyPlayed = true;
+				gameObject.audio.Play();
+			}
 		}
 	}
 }

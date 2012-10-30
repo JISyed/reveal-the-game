@@ -9,6 +9,8 @@ public class Handle_Lock_Triggers : MonoBehaviour {
 	private int colorState;
 	public string colorToChangeInto;
 	
+	public GameObject breakingSoundSource;
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -52,7 +54,7 @@ public class Handle_Lock_Triggers : MonoBehaviour {
 		if(colorState == Move_Lightwave.currentColor)
 		{
 			// Play some kind of unlocking sound here
-			
+			Instantiate(breakingSoundSource, transform.position, transform.rotation);
 			// Destroy wall
 			Destroy(wallReference);
 			// Destroy trigger

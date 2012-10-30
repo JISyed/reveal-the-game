@@ -4,9 +4,10 @@ using System.Collections;
 public class Handle_Cracked_Walls : MonoBehaviour {
 	
 	public GameObject wallPrefab;
-	private GameObject wallReference;
+	public GameObject breakingSoundSource;
 	
-	private int health = 1;
+	private GameObject wallReference;
+	private int health = 3;
 	
 	// Use this for initialization
 	void Start () 
@@ -24,7 +25,7 @@ public class Handle_Cracked_Walls : MonoBehaviour {
 		if(health < 1)
 		{
 			// Play a wall breaking sound here.
-			
+			Instantiate(breakingSoundSource, transform.position, transform.rotation);
 			Destroy(wallReference);
 			Destroy(gameObject);
 		}
@@ -36,6 +37,7 @@ public class Handle_Cracked_Walls : MonoBehaviour {
 		if(other.gameObject.name == "Turret_Bullet_Charged(Clone)")
 		{
 			Destroy(other.gameObject);
+			audio.Play();
 			health--;
 		}
 		if(other.gameObject.name == "Turret_Bullet(Clone)")
