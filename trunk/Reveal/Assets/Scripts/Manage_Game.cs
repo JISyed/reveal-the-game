@@ -198,7 +198,7 @@ public class Manage_Game : MonoBehaviour {
 		
 
 		// Upon no lives it is Game Over
-		if(numOfLives < 0 && infiniteLives == false)
+		if(numOfLives < 1 && infiniteLives == false)
 		{
 			gameOver = true;
 			lightCount = 100;

@@ -9,12 +9,14 @@ public class Manage_Turret : MonoBehaviour {
 	private GameObject barrelReference;
 	private bool alreadyFired = false;
 	private float angleOfFire; 				// Between 0 and 180 degrees in respect to y-axis
+	private GameObject flashReference;
 	
 	public float turretRange = 30.0f;
 	public GameObject turretBullet;
 	public float shotTimeInterval = 1.0f;
 	public GameObject barrelOfTheTurret;
 	public float halfOffsetAngle = 55f;
+	public GameObject muzzleFlash;
 	
 	// Use this for initialization
 	void Start () 
@@ -57,6 +59,8 @@ public class Manage_Turret : MonoBehaviour {
 						alreadyFired = true;
 						bulletReference = Instantiate(turretBullet, transform.position + barrelReference.transform.forward * 8f, transform.rotation) as GameObject;
 						bulletReference.transform.LookAt(playerTransform);
+						flashReference = Instantiate(muzzleFlash, transform.position + barrelReference.transform.forward * 9f, transform.rotation) as GameObject;
+						flashReference.transform.Translate(Vector3.up * 7f);
 						Invoke("ResumeFiring", shotTimeInterval);
 					}
 				}

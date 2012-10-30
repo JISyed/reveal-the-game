@@ -65,12 +65,20 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 		{
 			other.gameObject.collider.enabled = false;
 			other.gameObject.renderer.enabled = false;
+			if(other.gameObject.light)
+			{
+				other.gameObject.light.enabled = false;
+			}
+			if(other.gameObject.particleEmitter)
+			{
+				other.gameObject.particleEmitter.enabled = false;
+			}
 		}
 	}
 	
 	void RevivePrism()
 	{
-		if(Manage_Game.numOfLives > -1)
+		if(Manage_Game.numOfLives > 0)
 		{
 			Manage_Game.lightCount = 100f;
 			Vector3 prismPos = Manage_Game.startPos;
