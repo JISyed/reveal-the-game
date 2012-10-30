@@ -17,7 +17,7 @@ public class Skip_Tutorial : MonoBehaviour {
 		{
 			Manage_Game.canMove = true;
 			Manage_Game.infiniteLives = false;
-			Application.LoadLevel("Level_One");
+			Application.LoadLevel("Level_New_One");
 		}
 	}
 	void OnGUI()
