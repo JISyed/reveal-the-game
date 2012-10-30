@@ -39,7 +39,7 @@ public class Sink_and_Raise_Wall : MonoBehaviour {
 			shouldMove = false;
 			Invoke("MakeMoveAgain", timeSunk);
 		}
-		if(transform.position.y > 12.0f && movingDirection > 0)
+		if(transform.position.y > 11.9f && movingDirection > 0)
 		{
 			movingDirection = -1; // sink if raised too far
 			shouldMove = false;
