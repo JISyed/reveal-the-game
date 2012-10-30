@@ -41,7 +41,12 @@ public class Manage_Game : MonoBehaviour {
 	public float startZPos = 0.0f;
 	public int lives = 1;
 	public float respawnInSeconds = 3.0f;
+	
+	//Game Over
 	public Texture2D imgGameOver;
+	public Texture2D imgGameOverArrow;
+	private int GameOverSelect = 1;
+	
 	public Texture2D imgYouWin;
 	
 	public Texture2D lightBar;
@@ -146,6 +151,18 @@ public class Manage_Game : MonoBehaviour {
 				jingleAlreadyPlayed = true;
 			}
 			
+			if(Input.GetKeyDown (KeyCode.DownArrow))
+			{
+				GameOverSelect++;
+				if(GameOverSelect > 4)
+					GameOverSelect = 1;
+			}
+			if(Input.GetKeyDown (KeyCode.UpArrow))
+			{
+				GameOverSelect--;
+				if(GameOverSelect < 1)
+					GameOverSelect = 4;
+			}
 			// Press enter to reset level
 			if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7"))
 			{
@@ -158,8 +175,25 @@ public class Manage_Game : MonoBehaviour {
 				numOfLives = lives; // Reset lives
 				lightCount = 100;
 				Player_Boost.onThrust = false;
-				Application.LoadLevel(Application.loadedLevel);
+				
+				switch(GameOverSelect)
+				{
+				case 1:
+					Application.LoadLevel(Application.loadedLevel);
+					break;
+				case 2:
+					break;
+				case 3:
+					Application.LoadLevel("Intro");
+					break;
+				case 4:
+					Application.Quit();
+					break;
+										
+				}
+				
 			}
+			
 		}
 		
 
@@ -240,14 +274,39 @@ public class Manage_Game : MonoBehaviour {
 	// Used to draw the GUI
 	void OnGUI()
 	{
+		float arrowPixel = 5000;
 		// Draw game over display
 		if(gameOver)
 		{
+			switch(GameOverSelect)
+			{
+			case 1:
+				arrowPixel = -10;
+				break;
+			case 2:
+				arrowPixel = -60;
+				break;
+			case 3:
+				arrowPixel = -106;
+				break;
+			case 4:
+				arrowPixel = -150;
+				break;
+			default:
+				arrowPixel = -160;
+				break;
+			}
+			Rect GameOverArrow = new Rect((Screen.width/2.0f) - 120,
+										 (Screen.height/2.0f) - arrowPixel, 
+				                         imgGameOverArrow.width, 
+				                         imgGameOverArrow.height);
+			
 			Rect splashCanvas = new Rect((Screen.width/2.0f) - (imgGameOver.width/2.0f),
 										 (Screen.height/2.0f) - (imgGameOver.height/2.0f), 
 				                         imgGameOver.width, 
 				                         imgGameOver.height);
 			GUI.Label(splashCanvas, imgGameOver);
+			GUI.Label(GameOverArrow, imgGameOverArrow);
 		}
 		
 		// Draw winning display
