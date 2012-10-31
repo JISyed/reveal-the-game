@@ -9,7 +9,7 @@ public class GUIa : MonoBehaviour {
 	
 	private bool isSelection = false;
 	private bool isSelectionFadeOut = false;
-	public Texture2D selectionScreen;
+	private Texture2D selectionScreen;
 	public Texture2D selectionScreen1;
 	public Texture2D selectionScreen2;
 	public Texture2D selectionScreen3;
@@ -63,8 +63,8 @@ public class GUIa : MonoBehaviour {
 					selectionScreen = selectionScreen1;
 					break;
 			}
-			Rect blackCanvas = new Rect(0,0, 2000, 2000);
-			GUI.Label(blackCanvas, blackScreen);
+			//Rect blackCanvas = new Rect(0,0, 2000, 2000);
+			//GUI.Label(blackCanvas, blackScreen);
 			Rect splashCanvas = new Rect((Screen.width/2.0f) - (selectionScreen.width/2.0f),
 											 (Screen.height/2.0f) - (selectionScreen.height/2.0f), 
 					                         selectionScreen.width, 
