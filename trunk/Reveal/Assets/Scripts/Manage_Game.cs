@@ -63,7 +63,7 @@ public class Manage_Game : MonoBehaviour {
 	private GameObject jinglePlayerWinLevel;
 	
 	public static bool infiniteLives = false;
-	
+	private bool toggleGUI = true;
 	public enum Colors {white, red, blue, green};
 	public static int colorState = (int) Colors.white;
 	
@@ -83,6 +83,7 @@ public class Manage_Game : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		colorState = (int)Colors.white;
 		jinglePlayerGameOver = Instantiate(jingleGameOver) as GameObject;
 		jinglePlayerWinLevel = Instantiate(jingleWinLevel) as GameObject;
 		
@@ -122,6 +123,9 @@ public class Manage_Game : MonoBehaviour {
 		viewCurrentFadeTime = true;
 		Invoke("FadeLevelImageOut", viewCurrentLevelTime);
 		
+		Play_Sound_On_Arrows.CanDo = false;
+		Play_Sound_On_Enter.CanDo = false;
+		
 		if(WillUseCountDown)
 		{
 			canMove = false;
@@ -143,6 +147,8 @@ public class Manage_Game : MonoBehaviour {
 		// Press Enter to reset level IF Game Over
 		if(gameOver)
 		{
+			Play_Sound_On_Arrows.CanDo = true;
+			Play_Sound_On_Enter.CanDo = true;
 			// Play gameover music
 			if(jingleAlreadyPlayed == false)
 			{
@@ -182,6 +188,7 @@ public class Manage_Game : MonoBehaviour {
 					Application.LoadLevel(Application.loadedLevel);
 					break;
 				case 2:
+					Application.LoadLevel("Level_Select");
 					break;
 				case 3:
 					Application.LoadLevel("Intro");
@@ -264,7 +271,13 @@ public class Manage_Game : MonoBehaviour {
 		}
 		//Debug.Log ((int)lightCount);
 		
-
+		if(Input.GetKeyDown (KeyCode.LeftAlt) || Input.GetKeyDown (KeyCode.RightAlt))
+		{
+			if(toggleGUI)
+				toggleGUI = false;
+			else
+				toggleGUI = true;
+		}
 	}
 	
 	////////////////////////
@@ -325,14 +338,20 @@ public class Manage_Game : MonoBehaviour {
 		{
 			//lightMeter width = 128
 			//lightCanvas width = 256
+			
+
 			float lVal = 80f/100f;
 			GUI.BeginGroup (new Rect(50, Screen.height-65, 250, 55));
 				Color temp = GUI.color;
 				if(Pause_Menu.isPaused)
 					temp.a = 0.1f;
 				GUI.color = temp;
-				GUI.DrawTexture(new Rect(36,12,(float)lightCount*(lVal),16),lightMeter,ScaleMode.StretchToFill);
-				GUI.DrawTexture (new Rect(0,-12, 148, 64),lightBar, ScaleMode.ScaleToFit);		
+			
+				if(toggleGUI)
+				{
+					GUI.DrawTexture(new Rect(36,12,(float)lightCount*(lVal),16),lightMeter,ScaleMode.StretchToFill);
+					GUI.DrawTexture (new Rect(0,-12, 148, 64),lightBar, ScaleMode.ScaleToFit);	
+				}
 			GUI.EndGroup();
 		
 			if(infiniteLives == false)
@@ -344,7 +363,9 @@ public class Manage_Game : MonoBehaviour {
 					if(Pause_Menu.isPaused)
 						temp.a = 0.1f;
 					GUI.color = temp;
-					GUI.DrawTexture (new Rect( (100-i*50),0,50,50),livesImage);
+					
+					if(toggleGUI)
+						GUI.DrawTexture (new Rect( (100-i*50),0,50,50),livesImage);
 				}
 				GUI.EndGroup ();
 			}
