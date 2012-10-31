@@ -18,7 +18,7 @@ public class Sink_and_Raise_Wall : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		
+		audio.Play();
 	}
 	
 	// Update is called once per frame
@@ -37,6 +37,7 @@ public class Sink_and_Raise_Wall : MonoBehaviour {
 		{
 			movingDirection = 1; // raise if sunk too far
 			shouldMove = false;
+			audio.Stop();
 			Invoke("MakeMoveAgain", timeSunk);
 		}
 		if(transform.position.y > 11.9f && movingDirection > 0)
@@ -44,6 +45,7 @@ public class Sink_and_Raise_Wall : MonoBehaviour {
 			movingDirection = -1; // sink if raised too far
 			shouldMove = false;
 			wasStalled = false; // Reset stalling state
+			audio.Stop();
 			Invoke("MakeMoveAgain", timeRaised);
 		}
 		
@@ -52,6 +54,7 @@ public class Sink_and_Raise_Wall : MonoBehaviour {
 		{
 			wasStalled = true;
 			shouldMove = false;
+			audio.Stop();
 			Invoke("MakeMoveAgain", timeRaisingStalled);
 		}
 	}
@@ -66,5 +69,6 @@ public class Sink_and_Raise_Wall : MonoBehaviour {
 	void MakeMoveAgain()
 	{
 		shouldMove = true;
+		audio.Play();
 	}
 }
