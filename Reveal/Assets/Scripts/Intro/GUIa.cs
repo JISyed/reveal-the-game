@@ -44,10 +44,11 @@ public class GUIa : MonoBehaviour {
 			temp.a = alpha;
 			GUI.color = temp;
 			GUI.Label(splashCanvas, introGUI);
+			Play_Sound_On_Arrows.CanDo = false;
 		}
 		else
 		{
-			
+			Play_Sound_On_Arrows.CanDo = true;
 			switch(selectionNumber)
 			{
 				case 1:
@@ -100,7 +101,7 @@ public class GUIa : MonoBehaviour {
 		if((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7")) && didItAlready == true && isSelection == true)
 		{
 			isSelectionFadeOut = true;
-			Invoke ("loadFirstOne", 1.0f);
+			Invoke ("loadDifficulty", 1.0f);
 		}
 		if(Input.GetKeyDown(KeyCode.DownArrow))
 			selectionNumber++;
@@ -118,10 +119,10 @@ public class GUIa : MonoBehaviour {
 		isSelection = true;
 	}
 	
-	void loadFirstOne()
+	void loadDifficulty()
 	{
 		Manage_Game.difficulty = selectionNumber;
-		Application.LoadLevel("Level_Tutorial");
+		Application.LoadLevel("Level_Select");
 	}
 	
 	void OnDrawGizmos(){}

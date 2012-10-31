@@ -20,11 +20,15 @@ public class Pause_Menu : MonoBehaviour {
 		{
 			Time.timeScale = 0.0f;	
 			isPaused = true;
+			Play_Sound_On_Arrows.CanDo = true;
+			Play_Sound_On_Enter.CanDo = true;
 		}
 		else if(Input.GetKeyDown (KeyCode.Escape) && isPaused)
 		{
 			Time.timeScale = 1.0f;
 			isPaused = false;
+			Play_Sound_On_Arrows.CanDo = false;
+			Play_Sound_On_Enter.CanDo = false;
 		}
 		
 		if(isPaused && Input.GetKeyDown (KeyCode.DownArrow))
@@ -42,6 +46,8 @@ public class Pause_Menu : MonoBehaviour {
 		
 		if(isPaused && Input.GetKeyDown (KeyCode.Return))
 		{
+			Play_Sound_On_Arrows.CanDo = false;
+			Play_Sound_On_Enter.CanDo = false;
 			switch(selection)
 			{
 				case 1:
@@ -51,6 +57,8 @@ public class Pause_Menu : MonoBehaviour {
 				case 2:
 					isPaused = false;
 					Time.timeScale = 1.0f;
+					Play_Sound_On_Arrows.CanDo = true;
+					Play_Sound_On_Enter.CanDo = true;
 					Application.LoadLevel("Intro");
 					break;
 				default:
