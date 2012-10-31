@@ -361,7 +361,7 @@ public class Manage_Game : MonoBehaviour {
 				
 					temp.a = viewCurrentLevelImageAlpha;
 					GUI.color = temp;
-					GUI.DrawTexture (new Rect(0,0, currentLevel.width, currentLevel.height/2),currentLevel, ScaleMode.StretchToFill);
+					GUI.DrawTexture (new Rect(0,0, currentLevel.width, currentLevel.height),currentLevel, ScaleMode.ScaleToFit);
 				
 				GUI.EndGroup();
 			}
