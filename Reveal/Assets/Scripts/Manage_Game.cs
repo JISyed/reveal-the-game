@@ -22,7 +22,7 @@ public class Manage_Game : MonoBehaviour {
 	public static int difficulty = 1;
 	public static bool viewCurrentLevelImage = true;
 	public static bool viewCurrentFadeTime = true;
-	public static float viewCurrentLevelTime = 3.0f;
+	public static float viewCurrentLevelTime = 5.0f;
 	private float viewCurrentLevelImageAlpha = 1.0f;
 	
 	//Countdown
