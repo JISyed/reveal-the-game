@@ -325,14 +325,14 @@ public class Manage_Game : MonoBehaviour {
 		{
 			//lightMeter width = 128
 			//lightCanvas width = 256
-			float lVal = 250/100;
+			float lVal = 80f/100f;
 			GUI.BeginGroup (new Rect(50, Screen.height-65, 250, 55));
 				Color temp = GUI.color;
 				if(Pause_Menu.isPaused)
 					temp.a = 0.1f;
 				GUI.color = temp;
-				GUI.DrawTexture(new Rect(0,0,(float)lightCount*(lVal),55),lightMeter,ScaleMode.StretchToFill);
-				GUI.DrawTexture (new Rect(0,0, 200, 55),lightBar, ScaleMode.StretchToFill);		
+				GUI.DrawTexture(new Rect(36,12,(float)lightCount*(lVal),16),lightMeter,ScaleMode.StretchToFill);
+				GUI.DrawTexture (new Rect(0,-12, 148, 64),lightBar, ScaleMode.ScaleToFit);		
 			GUI.EndGroup();
 		
 			if(infiniteLives == false)
