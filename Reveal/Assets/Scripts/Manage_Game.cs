@@ -281,22 +281,22 @@ public class Manage_Game : MonoBehaviour {
 			switch(GameOverSelect)
 			{
 			case 1:
-				arrowPixel = -10;
+				arrowPixel = 65;
 				break;
 			case 2:
-				arrowPixel = -60;
+				arrowPixel = 10;
 				break;
 			case 3:
-				arrowPixel = -106;
+				arrowPixel = -45;
 				break;
 			case 4:
-				arrowPixel = -150;
+				arrowPixel = -108;
 				break;
 			default:
-				arrowPixel = -160;
+				arrowPixel = -175;
 				break;
 			}
-			Rect GameOverArrow = new Rect((Screen.width/2.0f) - 120,
+			Rect GameOverArrow = new Rect((Screen.width/2.0f) + 120,
 										 (Screen.height/2.0f) - arrowPixel, 
 				                         imgGameOverArrow.width, 
 				                         imgGameOverArrow.height);
