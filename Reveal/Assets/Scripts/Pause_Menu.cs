@@ -56,6 +56,7 @@ public class Pause_Menu : MonoBehaviour {
 					break;
 				case 2:
 					isPaused = false;
+					Manage_Game.infiniteLives = false;
 					Time.timeScale = 1.0f;
 					Play_Sound_On_Arrows.CanDo = true;
 					Play_Sound_On_Enter.CanDo = true;
