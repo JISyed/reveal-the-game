@@ -15,6 +15,7 @@ public class Trigger_Debris : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		renderer.enabled = false;
 		spawnPosClump.Set(transform.position.x, 300.0f, transform.position.z);
 		spawnPosShadow.Set(transform.position.x, 0.1f, transform.position.z);
 		spawnPosSpotlight.Set(transform.position.x, 190.0f, transform.position.z);
