@@ -74,6 +74,10 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 				other.gameObject.particleEmitter.enabled = false;
 			}
 		}
+		if(other.gameObject.name == "Turret_Bullet_Charged(Clone)")
+		{
+			Destroy(other.gameObject);
+		}
 	}
 	
 	void RevivePrism()
