@@ -5,6 +5,8 @@ public class Set_Color_State : MonoBehaviour {
 
 	public string colorToChangeInto;
 	
+	private bool soundAlreadyPlayed = false;
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -20,6 +22,13 @@ public class Set_Color_State : MonoBehaviour {
 	// When player hits gem
 	void OnTriggerEnter(Collider other)
 	{
+		if(soundAlreadyPlayed == false)
+		{
+			soundAlreadyPlayed = true;
+			Invoke("AllowSoundToPlayAgain", 4f);
+			audio.Play();
+		}
+		
 		if(colorToChangeInto == "Red" || colorToChangeInto == "red")
 		{
 			Manage_Game.colorState = (int) Manage_Game.Colors.red;
@@ -36,5 +45,11 @@ public class Set_Color_State : MonoBehaviour {
 		{
 			Debug.Log("Invalid string for \"Set_Color_State.colorToChangeInto\"");
 		}
+	}
+	
+	// Enable sounds again
+	void AllowSoundToPlayAgain()
+	{
+		soundAlreadyPlayed = false;
 	}
 }
