@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Move_Constantly_Forward : MonoBehaviour {
 	
-	public float speed = 50.0f;
+	public float speed = 42.5f;
 	
 	// Use this for initialization
 	void Start () 
