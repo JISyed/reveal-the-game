@@ -341,7 +341,7 @@ public class Manage_Game : MonoBehaviour {
 			
 
 			float lVal = 80f/100f;
-			GUI.BeginGroup (new Rect(50, Screen.height-65, 250, 55));
+			GUI.BeginGroup (new Rect(50, Screen.height-130, 250, 110));
 				Color temp = GUI.color;
 				if(Pause_Menu.isPaused)
 					temp.a = 0.1f;
@@ -349,14 +349,14 @@ public class Manage_Game : MonoBehaviour {
 			
 				if(toggleGUI)
 				{
-					GUI.DrawTexture(new Rect(36,12,(float)lightCount*(lVal),16),lightMeter,ScaleMode.StretchToFill);
-					GUI.DrawTexture (new Rect(0,-12, 148, 64),lightBar, ScaleMode.ScaleToFit);	
+					GUI.DrawTexture(new Rect(72,48,(float)lightCount*(lVal)*2,16*2),lightMeter,ScaleMode.StretchToFill);
+					GUI.DrawTexture (new Rect(0,0, 148*2, 64*2),lightBar, ScaleMode.ScaleToFit);	
 				}
 			GUI.EndGroup();
 		
 			if(infiniteLives == false)
 			{
-				GUI.BeginGroup (new Rect(Screen.width-180, Screen.height-65, 150, 50));
+				GUI.BeginGroup (new Rect(Screen.width-360, Screen.height-115, 400, 100));
 				for(int i = 0; i < numOfLives; i++)
 				{
 					temp = GUI.color;
@@ -365,7 +365,7 @@ public class Manage_Game : MonoBehaviour {
 					GUI.color = temp;
 					
 					if(toggleGUI)
-						GUI.DrawTexture (new Rect( (100-i*50),0,50,50),livesImage);
+						GUI.DrawTexture (new Rect( (200-i*75),0,100,100),livesImage);
 				}
 				GUI.EndGroup ();
 			}
