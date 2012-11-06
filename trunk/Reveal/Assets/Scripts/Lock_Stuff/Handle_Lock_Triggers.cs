@@ -18,7 +18,7 @@ public class Handle_Lock_Triggers : MonoBehaviour {
 		renderer.enabled = false;
 		
 		// Make a wall at it's position
-		wallReference = Instantiate(wallPrefab, transform.position, transform.rotation) as GameObject;
+		wallReference = Instantiate(wallPrefab, transform.position + (Vector3.up * -12), transform.rotation) as GameObject;
 		
 		// Set color state
 		if(colorToChangeInto == "Red" || colorToChangeInto == "red")
