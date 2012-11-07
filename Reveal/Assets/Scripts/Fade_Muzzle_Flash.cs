@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Fade_Muzzle_Flash : MonoBehaviour {
 
+	public float fadeSpeed = 2.5f;
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -12,9 +14,9 @@ public class Fade_Muzzle_Flash : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		gameObject.light.color -= Color.white * 2.5f * Time.deltaTime;
+		gameObject.light.color -= Color.white * fadeSpeed * Time.deltaTime;
 		
-		if(gameObject.light.color.r < 0.1f)
+		if(gameObject.light.color.r < 0.05f)
 		{
 			Destroy(gameObject);
 		}

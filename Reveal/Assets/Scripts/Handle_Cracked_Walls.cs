@@ -5,8 +5,10 @@ public class Handle_Cracked_Walls : MonoBehaviour {
 	
 	public GameObject wallPrefab;
 	public GameObject breakingSoundSource;
+	public GameObject flashPrefab;
 	
 	private GameObject wallReference;
+	private GameObject flashReference;
 	private int health = 3;
 	
 	// Use this for initialization
@@ -39,6 +41,10 @@ public class Handle_Cracked_Walls : MonoBehaviour {
 			Destroy(other.gameObject);
 			audio.Play();
 			health--;
+			flashReference = Instantiate(flashPrefab, 
+										 transform.position + (transform.forward * 9f), 
+										 transform.rotation) as GameObject;
+			flashReference.transform.Translate(Vector3.up * 1.5f);
 		}
 		if(other.gameObject.name == "Turret_Bullet(Clone)")
 		{
