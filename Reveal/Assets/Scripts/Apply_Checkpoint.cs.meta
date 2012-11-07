@@ -2,6 +2,8 @@ fileFormatVersion: 2
 guid: 71a25444cfdd55b4a90b36ed9b605938
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cpBulb: {fileID: 100000, guid: 294e91a009e431b4089faf8a1d02513c, type: 2}
+  - matBulbOn: {fileID: 2100000, guid: 78ed0b2503e464246b5782393ab09c9b, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

@@ -3,12 +3,18 @@ using System.Collections;
 
 public class Apply_Checkpoint : MonoBehaviour {
 	
+	public GameObject cpBulb;
+	public Material matBulbOn;
+	
 	private bool checkpointAlreadyReached = false;
+	private GameObject cpBulbRef;
 	
 	// Use this for initialization
 	void Start () 
 	{
-	
+		cpBulbRef = Instantiate(cpBulb, 
+								new Vector3(transform.position.x, 0f, transform.position.z), 
+								transform.rotation) as GameObject;
 	}
 	
 	// Update is called once per frame
@@ -25,6 +31,7 @@ public class Apply_Checkpoint : MonoBehaviour {
 		{
 			checkpointAlreadyReached = true;
 			Manage_Game.startPos = transform.position;
+			cpBulbRef.renderer.material = matBulbOn;
 			// No need to check collisions again
 			gameObject.collider.enabled = false;
 		}

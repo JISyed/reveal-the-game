@@ -26,24 +26,24 @@ public class Change_Prism_Color : MonoBehaviour {
 		{
 			renderer.material.color = Manage_Game.col_red;
 			light.color = Manage_Game.col_red;
-			light.range = LIGHT_RANGE_VALUE + 6f;
-			light.intensity = LIGHT_INTENSITY_VALUE + 0.04f;
+			light.range = LIGHT_RANGE_VALUE + 7.5f;
+			light.intensity = LIGHT_INTENSITY_VALUE + 0.075f;
 		}
 		
 		if(Manage_Game.colorState == (int) Manage_Game.Colors.green)
 		{
 			renderer.material.color = Manage_Game.col_green;
 			light.color = Manage_Game.col_green;
-			light.range = LIGHT_RANGE_VALUE + 4f;
-			light.intensity = LIGHT_INTENSITY_VALUE + 0.02f;
+			light.range = LIGHT_RANGE_VALUE + 5f;
+			light.intensity = LIGHT_INTENSITY_VALUE + 0.05f;
 		}
 		
 		if(Manage_Game.colorState == (int) Manage_Game.Colors.blue)
 		{
 			renderer.material.color = Manage_Game.col_blue;
 			light.color = Manage_Game.col_blue;
-			light.range = LIGHT_RANGE_VALUE + 9f;
-			light.intensity = LIGHT_INTENSITY_VALUE + 0.07f;
+			light.range = LIGHT_RANGE_VALUE + 10f;
+			light.intensity = LIGHT_INTENSITY_VALUE + 0.2f;
 		}
 	}
 }
