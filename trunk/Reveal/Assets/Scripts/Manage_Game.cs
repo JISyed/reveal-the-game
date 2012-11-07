@@ -212,6 +212,12 @@ public class Manage_Game : MonoBehaviour {
 			Player_Boost.onThrust = false;
 		}
 		
+		// Limit number of lives to 5
+		if(numOfLives > 5 && infiniteLives == false)
+		{
+			numOfLives = 5;
+		}
+		
 		// Press enter to restart the level if you won
 		if(winLevel)
 		{
