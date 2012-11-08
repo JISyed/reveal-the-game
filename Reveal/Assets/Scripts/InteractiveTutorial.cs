@@ -3,6 +3,32 @@ using System.Collections;
 
 public class InteractiveTutorial : MonoBehaviour {
 	
+	
+	/*
+	string TUTORIAL1 = "Welcome to Reveal! In this tutorial we will be covering everything you need to know about this game.";
+	string TUTORIAL2 = "The goal of the game is to navigate through each level using your prism as your player.";
+	string TUTORIAL3 = "Because you are navigating in the dark, you will use your prism to shoot helixes that will light up the path.";
+	string TUTORIAL4 = "This is important because if you hit the walls or collide with other objects, you will die.";
+	string TUTORIAL5 = "Let's try it out. Press space now to shoot a helix.";
+	string TUTORIAL6 = "Good, as you shoot a helix you will notice that your light bar on the bottom left diminishes with each shot.";
+	string TUTORIAL7 = "Depending on the difficulty, you will need to be careful with how much you use it throughout the game.";
+	string TUTORIAL8 = "Lets continue.";
+	string TUTORIAL9 = "The beacon in front of you will light up for 3 seconds when you shoot a helix at it. Go ahead and try it.";
+	string TUTORIAL10 = "Good! This is a very useful tool needed many times throughout the entire game. Lets continue.";
+	string TUTORIAL11 = "In front of you is a green prism. When you run over it you will change colors.";
+	string TUTORIAL12 = "This will allow you to shoot color coded walls to get through it. Go ahead and try it now.";
+	string TUTORIAL13 = "Excellent! There are many colors throughout the entire game.";
+	string TUTORIAL14 = "Oh, and i'm sure you know that you can pause the game by hitting ESC, as well as hitting ALT to hide your GUI.";
+	string TUTORIAL15 = "The last part in the game is the turrets. Turrets will fire bullets at you that would kill you instantly.";
+	string TUTORIAL16 = "Fire at them to defelct the bullets. The bullets may be used to break certain cracked walls.";
+	string TUTORIAL17 = "Oh, I almost forgot about one more important detail. Your prism doesn't stop moving.";
+	string TUTORIAL18 = "It makes the gameplay so much more fun, don't you agree? Try to complete this tutorial by getting to the end.";
+	string TUTORIAL19 = "You can use the W,A,D or arrow keys to move your prism, and SHIFT to boost (it does cost light of course).";
+	string TUTORIAL20 = "Once you reach the TIC-TAC shaped object, you win the level! You will begin your journey after this level.";
+	string TUTORIAL21 = "Good luck and have fun.";
+	*/
+	
+	
 	public Texture2D text1;
 	public Texture2D text2;
 	public Texture2D text3;
