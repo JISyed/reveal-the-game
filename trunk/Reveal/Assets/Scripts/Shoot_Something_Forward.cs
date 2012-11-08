@@ -16,8 +16,10 @@ public class Shoot_Something_Forward : MonoBehaviour {
 	void Update () {
 		
 		// Credit to CookingWithUnity
-		if(Input.GetButtonDown("Fire1") && Manage_Game.canMove) // Fire1 is defined in Input settings
+		if((Input.GetButtonDown("Fire1") && Manage_Game.canMove)
+			|| (Input.GetButtonDown("Fire1") && !Manage_Game.canMove &&  InteractiveTutorial.Shooting_Tutorial_Criteria)) // Fire1 is defined in Input settings
 		{
+			
 			if(Manage_Game.lightCount >= Manage_Game.helixCost)
 			{
 				// Decrease light energy
