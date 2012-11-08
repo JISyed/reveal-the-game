@@ -6,6 +6,8 @@ public class Handle_Cracked_Walls : MonoBehaviour {
 	public GameObject wallPrefab;
 	public GameObject breakingSoundSource;
 	public GameObject flashPrefab;
+	public GameObject wallPrefab2;
+	public GameObject wallPrefab3;
 	
 	private GameObject wallReference;
 	private GameObject flashReference;
@@ -45,6 +47,16 @@ public class Handle_Cracked_Walls : MonoBehaviour {
 										 transform.position + (transform.forward * 9f), 
 										 transform.rotation) as GameObject;
 			flashReference.transform.Translate(Vector3.up * 1.5f);
+			if(health == 2)
+			{
+				Destroy(wallReference);
+				wallReference = Instantiate(wallPrefab2, transform.position, transform.rotation) as GameObject;
+			}
+			if(health == 1)
+			{
+				Destroy(wallReference);
+				wallReference = Instantiate(wallPrefab3, transform.position, transform.rotation) as GameObject;
+			}
 		}
 		if(other.gameObject.name == "Turret_Bullet(Clone)")
 		{
