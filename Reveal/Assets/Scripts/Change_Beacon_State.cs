@@ -118,6 +118,10 @@ public class Change_Beacon_State : MonoBehaviour
 			
 			Destroy(other.gameObject); // Suppose to destroy lightwaves
 	
+			//For tutorial
+			if(InteractiveTutorial.Shooting_Tutorial_Beacon == false && InteractiveTutorial.currentOne == 8)
+				InteractiveTutorial.Shooting_Tutorial_Beacon = true;
+			
 			// Change to state of the beacon
 			if (!activated)
 			{

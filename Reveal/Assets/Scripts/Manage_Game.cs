@@ -92,7 +92,7 @@ public class Manage_Game : MonoBehaviour {
 		// 'lives' is set in Editor.
 		// 'numOfLives' can be accessed by scripts via "Manage_Game.numOfLives".
 		numOfLives = lives;
-		
+		InteractiveTutorial.Shooting_Tutorial_Criteria = false;
 		//Debug.Log (difficulty);
 	
 		switch(difficulty)
@@ -134,6 +134,7 @@ public class Manage_Game : MonoBehaviour {
 			Invoke ("CountDown", 4.0f); //1
 			Invoke ("CountDown", 5.0f); //Go!
 		}
+		InteractiveTutorial.Shooting_Tutorial_Criteria = false;
 	}
 	
 	////////////////////////

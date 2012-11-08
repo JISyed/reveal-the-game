@@ -46,6 +46,8 @@ public class Set_Color_State : MonoBehaviour {
 		}
 		else if(colorToChangeInto == "Green" || colorToChangeInto == "green")
 		{
+
+			
 			if(renderer.material.color.g < MIN_BRIGHT)
 			{
 				matFadingOff = false;
@@ -103,6 +105,8 @@ public class Set_Color_State : MonoBehaviour {
 			Invoke("AllowSoundToPlayAgain", 4f);
 			audio.Play();
 		}
+		if(!InteractiveTutorial.Prism_Tutorial_Collide && InteractiveTutorial.currentOne == 11)
+			InteractiveTutorial.Prism_Tutorial_Collide = true;
 		
 		if(colorToChangeInto == "Red" || colorToChangeInto == "red")
 		{
