@@ -9,9 +9,15 @@ public class Pause_Menu : MonoBehaviour {
 	public Texture2D pauseGUI2;
 	public Texture2D blackTile;
 	private Texture2D pauseCurrent;
-	// Use this for initialization
-	void Start () {
 	
+	public GameObject jinglePause;
+	private GameObject jinglePlayerPause;
+	private bool jingleAlreadyPlayed = false;
+	
+	// Use this for initialization
+	void Start () 
+	{
+		jinglePlayerPause = Instantiate(jinglePause) as GameObject;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +28,12 @@ public class Pause_Menu : MonoBehaviour {
 			isPaused = true;
 			Play_Sound_On_Arrows.CanDo = true;
 			Play_Sound_On_Enter.CanDo = true;
+			if(jingleAlreadyPlayed == false)
+			{
+				jingleAlreadyPlayed = true;
+				jinglePlayerPause.audio.Play();
+				Invoke("AllowJingleAgain", 0.25f);
+			}
 		}
 		else if(Input.GetKeyDown (KeyCode.Escape) && isPaused)
 		{
@@ -102,5 +114,10 @@ public class Pause_Menu : MonoBehaviour {
 		{
 			GUI.DrawTexture (new Rect(0,0, 5000, blackTile.height), blackTile,ScaleMode.StretchToFill);	
 		}
+	}
+	
+	void AllowJingleAgain()
+	{
+		jingleAlreadyPlayed = false;
 	}
 }
