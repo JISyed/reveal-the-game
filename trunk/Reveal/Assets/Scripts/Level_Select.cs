@@ -194,7 +194,7 @@ public class Level_Select : MonoBehaviour {
 				Application.LoadLevel("Level_New_Seven");
 				break;
 			case 0:
-				Application.LoadLevel("Level_Tutorial");
+				Application.LoadLevel("Level_New_Tutorial");
 				break;
 		}
 	}
