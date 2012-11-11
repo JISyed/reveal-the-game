@@ -2,6 +2,18 @@ fileFormatVersion: 2
 guid: c04ba0eb466b09e44855ff621ab3bef5
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - matAura: {fileID: 2100000, guid: b31fcf5834a245b45ae1dd81b037fb6d, type: 2}
+  - matBeamCannon: {fileID: 2100000, guid: fb852bac073aa9043bf0db17c8b01d67, type: 2}
+  - matBeamGatling: {fileID: 2100000, guid: 3f3f2ea511540e44599c0a4eb9e0301b, type: 2}
+  - matEcoBoost: {fileID: 2100000, guid: 0ee70cc12b6b924499c3b72efe614325, type: 2}
+  - matEnergizer: {fileID: 2100000, guid: ab23aefa5b73013449feafddeca5786d, type: 2}
+  - matExtraLife: {fileID: 2100000, guid: 4022a709372899541abe3335385b70b6, type: 2}
+  - matJuice: {fileID: 2100000, guid: ed205d18d00e3534fbb76cb765afa5e6, type: 2}
+  - matNitro: {fileID: 2100000, guid: c7a278284c3e543468dd1fc2c9fe799e, type: 2}
+  - matPrismCell: {fileID: 2100000, guid: 3bf02e3778c96a84b94dc2c9d54f65d0, type: 2}
+  - matRocket: {fileID: 2100000, guid: 5579c27cb7c0f2546ba0b4ef1420a5db, type: 2}
+  - matSpotlight: {fileID: 2100000, guid: 287f607c939199848a2f2d79afb28b7a, type: 2}
+  - matTriBeam: {fileID: 2100000, guid: cd43bdc713e2e0049b48c9fc19776bb3, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

@@ -3,10 +3,27 @@ using System.Collections;
 
 public class Power_Up_Management : MonoBehaviour {
 	
+	public enum PowerupType
+	{
+		PrismCell=1,
+		ExtraLife,
+		Nitro,
+		TriBeam,
+		Energizer,
+		Rocket,
+		Aura,
+		Spotlight,
+		BeamCannon,
+		BeamGatling,
+		EcoBoost,
+		Juice
+	}
+	
 	float tempPuNitro;
 	float tempPuJuice;
 	float tempEcoBoost;
 	int tempBeamGatling;
+	
 	
 	// Use this for initialization
 	void Start () 
@@ -25,104 +42,112 @@ public class Power_Up_Management : MonoBehaviour {
 	}
 	
 	// Get's passed from powerup GameObjects
-	void CallValue(int i)
+	public static void CallValue(int i)
 	{
+		// Apparently you need an object reference when calling
+		// non-static functions from a static function.
+		Power_Up_Management pumgt = new Power_Up_Management();
+		
 		switch(i)
 		{
-		case 1:
-			pu_PrismCell();
+		case (int) PowerupType.PrismCell:
+			pumgt.pu_PrismCell();
 			break;
-		case 2:
-			pu_ExtraLife();
+		case (int) PowerupType.ExtraLife:
+			pumgt.pu_ExtraLife();
 			break;
-		case 3:
-			pu_Nitro();
+		case (int) PowerupType.Nitro:
+			pumgt.pu_Nitro();
 			break;
-		case 4:
-			pu_TriBeam();
+		case (int) PowerupType.TriBeam:
+			pumgt.pu_TriBeam();
 			break;
-		case 5:
-			pu_Energizer();
+		case (int) PowerupType.Energizer:
+			pumgt.pu_Energizer();
 			break;
-		case 6:
-			pu_Rocket(); //pause it
+		case (int) PowerupType.Rocket:
+			pumgt.pu_Rocket(); //pause it
 			break;
-		case 7:
-			pu_Aura();
+		case (int) PowerupType.Aura:
+			pumgt.pu_Aura();
 			break;
-		case 8:
-			pu_Spotlight();
+		case (int) PowerupType.Spotlight:
+			pumgt.pu_Spotlight();
 			break;
-		case 9:
-			pu_BeamCannon();
+		case (int) PowerupType.BeamCannon:
+			pumgt.pu_BeamCannon();
 			break;
-		case 10:
-			pu_BeamGatling();
+		case (int) PowerupType.BeamGatling:
+			pumgt.pu_BeamGatling();
 			break;
-		case 11:
-			pu_EcoBoost();
+		case (int) PowerupType.EcoBoost:
+			pumgt.pu_EcoBoost();
 			break;
-		case 12:
-			pu_Juice();
+		case (int) PowerupType.Juice:
+			pumgt.pu_Juice();
 			break;
 		default:
-			pu_Nitro();
+			Debug.Log("Error: Powerup_Up_Management.cs: Invalid Powerup Enumeration!");
 			break;
-			
 		}
 	}
 	
 	// Powerup functions
-	void pu_PrismCell()
+	public void pu_PrismCell()
 	{
-		
+		Debug.Log("PrismCell");
 	}
-	void pu_ExtraLife()
+	public void pu_ExtraLife()
 	{
+		Debug.Log("ExtraLife");
 		Manage_Game.numOfLives++;
 	}
-	void pu_Nitro()
+	public void pu_Nitro()
 	{
+		Debug.Log("Nitro");
 		tempPuNitro = Manage_Game.playerBoostCost;
 		Manage_Game.playerBoostCost = 0.0f;
 		Invoke ("pu_NitroDisable", 15.0f);
 	}
-	void pu_TriBeam()
+	public void pu_TriBeam()
 	{
-		
+		Debug.Log("TriBeam");
 	}
-	void pu_Energizer()
+	public void pu_Energizer()
 	{
-		
+		Debug.Log("Energizer");
 	}
-	void pu_Rocket()
+	public void pu_Rocket()
 	{
-		
+		Debug.Log("Rocket");
 	}
-	void pu_Aura()
+	public void pu_Aura()
 	{
-		
+		Debug.Log("Aura");
 	}
-	void pu_Spotlight()
+	public void pu_Spotlight()
 	{
-		
+		Debug.Log("Spotlight");
 	}
-	void pu_BeamCannon()
+	public void pu_BeamCannon()
 	{
-		
+		Debug.Log("BeamCannon");
 	}
-	void pu_BeamGatling()
+	public void pu_BeamGatling()
 	{
+		Debug.Log("BeamGatling");
 		tempBeamGatling = Manage_Game.helixCost;
 		Manage_Game.helixCost /= 2;		
 	}
-	void pu_EcoBoost()
+	public void pu_EcoBoost()
 	{
+		Debug.Log("EcoBoost");
 		tempEcoBoost = Manage_Game.playerBoostCost;
 		Manage_Game.playerBoostCost /= 2;
 	}
-	void pu_Juice()
+	public void pu_Juice()
 	{
+		Debug.Log("Juice");
 		tempPuJuice = Manage_Game.lightRegen;
 		if(Manage_Game.lightRegen ==0)
 			Manage_Game.lightRegen = 2.0f;	
@@ -133,19 +158,19 @@ public class Power_Up_Management : MonoBehaviour {
 	/* --------------------------------------------------------------------
 	 * DISABLE FUNCTIONS OVER TIME
 	 * --------------------------------------------------------------------*/
-	void pu_NitroDisable()
+	public void pu_NitroDisable()
 	{
 		Manage_Game.playerBoostCost = tempPuNitro;
 	}
-	void pu_JuiceDisable()
+	public void pu_JuiceDisable()
 	{
 		Manage_Game.lightRegen = tempPuJuice;
 	}
-	void pu_BeamGatlingDisable()
+	public void pu_BeamGatlingDisable()
 	{
 		Manage_Game.helixCost = tempBeamGatling;	
 	}
-	void pu_EcoBoostDisable()
+	public void pu_EcoBoostDisable()
 	{
 		Manage_Game.playerBoostCost = tempEcoBoost;
 	}
