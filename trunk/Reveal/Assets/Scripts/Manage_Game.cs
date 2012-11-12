@@ -55,6 +55,7 @@ public class Manage_Game : MonoBehaviour {
 	
 	public Texture2D currentLevel;
 	public float levelTextureAlpha = 1.0f;
+	public Texture2D checkpoint;
 	
 	public GameObject jingleGameOver;
 	public GameObject jingleWinLevel;
@@ -135,6 +136,7 @@ public class Manage_Game : MonoBehaviour {
 			Invoke ("CountDown", 5.0f); //Go!
 		}
 		InteractiveTutorial.Shooting_Tutorial_Criteria = false;
+		lightCount = 100;
 	}
 	
 	////////////////////////
@@ -436,6 +438,12 @@ public class Manage_Game : MonoBehaviour {
 				GUI.EndGroup ();
 			}
 			GUI.color = loopTemp;
+		}
+		
+		if(Apply_Checkpoint.doCheckpointAnimation)
+		{
+			Rect chk = new Rect(Screen.width/2 - checkpoint.width/2 + Screen.width*0.02f, Screen.height/2 - checkpoint.height/2 - Apply_Checkpoint.checkpointYIncrementer, checkpoint.width,checkpoint.height);	
+			GUI.Label (chk,checkpoint);
 		}
 	}
 	
