@@ -8,19 +8,18 @@ public class Apply_Checkpoint : MonoBehaviour {
 	
 	private bool checkpointAlreadyReached = false;
 	private GameObject cpBulbRef;
+	GameObject thePlayer;
 	
+	public static Texture2D checkpoint;
+	public static float checkpointYIncrementer = 0;
+	public static bool doCheckpointAnimation = false;
 	// Use this for initialization
 	void Start () 
 	{
 		cpBulbRef = Instantiate(cpBulb, 
 								new Vector3(transform.position.x, 0f, transform.position.z), 
 								transform.rotation) as GameObject;
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	
+		doCheckpointAnimation = false;
 	}
 	
 	// Collision
@@ -34,9 +33,29 @@ public class Apply_Checkpoint : MonoBehaviour {
 			cpBulbRef.renderer.material = matBulbOn;
 			// No need to check collisions again
 			gameObject.collider.enabled = false;
+			
+			//SJH Added 11/12/2012
+			if(!doCheckpointAnimation)
+			{
+				doCheckpointAnimation = true;
+				checkpointYIncrementer = 0;
+				Invoke ("StopFloating", 1.5f);
+			}
+			
 		}
 	}
 	
+	void Update()
+	{
+		if(doCheckpointAnimation)
+			checkpointYIncrementer += (6.0f * Time.deltaTime);
+	}
+	void StopFloating()
+	{
+		doCheckpointAnimation = false;	
+		checkpointYIncrementer = 0;
+		
+	}
 	// Gizmos
 	void OnDrawGizmos()
 	{
