@@ -442,7 +442,7 @@ public class Manage_Game : MonoBehaviour {
 		
 		if(Apply_Checkpoint.doCheckpointAnimation)
 		{
-			Rect chk = new Rect(Screen.width/2 - checkpoint.width/2 + Screen.width*0.02f, Screen.height/2 - checkpoint.height/2 - Apply_Checkpoint.checkpointYIncrementer, checkpoint.width,checkpoint.height);	
+			Rect chk = new Rect(Screen.width/2 - checkpoint.width/2 + Screen.width*0.02f, Screen.height/2 - checkpoint.height/2 - Screen.height*0.05f - Apply_Checkpoint.checkpointYIncrementer, checkpoint.width,checkpoint.height);	
 			GUI.Label (chk,checkpoint);
 		}
 	}
