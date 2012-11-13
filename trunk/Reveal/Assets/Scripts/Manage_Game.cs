@@ -356,11 +356,24 @@ public class Manage_Game : MonoBehaviour {
 					temp.a = 0.1f;
 				GUI.color = temp;
 			
+				
+			
+				if(Manage_Game.colorState == (int) Manage_Game.Colors.red)
+					GUI.color = col_red;
+				else if(Manage_Game.colorState == (int) Manage_Game.Colors.green)
+					GUI.color = col_green;
+				else if(Manage_Game.colorState == (int) Manage_Game.Colors.blue)
+					GUI.color = col_blue;
+				else
+					GUI.color = temp;
 				if(toggleGUI)
 				{
 					GUI.DrawTexture(new Rect(72,48,(float)lightCount*(lVal)*2,16*2),lightMeter,ScaleMode.StretchToFill);
-					GUI.DrawTexture (new Rect(0,0, 148*2, 64*2),lightBar, ScaleMode.ScaleToFit);	
+					GUI.color = temp;
+					GUI.DrawTexture (new Rect(0,0, 148*2, 64*2),lightBar, ScaleMode.ScaleToFit);
+				
 				}
+			
 			GUI.EndGroup();
 		
 			if(infiniteLives == false)
