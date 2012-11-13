@@ -48,7 +48,7 @@ public class Apply_Checkpoint : MonoBehaviour {
 	void Update()
 	{
 		if(doCheckpointAnimation)
-			checkpointYIncrementer += (18.0f * Time.deltaTime);
+			checkpointYIncrementer += (12.0f * Time.deltaTime);
 	}
 	void StopFloating()
 	{
