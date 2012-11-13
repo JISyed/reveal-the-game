@@ -76,7 +76,7 @@ public class Manage_Game : MonoBehaviour {
 	public static Color col_red = new Color(1.0f, 0.0f, 0.0f);
 	public static Color col_green = new Color(0.0f, 1.0f, 0.0f);
 	public static Color col_blue = new Color(0.0f, 0.0f, 1.0f);
-	
+	public static Color draw_blue = new Color(0.1f, 0.1f, 1.0f);
 	////////////////////////
 	// Start Event
 	////////////////////////
@@ -363,7 +363,7 @@ public class Manage_Game : MonoBehaviour {
 				else if(Manage_Game.colorState == (int) Manage_Game.Colors.green)
 					GUI.color = col_green;
 				else if(Manage_Game.colorState == (int) Manage_Game.Colors.blue)
-					GUI.color = col_blue;
+					GUI.color = draw_blue;
 				else
 					GUI.color = temp;
 				if(toggleGUI)
