@@ -378,7 +378,7 @@ public class Manage_Game : MonoBehaviour {
 		
 			if(infiniteLives == false)
 			{
-				GUI.BeginGroup (new Rect(Screen.width-360, Screen.height-115, 400, 100));
+				GUI.BeginGroup (new Rect(Screen.width-350 , Screen.height-115, 310, 100));
 				for(int i = 0; i < numOfLives; i++)
 				{
 					temp = GUI.color;
@@ -387,7 +387,7 @@ public class Manage_Game : MonoBehaviour {
 					GUI.color = temp;
 					
 					if(toggleGUI)
-						GUI.DrawTexture (new Rect( (200-i*75),0,100,100),livesImage);
+						GUI.DrawTexture (new Rect( (225-i*75),0,100,100),livesImage);
 				}
 				GUI.EndGroup ();
 			}
@@ -453,11 +453,14 @@ public class Manage_Game : MonoBehaviour {
 			GUI.color = loopTemp;
 		}
 		
+		applyFloatingText (Apply_Checkpoint.doCheckpointAnimation,checkpoint,Apply_Checkpoint.checkpointYIncrementer);
+		
+		/*
 		if(Apply_Checkpoint.doCheckpointAnimation)
 		{
 			Rect chk = new Rect(Screen.width/2 - checkpoint.width/2 + Screen.width*0.02f, Screen.height/2 - checkpoint.height/2 - Screen.height*0.05f - Apply_Checkpoint.checkpointYIncrementer, checkpoint.width,checkpoint.height);	
 			GUI.Label (chk,checkpoint);
-		}
+		}*/
 	}
 	
 	void FadeLevelImageOut()
@@ -470,4 +473,14 @@ public class Manage_Game : MonoBehaviour {
 	
 	/*Functions are for countdown------------------------------------------------------------*/
 	void CountDown() { NumberCountDownIsOn--; }
+	
+	//Apply a floating text over the object
+	void applyFloatingText(bool doIt, Texture2D texture, float yIncrementer)
+	{
+		if(doIt)
+		{
+			Rect chk = new Rect(Screen.width/2 - texture.width/2 + Screen.width*0.02f, Screen.height/2 - texture.height/2 - Screen.height*0.05f - yIncrementer, texture.width,texture.height);	
+			GUI.Label (chk,texture);				
+		}
+	}
 }
