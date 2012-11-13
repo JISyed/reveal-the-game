@@ -75,6 +75,7 @@ public class Collide_with_Powerups : MonoBehaviour {
 	// Collision (powerup is a trigger)
 	void OnTriggerEnter(Collider other)
 	{
+		
 		if(tag == "Powerup")
 		{
 			// Handle collisions with powerups
