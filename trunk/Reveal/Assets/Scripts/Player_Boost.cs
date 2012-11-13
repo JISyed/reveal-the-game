@@ -6,7 +6,10 @@ public class Player_Boost : MonoBehaviour {
 	public static bool onThrust = false; // True if player is boosting
 	public static bool boostEffectEnabled = false;
 	
+	public static bool onBreak = false;
+	
 	public float boostMultiplier = 2.5f;
+	public float breakMultiplier = 0.25f;
 	public float defaultSlowSpeed = 700.0f;
 	
 	private ParticleSystem boostParticles;
@@ -69,5 +72,31 @@ public class Player_Boost : MonoBehaviour {
 		{
 			gameObject.audio.Stop();
 		}
+		
+		//BREAK WHERES THE BREAK!?
+		if(Input.GetKeyDown (KeyCode.LeftControl) || Input.GetKeyDown (KeyCode.RightControl))
+		{
+			if(!onBreak)
+			{
+				Move_360.thrustSpeed *= breakMultiplier;
+				onThrust = true;
+			}
+			if(Manage_Game.lightCount <= 0)
+			{
+				Move_360.thrustSpeed = defaultSlowSpeed;
+				onBreak = false;
+			}
+			
+		}
+		if(Input.GetKeyUp (KeyCode.LeftControl) || Input.GetKeyDown (KeyCode.RightControl))
+		{
+			if(onThrust)
+			{
+				Move_360.thrustSpeed = defaultSlowSpeed;
+				onBreak = false;
+			}
+		}
+		
+		
 	}
 }
