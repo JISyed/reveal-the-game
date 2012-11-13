@@ -184,6 +184,7 @@ public class Manage_Game : MonoBehaviour {
 				numOfLives = lives; // Reset lives
 				lightCount = 100;
 				Player_Boost.onThrust = false;
+				Player_Boost.onBreak = false;
 				
 				switch(GameOverSelect)
 				{
@@ -213,6 +214,7 @@ public class Manage_Game : MonoBehaviour {
 			gameOver = true;
 			lightCount = 100;
 			Player_Boost.onThrust = false;
+			Player_Boost.onBreak = false;
 		}
 		
 		// Limit number of lives to 5
@@ -226,7 +228,7 @@ public class Manage_Game : MonoBehaviour {
 		{
 			lightCount = 100;
 			Player_Boost.onThrust = false;
-			
+			Player_Boost.onBreak = false;
 			// Play winning music
 			if(jingleAlreadyPlayed == false)
 			{
@@ -267,6 +269,8 @@ public class Manage_Game : MonoBehaviour {
 		if(Player_Boost.onThrust)
 			lightCount -= (playerBoostCost * Time.deltaTime);
 		
+		if(Player_Boost.onBreak)
+			lightCount -= (playerBoostCost*1.5f*Time.deltaTime);
 		if(lightCount > 100)
 			lightCount = 100;
 		
@@ -276,7 +280,8 @@ public class Manage_Game : MonoBehaviour {
 		if(lightCount == 0)
 		{
 			Move_360.thrustSpeed = 700f;
-			Player_Boost.onThrust = false;	
+			Player_Boost.onThrust = false;
+			Player_Boost.onBreak = false;
 		}
 		//Debug.Log ((int)lightCount);
 		

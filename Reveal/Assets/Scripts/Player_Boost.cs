@@ -79,7 +79,7 @@ public class Player_Boost : MonoBehaviour {
 			if(!onBreak)
 			{
 				Move_360.thrustSpeed *= breakMultiplier;
-				onThrust = true;
+				onBreak = true;
 			}
 			if(Manage_Game.lightCount <= 0)
 			{
@@ -90,7 +90,7 @@ public class Player_Boost : MonoBehaviour {
 		}
 		if(Input.GetKeyUp (KeyCode.LeftControl) || Input.GetKeyDown (KeyCode.RightControl))
 		{
-			if(onThrust)
+			if(onBreak)
 			{
 				Move_360.thrustSpeed = defaultSlowSpeed;
 				onBreak = false;
