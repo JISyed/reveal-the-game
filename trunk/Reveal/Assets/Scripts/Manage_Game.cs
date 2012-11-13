@@ -495,7 +495,7 @@ public class Manage_Game : MonoBehaviour {
 	{
 		if(doIt)
 		{
-			Rect chk = new Rect(Screen.width/2 - texture.width/2 + Screen.width*0.02f, Screen.height/2 - texture.height/2 - Screen.height*0.05f - yIncrementer, texture.width,texture.height);	
+			Rect chk = new Rect(Screen.width/2 - texture.width/2 + Screen.width*0.02f, Screen.height/2 - texture.height/2 - Screen.height*0.03f - yIncrementer, texture.width,texture.height);	
 			GUI.Label (chk,texture);				
 		}
 	}

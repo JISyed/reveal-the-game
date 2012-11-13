@@ -88,7 +88,7 @@ public class Player_Boost : MonoBehaviour {
 			}
 			
 		}
-		if(Input.GetKeyUp (KeyCode.LeftControl) || Input.GetKeyDown (KeyCode.RightControl))
+		if(Input.GetKeyUp (KeyCode.LeftControl) || Input.GetKeyUp (KeyCode.RightControl))
 		{
 			if(onBreak)
 			{
