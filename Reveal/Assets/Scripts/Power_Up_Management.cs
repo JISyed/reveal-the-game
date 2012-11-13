@@ -20,14 +20,16 @@ public class Power_Up_Management : MonoBehaviour {
 	}
 	
 	float tempPuNitro;
-	float tempPuJuice;
+	public static float tempPuJuice;
+	public static bool pu_Juice_Invoke = false;
 	float tempEcoBoost;
 	int tempBeamGatling;
 	
-	
+	public static bool testThisShit = false;
 	// Use this for initialization
 	void Start () 
 	{
+		pu_Juice_Invoke = false;
 		pu_ExtraLife(); // An extra life is given at start of a level?
 	}
 	
@@ -152,7 +154,8 @@ public class Power_Up_Management : MonoBehaviour {
 		if(Manage_Game.lightRegen ==0)
 			Manage_Game.lightRegen = 2.0f;	
 		Manage_Game.lightRegen *= 2;
-		Invoke ("pu_JuiceDisable", 30.0f);
+		//Invoke ("pu_JuiceDisable", 30.0f);
+		pu_Juice_Invoke = true;
 	}
 	
 	/* --------------------------------------------------------------------
@@ -164,7 +167,7 @@ public class Power_Up_Management : MonoBehaviour {
 	}
 	public void pu_JuiceDisable()
 	{
-		Manage_Game.lightRegen = tempPuJuice;
+		//Manage_Game.lightRegen = tempPuJuice;
 	}
 	public void pu_BeamGatlingDisable()
 	{

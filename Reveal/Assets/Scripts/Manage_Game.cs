@@ -287,7 +287,18 @@ public class Manage_Game : MonoBehaviour {
 			else
 				toggleGUI = true;
 		}
+		
+		//==================================================================================
+		// POWER-UP MANAGEMENT
+		//==================================================================================
+		if(Power_Up_Management.pu_Juice_Invoke)
+		{
+			Power_Up_Management.pu_Juice_Invoke = false;
+			Invoke ("pu_Juice_Invoke", 10.0f);
+		}
 	}
+	void pu_Juice_Invoke(){Manage_Game.lightRegen = Power_Up_Management.tempPuJuice;}
+	
 	
 	////////////////////////
 	// OnGUI Event
