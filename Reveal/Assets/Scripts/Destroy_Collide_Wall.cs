@@ -16,34 +16,41 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision other)
 	{
+		
 		if(other.gameObject.tag == "Player")
 		{
-			Move_360.thrustSpeed = 700f;
-			Player_Boost.onThrust = false;
-		
-		
-			// Play death sound
-			Instantiate(soundPlayer, 
-				        other.gameObject.transform.position, 
-			    	    other.gameObject.transform.rotation);
-		
-		
-			// Reduce the number of lives
-		
-			if(Manage_Game.infiniteLives == false)
+			if(!Power_Up_Management.pu_Aura_Effect)
 			{
-				Manage_Game.numOfLives -= 1;
-			}
-		
-			Instantiate(deathParticles, 
-			        	other.gameObject.transform.position, 
-			        	other.gameObject.transform.rotation);
-		
-			Destroy(other.gameObject);
+				Move_360.thrustSpeed = 700f;
+				Player_Boost.onThrust = false;
 			
-			Manage_Game.colorState = (int) Manage_Game.Colors.white;
-		
-			Invoke("RevivePrism", Manage_Game.respawnTime);
+			
+				// Play death sound
+				Instantiate(soundPlayer, 
+					        other.gameObject.transform.position, 
+				    	    other.gameObject.transform.rotation);
+			
+			
+				// Reduce the number of lives
+				//Move_360.velocity = Vector3.Reflect(transform.position,Vector3.forward);
+				
+				
+					
+				if(Manage_Game.infiniteLives == false)
+				{
+					Manage_Game.numOfLives -= 1;
+				}
+			
+				Instantiate(deathParticles, 
+				        	other.gameObject.transform.position, 
+				        	other.gameObject.transform.rotation);
+			
+				Destroy(other.gameObject);
+				
+				Manage_Game.colorState = (int) Manage_Game.Colors.white;
+			
+				Invoke("RevivePrism", Manage_Game.respawnTime);
+			}
 		}
 		
 		if(gameObject.name == "Turret_Bullet(Clone)" && 
@@ -78,6 +85,7 @@ public class Destroy_Collide_Wall : MonoBehaviour {
 		{
 			Destroy(other.gameObject);
 		}
+		
 	}
 	
 	void RevivePrism()

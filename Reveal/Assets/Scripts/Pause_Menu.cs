@@ -3,10 +3,12 @@ using System.Collections;
 
 public class Pause_Menu : MonoBehaviour {
 	public static bool isPaused = false;
-	public const int NUM_SELECTIONS = 2;
+	public const int NUM_SELECTIONS = 3;
 	public static int selection = 1;
 	public Texture2D pauseGUI1;
 	public Texture2D pauseGUI2;
+	public Texture2D pauseGUI3;
+	
 	public Texture2D blackTile;
 	private Texture2D pauseCurrent;
 	
@@ -74,6 +76,9 @@ public class Pause_Menu : MonoBehaviour {
 					Play_Sound_On_Enter.CanDo = true;
 					Application.LoadLevel("Intro");
 					break;
+				case 3:
+					Application.Quit();
+					break;
 				default:
 					isPaused = false;
 					break;
@@ -87,7 +92,8 @@ public class Pause_Menu : MonoBehaviour {
 			pauseCurrent = pauseGUI1;
 		else if(selection == 2)
 			pauseCurrent = pauseGUI2;
-		
+		else if(selection == 3)
+			pauseCurrent = pauseGUI3;
 		if(isPaused)
 		{
 			
