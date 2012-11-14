@@ -12,5 +12,6 @@ MonoImporter:
   - ingPrt_Green: {instanceID: 0}
   - ingPrt_Blue: {instanceID: 0}
   - idle_Particles: {fileID: 100000, guid: a5a5f0469419ccf4090b9eb45dae9d56, type: 2}
+  - Turret_Bullet: {fileID: 100000, guid: ae6eed1e96e2c6f4aba6e296a6833fe4, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

@@ -7,7 +7,7 @@ public class Change_Beacon_State : MonoBehaviour
 	public Material matBright;
 	public GameObject flickeringSound;
 	public float deactivationTimeInSeconds = 5.0f;
-	
+	public float deactivationTimeInSeconds_pu = 15.0f;
 	public bool dimLightEnable = false;
 	public bool callThisFunctionOnce = true;
 	public Color originalLightColor;
@@ -24,6 +24,7 @@ public class Change_Beacon_State : MonoBehaviour
 	
 	private int colorState = (int) Manage_Game.Colors.white;
 	
+	//private GameObject lightBeacons[20] = GameObject.FindGameObjectsWithTag("Light_Beacon");
 	// Use this for initialization
 	void Start () 
 	{
@@ -36,7 +37,7 @@ public class Change_Beacon_State : MonoBehaviour
 	}
 	
 	
-	
+
 	// Update is called once per frame
 	void Update () {
 		if(dimLightEnable)
@@ -95,6 +96,7 @@ public class Change_Beacon_State : MonoBehaviour
 			}
 		}
 		
+
 	}
 	
 	//When 2 seconds pass
@@ -165,26 +167,52 @@ public class Change_Beacon_State : MonoBehaviour
 				}
 				
 				// It's only activated for a certain time
-				Invoke("DeactivateBeacon", deactivationTimeInSeconds);
-				
-				// Make beacon flicker in last 3 seconds of activation.
-				if(deactivationTimeInSeconds > 3)
+				if(Power_Up_Management.pu_SpotLight_Invoke)
 				{
-					// Invoke in last 3 seconds
-					Invoke("FlickerSlowly", deactivationTimeInSeconds - 3.0f);
-					Invoke("FlickerQuickly", deactivationTimeInSeconds - 1.0f);
+					Invoke("DeactivateBeacon", deactivationTimeInSeconds_pu);
+					if(deactivationTimeInSeconds > 3)
+					{
+						// Invoke in last 3 seconds
+						Invoke("FlickerSlowly", deactivationTimeInSeconds_pu - 3.0f);
+						Invoke("FlickerQuickly", deactivationTimeInSeconds_pu - 1.0f);
+					}
+					// 
+					else if(deactivationTimeInSeconds_pu < 3 && deactivationTimeInSeconds_pu > 1)
+					{
+						// Invoke immediatly
+						Invoke("FlickerSlowly", 0.0f);
+						Invoke("FlickerQuickly", deactivationTimeInSeconds - 1.0f);
+					}	
+					else
+					{
+						Invoke("FlickerQuickly", 0.0f);
+					}					
 				}
-				// 
-				else if(deactivationTimeInSeconds < 3 && deactivationTimeInSeconds > 1)
-				{
-					// Invoke immediatly
-					Invoke("FlickerSlowly", 0.0f);
-					Invoke("FlickerQuickly", deactivationTimeInSeconds - 1.0f);
-				}	
 				else
 				{
-					Invoke("FlickerQuickly", 0.0f);
+					Invoke("DeactivateBeacon", deactivationTimeInSeconds);
+					if(deactivationTimeInSeconds > 3)
+					{
+						// Invoke in last 3 seconds
+						Invoke("FlickerSlowly", deactivationTimeInSeconds - 3.0f);
+						Invoke("FlickerQuickly", deactivationTimeInSeconds - 1.0f);
+					}
+					// 
+					else if(deactivationTimeInSeconds < 3 && deactivationTimeInSeconds > 1)
+					{
+						// Invoke immediatly
+						Invoke("FlickerSlowly", 0.0f);
+						Invoke("FlickerQuickly", deactivationTimeInSeconds - 1.0f);
+					}	
+					else
+					{
+						Invoke("FlickerQuickly", 0.0f);
+					}
 				}
+				
+				// Make beacon flicker in last 3 seconds of activation.
+				
+
 			}
 		}
 	}

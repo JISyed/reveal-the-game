@@ -112,6 +112,9 @@ public class GUIa : MonoBehaviour {
 			selectionNumber = 3;
 		if(selectionNumber > 3)
 			selectionNumber = 1;
+		
+		if(Input.GetKeyDown (KeyCode.Escape))
+			Application.Quit ();
 	}
 	
 	void goAhead()

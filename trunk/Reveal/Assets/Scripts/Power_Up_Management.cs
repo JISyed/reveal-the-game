@@ -19,10 +19,18 @@ public class Power_Up_Management : MonoBehaviour {
 		Juice
 	}
 	
-	float tempPuNitro;
+	public static float tempPuNitro;
 	public static float tempPuJuice;
 	public static bool pu_Juice_Invoke = false;
-	float tempEcoBoost;
+	public static bool pu_EcoBoost_Invoke = false;
+	public static bool pu_Aura_Invoke = false;
+	public static bool pu_Aura_Effect = false;
+	public static bool pu_SpotLight_Effect = false;
+	public static bool pu_SpotLight_Invoke = false;
+	public static bool pu_Nitro_Invoke = false;
+	
+	public static float tempEcoBoost;
+	
 	int tempBeamGatling;
 	
 	public static bool testThisShit = false;
@@ -30,17 +38,23 @@ public class Power_Up_Management : MonoBehaviour {
 	void Start () 
 	{
 		pu_Juice_Invoke = false;
+		pu_EcoBoost_Invoke = false;
+		pu_Aura_Invoke = false;
+		pu_Aura_Effect = false;
+		pu_SpotLight_Effect = false;
+		pu_SpotLight_Invoke = false;
 		pu_ExtraLife(); // An extra life is given at start of a level?
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		/*
 		if(Manage_Game.lightCount < 3)
 		{
 			pu_BeamGatlingDisable();
 			pu_EcoBoostDisable();
-		}	
+		}*/	
 	}
 	
 	// Get's passed from powerup GameObjects
@@ -99,17 +113,17 @@ public class Power_Up_Management : MonoBehaviour {
 	{
 		Debug.Log("PrismCell");
 	}
-	public void pu_ExtraLife()
+	public void pu_ExtraLife() //works
 	{
 		Debug.Log("ExtraLife");
 		Manage_Game.numOfLives++;
 	}
-	public void pu_Nitro()
+	public void pu_Nitro() //works
 	{
 		Debug.Log("Nitro");
 		tempPuNitro = Manage_Game.playerBoostCost;
 		Manage_Game.playerBoostCost = 0.0f;
-		Invoke ("pu_NitroDisable", 15.0f);
+		pu_Nitro_Invoke = true;
 	}
 	public void pu_TriBeam()
 	{
@@ -123,13 +137,17 @@ public class Power_Up_Management : MonoBehaviour {
 	{
 		Debug.Log("Rocket");
 	}
-	public void pu_Aura()
+	public void pu_Aura() //works
 	{
 		Debug.Log("Aura");
+		pu_Aura_Invoke = true;
+		pu_Aura_Effect = true;
 	}
-	public void pu_Spotlight()
+	public void pu_Spotlight() //works
 	{
 		Debug.Log("Spotlight");
+		pu_SpotLight_Effect = true;
+		
 	}
 	public void pu_BeamCannon()
 	{
@@ -141,20 +159,20 @@ public class Power_Up_Management : MonoBehaviour {
 		tempBeamGatling = Manage_Game.helixCost;
 		Manage_Game.helixCost /= 2;		
 	}
-	public void pu_EcoBoost()
+	public void pu_EcoBoost() //works
 	{
 		Debug.Log("EcoBoost");
 		tempEcoBoost = Manage_Game.playerBoostCost;
 		Manage_Game.playerBoostCost /= 2;
+		pu_EcoBoost_Invoke = true;
 	}
-	public void pu_Juice()
+	public void pu_Juice() //works
 	{
 		Debug.Log("Juice");
 		tempPuJuice = Manage_Game.lightRegen;
 		if(Manage_Game.lightRegen ==0)
 			Manage_Game.lightRegen = 2.0f;	
 		Manage_Game.lightRegen *= 2;
-		//Invoke ("pu_JuiceDisable", 30.0f);
 		pu_Juice_Invoke = true;
 	}
 	
@@ -173,8 +191,5 @@ public class Power_Up_Management : MonoBehaviour {
 	{
 		Manage_Game.helixCost = tempBeamGatling;	
 	}
-	public void pu_EcoBoostDisable()
-	{
-		Manage_Game.playerBoostCost = tempEcoBoost;
-	}
+
 }

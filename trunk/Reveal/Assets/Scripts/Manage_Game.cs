@@ -68,6 +68,9 @@ public class Manage_Game : MonoBehaviour {
 	public enum Colors {white, red, blue, green};
 	public static int colorState = (int) Colors.white;
 	
+	public static bool pu_Aura = false;
+	public static bool testBoolean = true;
+	public GameObject TB;
 	////////////////////////
 	// Colors
 	////////////////////////
@@ -301,14 +304,51 @@ public class Manage_Game : MonoBehaviour {
 			Power_Up_Management.pu_Juice_Invoke = false;
 			Invoke ("pu_Juice_Invoke", 10.0f);
 		}
+		if(Power_Up_Management.pu_EcoBoost_Invoke)
+		{
+			if(lightCount < 2)
+			{
+				Power_Up_Management.pu_EcoBoost_Invoke = false;
+				Invoke ("pu_EcoBoost_Invoke", 0.0f);				
+			}
+		}
+		if(Power_Up_Management.pu_Aura_Invoke)
+		{
+			Power_Up_Management.pu_Aura_Invoke = false;
+			Invoke ("pu_Aura_Invoke",15.0f);
+		}
+		if(Power_Up_Management.pu_SpotLight_Effect == true)
+		{
+			Power_Up_Management.pu_SpotLight_Effect = false;
+			pu_SpotLight_Create();
+			Invoke ("pu_SpotLight_Invoke", 3.0f);
+		}
+		if(Power_Up_Management.pu_Nitro_Invoke == true)
+		{
+			Power_Up_Management.pu_Nitro_Invoke	= false;
+			Invoke ("pu_Nitro_Invoke", 15.0f);
+		}
 	}
 	void pu_Juice_Invoke(){Manage_Game.lightRegen = Power_Up_Management.tempPuJuice;}
-	
-	
+	void pu_EcoBoost_Invoke(){ Manage_Game.playerBoostCost = Power_Up_Management.tempEcoBoost;}
+	void pu_Aura_Invoke(){Power_Up_Management.pu_Aura_Effect = false;}
+	void pu_SpotLight_Create()
+	{
+		Power_Up_Management.pu_SpotLight_Invoke = true;
+		foreach(GameObject lB in GameObject.FindGameObjectsWithTag("Light_Beacon"))
+		{
+			Instantiate (TB,lB.transform.position,lB.transform.rotation);
+		}
+		
+	}
+	void pu_SpotLight_Invoke() { Power_Up_Management.pu_SpotLight_Invoke = false;}
+	void pu_Nitro_Invoke() {Manage_Game.playerBoostCost = Power_Up_Management.tempPuNitro;}
 	////////////////////////
 	// OnGUI Event
 	////////////////////////
 	
+	
+
 	// Used to draw the GUI
 	void OnGUI()
 	{
@@ -419,6 +459,9 @@ public class Manage_Game : MonoBehaviour {
 						viewCurrentLevelImageAlpha-=0.005f;
 				
 					temp.a = viewCurrentLevelImageAlpha;
+				
+					if(Pause_Menu.isPaused)
+						temp.a = 0.1f;
 					GUI.color = temp;
 					GUI.DrawTexture (new Rect(0,0, currentLevel.width, currentLevel.height),currentLevel, ScaleMode.ScaleToFit);
 				
