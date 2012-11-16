@@ -25,6 +25,7 @@ public class Trigger_Tutorial_Splashes : MonoBehaviour {
 		if(isPaused && Input.GetKeyDown(KeyCode.Return))
 		{
 			isPaused = false;
+			audio.Play();
 			Time.timeScale = 1.0f;
 		}
 	}
