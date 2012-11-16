@@ -11,7 +11,7 @@ public class Manage_Game : MonoBehaviour {
 	// Static means shared across instances of GameManager GameObject
 	// CANNOT be adjusted in Unity Editor!!!!
 	public static float playerBoostCost = 11.0f;
-	public static int numOfLives;
+	public static int numOfLives = 3;
 	public static bool gameOver = false;
 	public static bool winLevel = false;
 	public static float lightCount = 100;
@@ -95,7 +95,7 @@ public class Manage_Game : MonoBehaviour {
 		startPos.Set(startXPos, 7.25f, startZPos);
 		// 'lives' is set in Editor.
 		// 'numOfLives' can be accessed by scripts via "Manage_Game.numOfLives".
-		numOfLives = lives;
+		//numOfLives = lives;
 		InteractiveTutorial.Shooting_Tutorial_Criteria = false;
 		//Debug.Log (difficulty);
 	
@@ -251,13 +251,18 @@ public class Manage_Game : MonoBehaviour {
 				
 				Move_360.thrustSpeed = 700f;
 				winLevel = false;
-				numOfLives = lives; // Reset lives
+				//numOfLives = lives; // Reset lives
 				lightCount = 100;
 				
 				// Load next level if there is a next level
 				if(Application.loadedLevel < Application.levelCount - 1)
 				{
-					infiniteLives = false;
+					if(infiniteLives == true)
+					{
+						infiniteLives = false;
+						numOfLives = 3;
+					}
+					
 					Application.LoadLevel(Application.loadedLevel + 1);
 				}
 				else
