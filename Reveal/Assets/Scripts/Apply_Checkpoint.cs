@@ -4,10 +4,12 @@ using System.Collections;
 public class Apply_Checkpoint : MonoBehaviour {
 	
 	public GameObject cpBulb;
+	public GameObject cpParticles;
 	public Material matBulbOn;
 	
 	private bool checkpointAlreadyReached = false;
 	private GameObject cpBulbRef;
+	private GameObject cpParticlesReference;
 	GameObject thePlayer;
 	
 	public static Texture2D checkpoint;
@@ -31,6 +33,12 @@ public class Apply_Checkpoint : MonoBehaviour {
 			checkpointAlreadyReached = true;
 			Manage_Game.startPos = transform.position;
 			cpBulbRef.renderer.material = matBulbOn;
+			cpParticlesReference = Instantiate(cpParticles,
+								   new Vector3(transform.position.x, 0.1f, transform.position.z),
+								   transform.rotation) as GameObject;
+			cpParticlesReference.transform.RotateAround(cpParticlesReference.transform.position, 
+													    Vector3.forward, 
+														90.0f);
 			// No need to check collisions again
 			gameObject.collider.enabled = false;
 			
