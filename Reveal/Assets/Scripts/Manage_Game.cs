@@ -405,7 +405,7 @@ public class Manage_Game : MonoBehaviour {
 			//lightCanvas width = 256
 			
 
-			float lVal = 80f/100f;
+			float lVal = 105f/100f;
 			GUI.BeginGroup (new Rect(50, Screen.height-130, 250, 110));
 				Color temp = GUI.color;
 				if(Pause_Menu.isPaused)
@@ -424,9 +424,9 @@ public class Manage_Game : MonoBehaviour {
 					GUI.color = temp;
 				if(toggleGUI)
 				{
-					GUI.DrawTexture(new Rect(72,48,(float)lightCount*(lVal)*2,16*2),lightMeter,ScaleMode.StretchToFill);
+					GUI.DrawTexture(new Rect(44f,36f,(float)lightCount*(lVal)*1.5f,16f*1.5f),lightMeter,ScaleMode.StretchToFill);
 					GUI.color = temp;
-					GUI.DrawTexture (new Rect(0,0, 148*2, 64*2),lightBar, ScaleMode.ScaleToFit);
+					GUI.DrawTexture (new Rect(0f,0f, 148f*1.5f, 64f*1.5f),lightBar, ScaleMode.ScaleToFit);
 				
 				}
 			
