@@ -17,6 +17,7 @@ public class Skip_Tutorial : MonoBehaviour {
 		{
 			Manage_Game.canMove = true;
 			Manage_Game.infiniteLives = false;
+			Manage_Game.numOfLives = 3;
 			Application.LoadLevel("Level_New_One");
 		}
 	}

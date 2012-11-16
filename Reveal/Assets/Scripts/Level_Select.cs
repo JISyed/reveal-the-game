@@ -169,6 +169,7 @@ public class Level_Select : MonoBehaviour {
 	
 	void LaunchLevel()
 	{
+		Manage_Game.numOfLives = 3;
 		switch(currentSelect)
 		{
 			case 1:
