@@ -79,7 +79,7 @@ public class Manage_Game : MonoBehaviour {
 	public static Color col_red = new Color(1.0f, 0.0f, 0.0f);
 	public static Color col_green = new Color(0.0f, 1.0f, 0.0f);
 	public static Color col_blue = new Color(0.0f, 0.0f, 1.0f);
-	public static Color draw_blue = new Color(0.1f, 0.1f, 1.0f);
+	public static Color draw_blue = new Color(0.2f, 0.3f, 1.0f); // for blue lightbar
 	////////////////////////
 	// Start Event
 	////////////////////////
