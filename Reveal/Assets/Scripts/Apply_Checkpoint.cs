@@ -33,6 +33,7 @@ public class Apply_Checkpoint : MonoBehaviour {
 			checkpointAlreadyReached = true;
 			Manage_Game.startPos = transform.position;
 			cpBulbRef.renderer.material = matBulbOn;
+			audio.Play();
 			cpParticlesReference = Instantiate(cpParticles,
 								   new Vector3(transform.position.x, 0.1f, transform.position.z),
 								   transform.rotation) as GameObject;
