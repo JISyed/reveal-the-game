@@ -125,7 +125,7 @@ public class Power_Up_Management : MonoBehaviour {
 			GUI.Label (chk,put_SpotLight);
 			
 			if(yInc > 100)
-				doThis_Juice = false;
+				doThis_SpotLight = false;
 		}
 		if(doThis_Nitro)
 		{
@@ -137,7 +137,7 @@ public class Power_Up_Management : MonoBehaviour {
 			GUI.Label (chk,put_Nitro);
 			
 			if(yInc > 100)
-				doThis_Juice = false;
+				doThis_Nitro = false;
 		}
 		if(doThis_Live)
 		{
