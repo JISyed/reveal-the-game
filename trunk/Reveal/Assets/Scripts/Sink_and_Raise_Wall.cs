@@ -15,10 +15,16 @@ public class Sink_and_Raise_Wall : MonoBehaviour {
 	private bool shouldMove = true;
 	private bool wasStalled = false;
 	
+	public GameObject ptfxDust;
+	private GameObject ptfxDustRef;
+	
 	// Use this for initialization
 	void Start () 
 	{
 		audio.Play();
+		ptfxDustRef = Instantiate(ptfxDust,
+								  new Vector3(transform.position.x, 0.3f, transform.position.z),
+								  transform.rotation) as GameObject;
 	}
 	
 	// Update is called once per frame
@@ -38,6 +44,7 @@ public class Sink_and_Raise_Wall : MonoBehaviour {
 			movingDirection = 1; // raise if sunk too far
 			shouldMove = false;
 			audio.Stop();
+			Destroy(ptfxDustRef);
 			Invoke("MakeMoveAgain", timeSunk);
 		}
 		if(transform.position.y > 11.9f && movingDirection > 0)
@@ -46,6 +53,7 @@ public class Sink_and_Raise_Wall : MonoBehaviour {
 			shouldMove = false;
 			wasStalled = false; // Reset stalling state
 			audio.Stop();
+			Destroy(ptfxDustRef);
 			Invoke("MakeMoveAgain", timeRaised);
 		}
 		
@@ -55,6 +63,7 @@ public class Sink_and_Raise_Wall : MonoBehaviour {
 			wasStalled = true;
 			shouldMove = false;
 			audio.Stop();
+			Destroy(ptfxDustRef);
 			Invoke("MakeMoveAgain", timeRaisingStalled);
 		}
 	}
@@ -70,5 +79,11 @@ public class Sink_and_Raise_Wall : MonoBehaviour {
 	{
 		shouldMove = true;
 		audio.Play();
+		if(!ptfxDustRef)
+		{
+			ptfxDustRef = Instantiate(ptfxDust,
+								      new Vector3(transform.position.x, 0.3f, transform.position.z),
+								      transform.rotation) as GameObject;
+		}
 	}
 }

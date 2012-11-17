@@ -10,6 +10,7 @@ public class Handle_Lock_Triggers : MonoBehaviour {
 	public string colorToChangeInto;
 	
 	public GameObject breakingSoundSource;
+	public GameObject ptfxOpenGate;
 	
 	// Use this for initialization
 	void Start () 
@@ -55,6 +56,7 @@ public class Handle_Lock_Triggers : MonoBehaviour {
 		{
 			// Play some kind of unlocking sound here
 			Instantiate(breakingSoundSource, transform.position, transform.rotation);
+			Instantiate(ptfxOpenGate, transform.position, transform.rotation);
 			// Destroy wall
 			Destroy(wallReference);
 			// Destroy trigger
