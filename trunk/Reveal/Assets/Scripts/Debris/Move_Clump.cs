@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Move_Clump : MonoBehaviour {
 	
+	public GameObject ptfxDust;
+	
 	public float fallSpeed = 65.0f;
 	
 	private bool soundAlreadyPlayed = false;
@@ -29,6 +31,7 @@ public class Move_Clump : MonoBehaviour {
 			{
 				soundAlreadyPlayed = true;
 				gameObject.audio.Play();
+				Instantiate(ptfxDust, transform.position, transform.rotation);
 			}
 		}
 	}
