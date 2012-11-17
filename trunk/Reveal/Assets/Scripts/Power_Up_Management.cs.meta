@@ -3,7 +3,6 @@ guid: 7dca875a32f5ff74f9bdaff2bcaf72a5
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - sndExtraLife: {fileID: 8300000, guid: cf0234d64c07f0e49859d547b01afd7b, type: 1}
-  - sndPuGeneric: {fileID: 8300000, guid: 1934a66d8d86da2478fe6428a69d2c8d, type: 1}
+  - put_Juice: {fileID: 2800000, guid: 6d38e34e90f527749ba8ad417f55eeda, type: 1}
   executionOrder: 0
   icon: {instanceID: 0}
