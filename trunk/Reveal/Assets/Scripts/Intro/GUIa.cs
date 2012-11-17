@@ -17,6 +17,10 @@ public class GUIa : MonoBehaviour {
 	public static int selectionNumber = 1;
 	
 	
+	public Texture2D firstSelectionScreen1;
+	public Texture2D firstSelectionScreen2;
+	public Texture2D firstSelectionScreen3;
+	private Texture2D the_SelectionScreen;
 	void Start()
 	{
 		alpha = 1.0f;
@@ -30,10 +34,26 @@ public class GUIa : MonoBehaviour {
 
 		if(!isSelection)
 		{
-			Rect splashCanvas = new Rect((Screen.width/2.0f) - (introGUI.width/2.0f),
-											 (Screen.height/2.0f) - (introGUI.height/2.0f), 
-					                         introGUI.width, 
-					                         introGUI.height);
+			switch(selectionNumber)
+			{
+				case 1:
+					the_SelectionScreen = firstSelectionScreen1;
+					break;
+				case 2:
+					the_SelectionScreen = firstSelectionScreen2;
+					break;
+				case 3:
+					the_SelectionScreen = firstSelectionScreen3;
+					break;
+				default:
+					the_SelectionScreen = firstSelectionScreen1;
+					break;
+			}		
+			
+			Rect splashCanvas = new Rect((Screen.width/2.0f) - (the_SelectionScreen.width/2.0f),
+											 (Screen.height/2.0f) - (the_SelectionScreen.height/2.0f), 
+					                         the_SelectionScreen.width, 
+					                         the_SelectionScreen.height);
 			Color temp = GUI.color;
 			if(didItAlready)
 			{
@@ -43,8 +63,10 @@ public class GUIa : MonoBehaviour {
 			}
 			temp.a = alpha;
 			GUI.color = temp;
-			GUI.Label(splashCanvas, introGUI);
-			Play_Sound_On_Arrows.CanDo = false;
+			GUI.Label(splashCanvas, the_SelectionScreen);
+			Play_Sound_On_Arrows.CanDo = true;
+			
+
 		}
 		else
 		{
@@ -95,7 +117,20 @@ public class GUIa : MonoBehaviour {
 		if((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7")) && didItAlready != true)
 		{
 			didItAlready = true;
-			Invoke ("goAhead", 1.0f);
+			
+			switch(selectionNumber)
+			{
+			case 1:
+				Invoke ("goAhead", 1.0f);
+				break;
+			case 2:
+				Application.Quit ();
+				break;
+			case 3:
+				Invoke ("goCredits", 1.0f);
+				break;
+			}
+			
 		}
 		
 		if((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 7")) && didItAlready == true && isSelection == true)
@@ -128,6 +163,10 @@ public class GUIa : MonoBehaviour {
 		Application.LoadLevel("Level_Select");
 	}
 	
+	void goCredits()
+	{
+		Application.LoadLevel ("Credits");
+	}
 	void OnDrawGizmos(){}
 }
 
