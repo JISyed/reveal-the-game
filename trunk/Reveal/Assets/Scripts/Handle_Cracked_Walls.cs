@@ -8,9 +8,14 @@ public class Handle_Cracked_Walls : MonoBehaviour {
 	public GameObject flashPrefab;
 	public GameObject wallPrefab2;
 	public GameObject wallPrefab3;
+	public GameObject ptfxCracking;
+	public GameObject ptfxDust;
 	
 	private GameObject wallReference;
 	private GameObject flashReference;
+	private GameObject ptfxCrackingRef;
+	private GameObject ptfxDustReference;
+	private GameObject ptfxDustReference2;
 	private int health = 3;
 	
 	// Use this for initialization
@@ -30,6 +35,12 @@ public class Handle_Cracked_Walls : MonoBehaviour {
 		{
 			// Play a wall breaking sound here.
 			Instantiate(breakingSoundSource, transform.position, transform.rotation);
+			ptfxDustReference =  Instantiate(ptfxDust, wallReference.transform.position, wallReference.transform.rotation) as GameObject;
+			ptfxDustReference.transform.Translate(Vector3.up * -12f);
+			ptfxDustReference.transform.Translate(transform.right * -10f);
+			ptfxDustReference2 =  Instantiate(ptfxDust, wallReference.transform.position, wallReference.transform.rotation) as GameObject;
+			ptfxDustReference2.transform.Translate(Vector3.up * -12f);
+			ptfxDustReference2.transform.Translate(transform.right * 10f);
 			Destroy(wallReference);
 			Destroy(gameObject);
 		}
@@ -47,6 +58,10 @@ public class Handle_Cracked_Walls : MonoBehaviour {
 										 transform.position + (transform.forward * 9f), 
 										 transform.rotation) as GameObject;
 			flashReference.transform.Translate(Vector3.up * 1.5f);
+			ptfxCrackingRef = Instantiate(ptfxCracking,
+										  transform.position + (transform.forward * 7f),
+										  transform.rotation) as GameObject;
+			ptfxCrackingRef.transform.Translate(Vector3.up * -2.0f);
 			if(health == 2)
 			{
 				Destroy(wallReference);
