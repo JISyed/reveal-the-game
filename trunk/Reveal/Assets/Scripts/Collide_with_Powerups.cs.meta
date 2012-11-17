@@ -15,5 +15,7 @@ MonoImporter:
   - matRocket: {fileID: 2100000, guid: 5579c27cb7c0f2546ba0b4ef1420a5db, type: 2}
   - matSpotlight: {fileID: 2100000, guid: 287f607c939199848a2f2d79afb28b7a, type: 2}
   - matTriBeam: {fileID: 2100000, guid: cd43bdc713e2e0049b48c9fc19776bb3, type: 2}
+  - sndExtraLife: {fileID: 8300000, guid: cf0234d64c07f0e49859d547b01afd7b, type: 1}
+  - sndGeneric: {fileID: 8300000, guid: 1934a66d8d86da2478fe6428a69d2c8d, type: 1}
   executionOrder: 0
   icon: {instanceID: 0}
