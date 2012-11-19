@@ -5,5 +5,6 @@ MonoImporter:
   defaultReferences:
   - turretBullet: {fileID: 100000, guid: ae6eed1e96e2c6f4aba6e296a6833fe4, type: 2}
   - barrelOfTheTurret: {fileID: 100000, guid: 5876ae65c9f837c49969dfa329c9549e, type: 2}
+  - muzzleFlash: {fileID: 100000, guid: 50ba61ccee611de40b944cf6c54518df, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

@@ -2,6 +2,11 @@ fileFormatVersion: 2
 guid: 8bebb6a17d9393f428221d10f9934447
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - pauseGUI1: {fileID: 2800000, guid: 24c33549ae7431c4a8634f3e3cdb1dcd, type: 1}
+  - pauseGUI2: {fileID: 2800000, guid: 9053c6b9289de5d4e813a511de28e97c, type: 1}
+  - pauseGUI3: {fileID: 2800000, guid: e179807195be1a84097f22d56fc0e496, type: 1}
+  - blackTile: {fileID: 2800000, guid: 5ab3c49a876d1b04f880f694a4e2ec1e, type: 1}
+  - jinglePause: {fileID: 100000, guid: a768b23aef4c19f49aa40676038fbc41, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
