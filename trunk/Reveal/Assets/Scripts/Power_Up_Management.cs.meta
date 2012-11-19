@@ -4,5 +4,10 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - put_Juice: {fileID: 2800000, guid: 6d38e34e90f527749ba8ad417f55eeda, type: 1}
+  - put_EcoBoost: {fileID: 2800000, guid: fde97a0241d5bec4d9acf63b27b3ac48, type: 1}
+  - put_Aura: {fileID: 2800000, guid: 0a0fe9299286f8548a8c945432a64805, type: 1}
+  - put_SpotLight: {fileID: 2800000, guid: 2c4af32bf06e7d04989e617342ab3249, type: 1}
+  - put_Nitro: {fileID: 2800000, guid: bce5a6a794f31b1459c3c9f0fff32d72, type: 1}
+  - put_Live: {fileID: 2800000, guid: a6d1a6387aad6d446b0027e3f3164f12, type: 1}
   executionOrder: 0
   icon: {instanceID: 0}

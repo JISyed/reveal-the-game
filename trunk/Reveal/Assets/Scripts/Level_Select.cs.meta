@@ -2,6 +2,17 @@ fileFormatVersion: 2
 guid: 43f30aa7fe634dc469dd12c146f06e68
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - LevelSelect1: {fileID: 2800000, guid: 7729dc4c5f2bfa34ba8428c7d8f3bc92, type: 1}
+  - LevelSelect2: {fileID: 2800000, guid: 25067f1f7ca92424eaab638efe2dc941, type: 1}
+  - LevelSelect3: {fileID: 2800000, guid: 8039714602bcaf740b60c01ac4136439, type: 1}
+  - LevelSelect4: {fileID: 2800000, guid: 1e3fcf3d3c69a75408cf390baf180213, type: 1}
+  - LevelSelect5: {fileID: 2800000, guid: 359f9e0dffc3c9f418fa3333cba2b8f6, type: 1}
+  - LevelSelect6: {fileID: 2800000, guid: c72fd8101a5e6d142a601c917d85e4ce, type: 1}
+  - LevelSelect7: {fileID: 2800000, guid: 2bc63bf457872d84e88b86860b09b4bc, type: 1}
+  - LevelSelectTutorial: {fileID: 2800000, guid: 2e79805bb2156fe4cb09a81ef3bd5e92,
+      type: 1}
+  - LevelSelectBlank: {fileID: 2800000, guid: 94015cd2e63d06849964d5bc2d766c19, type: 1}
+  - blackScreen: {fileID: 2800000, guid: 5ab3c49a876d1b04f880f694a4e2ec1e, type: 1}
   executionOrder: 0
   icon: {instanceID: 0}

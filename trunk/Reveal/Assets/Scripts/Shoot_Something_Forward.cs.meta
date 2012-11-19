@@ -2,6 +2,7 @@ fileFormatVersion: 2
 guid: b979bf915eefb764ab485a72e5315049
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - firedShot: {fileID: 100006, guid: 26d0d6154e5fba8428a93b0cbdc912d7, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
