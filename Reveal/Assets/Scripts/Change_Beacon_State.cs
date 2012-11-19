@@ -127,7 +127,8 @@ public class Change_Beacon_State : MonoBehaviour
 			// Change to state of the beacon
 			if (!activated)
 			{
-				audio.Play ();
+				//audio.Play ();
+				Manage_Game.aBeaconWasHit = true;
 				activated = true;
 				
 				renderer.material = matBright;

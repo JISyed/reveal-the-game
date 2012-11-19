@@ -283,7 +283,7 @@ public class Power_Up_Management : MonoBehaviour {
 	}
 	public void pu_JuiceDisable()
 	{
-		//Manage_Game.lightRegen = tempPuJuice;
+		Manage_Game.lightRegen = tempPuJuice;
 	}
 	public void pu_BeamGatlingDisable()
 	{

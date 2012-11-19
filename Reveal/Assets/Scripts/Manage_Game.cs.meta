@@ -17,6 +17,7 @@ MonoImporter:
   - checkpoint: {fileID: 2800000, guid: e7d30ea938e50de4b93fc36e432aecf5, type: 1}
   - jingleGameOver: {fileID: 100000, guid: 29e2c86c35c0fb049b811bb36491cb3d, type: 2}
   - jingleWinLevel: {fileID: 100000, guid: 598fb854c9f13714c83a2f892326196e, type: 2}
-  - TB: {fileID: 100000, guid: bf415c66eb398da4a951ee41dd82386b, type: 2}
+  - TB: {fileID: 100000, guid: 3f13b0aae464dc947a89a00dfa342b9b, type: 2}
+  - sndBeaconHit: {fileID: 8300000, guid: bd6e4a16d471de4489f0143bb08f385d, type: 1}
   executionOrder: 0
   icon: {instanceID: 0}

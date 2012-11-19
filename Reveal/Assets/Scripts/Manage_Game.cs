@@ -70,7 +70,9 @@ public class Manage_Game : MonoBehaviour {
 	
 	public static bool pu_Aura = false;
 	public static bool testBoolean = true;
-	public GameObject TB;
+	public GameObject TB; // Turret Bullet (confused it as The Beacon)
+	public AudioClip sndBeaconHit;
+	public static bool aBeaconWasHit = false;
 	////////////////////////
 	// Colors
 	////////////////////////
@@ -149,6 +151,13 @@ public class Manage_Game : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		
+		// Play only one beacon hitting sound
+		if(aBeaconWasHit)
+		{
+			aBeaconWasHit = false;
+			AudioSource.PlayClipAtPoint(sndBeaconHit, Vector3.zero);
+		}
 		
 		// Press Enter to reset level IF Game Over
 		if(gameOver)
