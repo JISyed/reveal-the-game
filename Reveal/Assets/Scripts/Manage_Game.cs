@@ -142,6 +142,7 @@ public class Manage_Game : MonoBehaviour {
 		}
 		InteractiveTutorial.Shooting_Tutorial_Criteria = false;
 		lightCount = 100;
+		playerBoostCost = 11.0f;
 	}
 	
 	////////////////////////
@@ -316,7 +317,7 @@ public class Manage_Game : MonoBehaviour {
 		if(Power_Up_Management.pu_Juice_Invoke)
 		{
 			Power_Up_Management.pu_Juice_Invoke = false;
-			Invoke ("pu_Juice_Invoke", 10.0f);
+			Invoke ("pu_Juice_Invoke", 30.0f);
 		}
 		if(Power_Up_Management.pu_EcoBoost_Invoke)
 		{
