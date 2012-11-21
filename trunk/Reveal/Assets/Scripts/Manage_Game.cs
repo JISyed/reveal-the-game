@@ -446,10 +446,11 @@ public class Manage_Game : MonoBehaviour {
 				}
 			
 			GUI.EndGroup();
-		
+			
+			// Draw lives
 			if(infiniteLives == false)
 			{
-				GUI.BeginGroup (new Rect(Screen.width-350 , Screen.height-115, 310, 100));
+				GUI.BeginGroup (new Rect(Screen.width-400 , Screen.height-115, 500, 100));
 				for(int i = 0; i < numOfLives; i++)
 				{
 					temp = GUI.color;
@@ -458,7 +459,7 @@ public class Manage_Game : MonoBehaviour {
 					GUI.color = temp;
 					
 					if(toggleGUI)
-						GUI.DrawTexture (new Rect( (225-i*75),0,100,100),livesImage);
+						GUI.DrawTexture (new Rect( (300-i*75),0,100,100),livesImage);
 				}
 				GUI.EndGroup ();
 			}
